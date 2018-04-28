@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -43,11 +35,45 @@
     <Filter Include="Resource Files\engine\texture\box-shadow">
       <UniqueIdentifier>{cb012b1d-99ec-4d07-9383-ca0c0dc07cdc}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="SKNJPN">
+      <UniqueIdentifier>{74c5fd65-3bf8-42ee-90ad-c874571e6667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform">
+      <UniqueIdentifier>{a050c411-2b24-4d65-aedc-e6832838ed91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Utility">
+      <UniqueIdentifier>{b6813ca0-35a2-423e-8170-3ba7e0ceca2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Village">
+      <UniqueIdentifier>{769e1b7e-ce36-4aa4-980b-12ffbca21443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Scene">
+      <UniqueIdentifier>{c0d4bc8e-a234-4a3e-857a-ec48eedd1eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Item">
+      <UniqueIdentifier>{1a61351a-b873-46ad-ad3a-ca1d645bd562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform\Agent">
+      <UniqueIdentifier>{ca60d460-7f60-4ce1-9257-b63e51047843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform\Agent\Task">
+      <UniqueIdentifier>{3d628e8e-99e6-4262-b9d2-d7ec92c9c1c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform\Agent\Job">
+      <UniqueIdentifier>{88bfdf9a-a8fe-4bc4-bba1-61957622c0ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform\Building">
+      <UniqueIdentifier>{8f7246f2-2cb9-4a84-8cce-298c2142615c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform\Equipment">
+      <UniqueIdentifier>{96684da8-f83d-42c3-961e-0910bc04bd7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Village\Builder">
+      <UniqueIdentifier>{616ea962-fbc0-473b-86f7-cb3e646f7caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SKNJPN\Transform\Node">
+      <UniqueIdentifier>{d9c86499-1baf-4da6-a0ee-e6443ac93f14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -181,5 +207,216 @@
     <Text Include="App\engine\font\noto\LICENSE_OFL.txt">
       <Filter>Resource Files\engine\font\noto</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Game.cpp">
+      <Filter>SKNJPN</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>SKNJPN</Filter>
+    </ClCompile>
+    <ClCompile Include="Balloon.cpp">
+      <Filter>SKNJPN</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="BuilderBuilding.cpp">
+      <Filter>SKNJPN\Village\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="BuilderRoad.cpp">
+      <Filter>SKNJPN\Village\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>SKNJPN\Transform\Building</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingHouse.cpp">
+      <Filter>SKNJPN\Transform\Building</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="AgentPlayer.cpp">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="AgentVillager.cpp">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="AgentVisitor.cpp">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentBed.cpp">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentInterior.cpp">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentStorage.cpp">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>SKNJPN\Village</Filter>
+    </ClCompile>
+    <ClCompile Include="Clock.cpp">
+      <Filter>SKNJPN\Village</Filter>
+    </ClCompile>
+    <ClCompile Include="Job.cpp">
+      <Filter>SKNJPN\Transform\Agent\Job</Filter>
+    </ClCompile>
+    <ClCompile Include="JobBaker.cpp">
+      <Filter>SKNJPN\Transform\Agent\Job</Filter>
+    </ClCompile>
+    <ClCompile Include="JobFarmer.cpp">
+      <Filter>SKNJPN\Transform\Agent\Job</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGame.cpp">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>SKNJPN\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Pouch.cpp">
+      <Filter>SKNJPN\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventry.cpp">
+      <Filter>SKNJPN\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskMove.cpp">
+      <Filter>SKNJPN\Transform\Agent\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskWait.cpp">
+      <Filter>SKNJPN\Transform\Agent\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>SKNJPN\Transform\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>SKNJPN\Transform\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>SKNJPN\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Village.cpp">
+      <Filter>SKNJPN\Village</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>SKNJPN</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>SKNJPN</Filter>
+    </ClInclude>
+    <ClInclude Include="Balloon.h">
+      <Filter>SKNJPN</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Uncopyable.h">
+      <Filter>SKNJPN\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Builder.h">
+      <Filter>SKNJPN\Village\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderBuilding.h">
+      <Filter>SKNJPN\Village\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderRoad.h">
+      <Filter>SKNJPN\Village\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Building.h">
+      <Filter>SKNJPN\Transform\Building</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingHouse.h">
+      <Filter>SKNJPN\Transform\Building</Filter>
+    </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="AgentPlayer.h">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="AgentVillager.h">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="AgentVisitor.h">
+      <Filter>SKNJPN\Transform\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentBed.h">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentInterior.h">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentStorage.h">
+      <Filter>SKNJPN\Transform\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Clock.h">
+      <Filter>SKNJPN\Village</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>SKNJPN\Village</Filter>
+    </ClInclude>
+    <ClInclude Include="Job.h">
+      <Filter>SKNJPN\Transform\Agent\Job</Filter>
+    </ClInclude>
+    <ClInclude Include="JobBaker.h">
+      <Filter>SKNJPN\Transform\Agent\Job</Filter>
+    </ClInclude>
+    <ClInclude Include="JobFarmer.h">
+      <Filter>SKNJPN\Transform\Agent\Job</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGame.h">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>SKNJPN\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>SKNJPN\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Pouch.h">
+      <Filter>SKNJPN\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventry.h">
+      <Filter>SKNJPN\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>SKNJPN\Transform\Agent\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskMove.h">
+      <Filter>SKNJPN\Transform\Agent\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskWait.h">
+      <Filter>SKNJPN\Transform\Agent\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>SKNJPN\Transform\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>SKNJPN\Transform\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>SKNJPN\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Village.h">
+      <Filter>SKNJPN\Village</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

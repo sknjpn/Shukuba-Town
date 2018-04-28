@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "name": "Wheat",
+      "type": "Crop",
+      "texture": "data/items/Wheat.png",
+      "weight": 1.0
+    },
+    {
+      "name": "Bread",
+      "type": "Food",
+      "weight": 1.0,
+      "texture": "data/items/Bread.png",
+      "nutrition": 0.5
+    }
+  ],
+  "jobs": [
+    {
+      "name": "WheatFarmer",
+      "type": "JobFarmer",
+      "product": "Wheat"
+    },
+    {
+      "name": "Baker",
+      "type": "JobBaker",
+      "material": "Wheat",
+      "product": "Bread"
+    }
+  ],
+  "equipments": [
+    {
+      "name": "WoodenChair",
+      "type": "EquipmentInterior",
+      "texture": "data/equipments/Chair.png"
+    },
+    {
+      "name": "WoodenBed",
+      "type": "EquipmentBed",
+      "texture": "data/equipments/EquipmentBed.png"
+    }
+  ],
+  "buildings": [
+    {
+      "name": "WoodenHouse",
+      "type": "BuildingHouse",
+      "entrance": "(64, -16)",
+      "texture": {
+        "shape": "data/buildings/house_shape.png",
+        "site": "data/buildings/house_site.png"
+      },
+      "equipments": [
+        {
+          "name": "WoodenEquipmentBed",
+          "position": "( -16, 24)",
+          "rotation": "0",
+          "texture": "data/WoodenBed.png"
+        }
+      ]
+    },
+    {
+      "name": "SmallCropField",
+      "type": "BuildingHouse",
+      "entrance": "(80, -24)",
+      "texture": {
+        "shape": "data/buildings/crop_field_shape.png",
+        "site": "data/buildings/crop_field_site.png"
+      },
+      "equipments": []
+    },
+    {
+      "name": "Bakery",
+      "type": "BuildingHouse",
+      "entrance": "(80, -48)",
+      "texture": {
+        "shape": "data/buildings/store_shape.png",
+        "site": "data/buildings/store_site.png"
+      },
+      "equipments": [
+        {
+          "name": "WoodenChair",
+          "position": "( -48, -32)",
+          "rotation": "0"
+        },
+        {
+          "name": "WoodenChair",
+          "position": "(  -16, -32)",
+          "rotation": "0"
+        }
+      ]
+    }
+  ]
+}
