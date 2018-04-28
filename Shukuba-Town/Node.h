@@ -22,7 +22,6 @@ namespace skn
 
 		double		get_radius() const;
 
-		double		get_distance_from(const s3d::Vec2& position) const;
 		Path*		get_path(Node* other) const;
 		
 		void		connect(Node* other, double width);

@@ -166,7 +166,7 @@ namespace skn
 		auto it = std::min_element(
 			m_nodes.begin(),
 			m_nodes.end(),
-			[&position](Node* a, Node* b) { return a->get_distance_from(position) < b->get_distance_from(position); }
+			[&position](Node* a, Node* b) { return a->get_position().distanceFrom(position) < b->get_position().distanceFrom(position); }
 		);
 
 		return (it == m_nodes.end()) ? nullptr : *it;
