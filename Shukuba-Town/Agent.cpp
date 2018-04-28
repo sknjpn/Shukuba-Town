@@ -80,7 +80,7 @@ namespace skn
 	void Agent::draw() const
 	{
 		s3d::Circle(get_position(), 8)
-			.draw(m_color)
+			.draw()
 			.drawFrame(2.0, s3d::Palette::Black);
 	}
 
