@@ -11,12 +11,17 @@ namespace skn
 
 			m_texture = s3d::Texture(image);
 
-			m_shape = s3d::ImageProcessing::FindExternalContour(image, true)
+			m_base_shape = s3d::ImageProcessing::FindExternalContour(image, true)
 				.movedBy(s3d::Vec2::One() / 2.0)
-				.movedBy(-image.size() / 2.0)
-				.rotated(get_rotation())
-				.movedBy(get_position());
+				.movedBy(-image.size() / 2.0);
 		}
+	}
+
+	s3d::Polygon Equipment::get_shape() const
+	{
+		return m_base_shape
+			.rotated(get_rotation())
+			.movedBy(get_position());
 	}
 
 	void Equipment::update()
@@ -25,7 +30,7 @@ namespace skn
 			.rotated(get_rotation())
 			.drawAt(get_position());
 
-		m_shape
+		get_shape()
 			.drawFrame();
 	}
 }
