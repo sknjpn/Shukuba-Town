@@ -16,7 +16,7 @@ namespace skn
 		std::vector<Equipment*>	m_equipments;
 
 	public:
-		Building(const Position& position, const Rotation& rotation, s3d::JSONValue json);
+		Building(s3d::JSONValue json);
 		virtual ~Building() = default;
 
 		void	add_equipment(Equipment* equipment);

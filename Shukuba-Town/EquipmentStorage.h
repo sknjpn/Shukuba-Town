@@ -11,6 +11,6 @@ namespace skn
 		Inventry	m_inventry;
 
 	public:
-		EquipmentStorage(const Position& position, const Rotation& rotation, s3d::JSONValue json);
+		EquipmentStorage(s3d::JSONValue json);
 	};
 }

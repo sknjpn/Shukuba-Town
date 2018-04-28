@@ -2,9 +2,8 @@
 
 namespace skn
 {
-	Building::Building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
-		: Transform(position, rotation)
-		, m_entrance(json[U"entrance"].get<s3d::Vec2>())
+	Building::Building(s3d::JSONValue json)
+		: m_entrance(json[U"entrance"].get<s3d::Vec2>())
 	{
 		s3d::Image	image_shape(json[U"texture"][U"shape"].get<s3d::FilePath>());
 		s3d::Image	image_site(json[U"texture"][U"site"].get<s3d::FilePath>());

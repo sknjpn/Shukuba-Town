@@ -2,8 +2,8 @@
 
 namespace skn
 {
-	EquipmentBed::EquipmentBed(const Position& position, const Rotation& rotation, s3d::JSONValue json)
-		: Equipment(position, rotation, json)
+	EquipmentBed::EquipmentBed(s3d::JSONValue json)
+		: Equipment(json)
 	{
 
 	}

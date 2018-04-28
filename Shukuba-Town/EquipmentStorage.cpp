@@ -2,8 +2,8 @@
 
 namespace skn
 {
-	EquipmentStorage::EquipmentStorage(const Position& position, const Rotation& rotation, s3d::JSONValue json)
-		: Equipment(position, rotation, json)
+	EquipmentStorage::EquipmentStorage(s3d::JSONValue json)
+		: Equipment(json)
 		, m_inventry(json[U"size"].get<int>())
 	{
 

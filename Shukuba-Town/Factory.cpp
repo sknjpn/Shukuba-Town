@@ -31,17 +31,29 @@ namespace skn
 
 	Building* Factory::make_building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"BuildingHouse") { return new BuildingHouse(position, rotation, json); }
+		Building* building = nullptr;
 
-		return new Building(position, rotation, json);
+		if (json[U"type"].getString() == U"BuildingHouse") { building = new BuildingHouse(json); }
+		else { building = new Building(json); }
+
+		building->set_position(position);
+		building->set_rotation(rotation);
+
+		return building;
 	}
 
 	Equipment* Factory::make_equipment(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"EquipmentBed") { return new EquipmentBed(position, rotation, json); }
-		if (json[U"type"].getString() == U"EquipmentStorage") { return new EquipmentStorage(position, rotation, json); }
-		if (json[U"type"].getString() == U"EquipmentInterior") { return new EquipmentInterior(position, rotation, json); }
+		Equipment* equipment = nullptr;
 
-		return new Equipment(position, rotation, json);
+		if (json[U"type"].getString() == U"EquipmentBed") { equipment = new EquipmentBed(json); }
+		else if (json[U"type"].getString() == U"EquipmentStorage") { equipment = new EquipmentStorage(json); }
+		else if (json[U"type"].getString() == U"EquipmentInterior") { equipment = new EquipmentInterior(json); }
+		else { equipment = new Equipment(json); }
+
+		equipment->set_position(position);
+		equipment->set_rotation(rotation);
+
+		return equipment;
 	}
 }
