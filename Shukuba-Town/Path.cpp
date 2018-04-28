@@ -91,12 +91,12 @@ namespace skn
 		return (node == m_from) ? m_to : m_from;
 	}
 
-	Node * Path::get_from() const
+	Node* Path::get_from() const
 	{
 		return m_from;
 	}
 
-	Node * Path::get_to() const
+	Node* Path::get_to() const
 	{
 		return m_to;
 	}

@@ -9,7 +9,7 @@ namespace skn
 
 	}
 
-	void Job::assign(Agent * user)
+	void Job::assign(Agent* user)
 	{
 		m_user = user;
 	}
@@ -19,7 +19,7 @@ namespace skn
 		return m_user;
 	}
 
-	Building * Job::get_owner() const
+	Building* Job::get_owner() const
 	{
 		return m_owner;
 	}

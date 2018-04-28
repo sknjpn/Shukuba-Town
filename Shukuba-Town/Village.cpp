@@ -140,7 +140,7 @@ namespace skn
 		return m_buildings;
 	}
 
-	Node * Village::get_node(const s3d::Vec2 & position) const
+	Node* Village::get_node(const s3d::Vec2 & position) const
 	{
 		auto it = std::find_if(
 			m_nodes.begin(),
