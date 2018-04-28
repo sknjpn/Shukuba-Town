@@ -3,9 +3,6 @@
 
 namespace skn
 {
-	Transform::~Transform()
-	{
-	}
 	Transform::Transform(const Position& position)
 		: m_position(position)
 		, m_rotation(0)
@@ -38,10 +35,5 @@ namespace skn
 	void Transform::set_rotation(const Rotation& rotation)
 	{
 		m_rotation = rotation;
-	}
-
-	bool Transform::intersects(const Transform & other) const
-	{
-		return m_position == other.m_position;
 	}
 }

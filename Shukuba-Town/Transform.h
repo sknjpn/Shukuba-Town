@@ -12,10 +12,9 @@ namespace skn
 	{
 		Position	m_position;
 		Rotation	m_rotation;
-		std::vector<Transform*>	m_transforms;	//èdÇ»Ç¡ÇƒÇ¢ÇÈëºÇÃTransform
 
 	protected:
-		~Transform();
+		~Transform() = default;
 
 	public:
 		Transform(const Position& position);
@@ -26,7 +25,5 @@ namespace skn
 
 		void	set_position(const Position& position);
 		void	set_rotation(const Rotation& rotation);
-
-		bool	intersects(const Transform& other) const;
 	};
 }
