@@ -17,6 +17,7 @@ namespace skn
 		~Transform() = default;
 
 	public:
+		Transform();
 		Transform(const Position& position);
 		Transform(const Position& position, const Rotation& rotation);
 

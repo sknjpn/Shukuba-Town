@@ -8,8 +8,6 @@ namespace skn
 		: public Agent
 	{
 	public:
-		AgentPlayer(const Position& position);
-
 		void	behave() override;
 	};
 }

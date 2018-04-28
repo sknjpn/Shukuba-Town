@@ -3,10 +3,8 @@
 
 namespace skn
 {
-	Agent::Agent(const Position& position, s3d::Color color)
-		: Transform(position)
-		, m_color(color)
-		, m_balloon(this)
+	Agent::Agent()
+		: m_balloon(this)
 		, m_power(0.0)
 	{
 

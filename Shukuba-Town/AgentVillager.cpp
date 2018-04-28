@@ -7,9 +7,8 @@
 
 namespace skn
 {
-	AgentVillager::AgentVillager(const Position& position)
-		: Agent(position, s3d::Palette::Green)
-		, m_job(nullptr)
+	AgentVillager::AgentVillager()
+		: m_job(nullptr)
 	{
 
 	}

@@ -16,7 +16,7 @@ namespace skn
 		std::vector<Task*>	m_tasks;
 
 	public:
-		Agent(const Position& position, s3d::Color color);
+		Agent();
 		virtual ~Agent() = default;
 
 		void	add_power(double power);

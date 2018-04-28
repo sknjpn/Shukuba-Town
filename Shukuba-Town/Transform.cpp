@@ -3,6 +3,13 @@
 
 namespace skn
 {
+	Transform::Transform()
+		: m_position()
+		, m_rotation(0)
+	{
+
+	}
+
 	Transform::Transform(const Position& position)
 		: m_position(position)
 		, m_rotation(0)
