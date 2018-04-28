@@ -16,12 +16,12 @@
 
 namespace skn
 {
-	Job* skn::Factory::make_job(s3d::JSONValue json)
+	Job* skn::Factory::make_job(Building* building, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"JobBaker") { return new JobBaker(json); }
-		if (json[U"type"].getString() == U"JobFarmer") { return new JobFarmer(json); }
+		if (json[U"type"].getString() == U"JobBaker") { return new JobBaker(building, json); }
+		if (json[U"type"].getString() == U"JobFarmer") { return new JobFarmer(building, json); }
 
-		return new Job();
+		return new Job(building);
 	}
 
 	Item* Factory::make_item(s3d::JSONValue json)

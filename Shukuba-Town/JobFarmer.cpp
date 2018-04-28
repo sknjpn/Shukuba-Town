@@ -2,7 +2,8 @@
 
 namespace skn
 {
-	JobFarmer::JobFarmer(s3d::JSONValue json)
+	JobFarmer::JobFarmer(Building* owner, s3d::JSONValue json)
+		: Job(owner)
 	{
 
 	}

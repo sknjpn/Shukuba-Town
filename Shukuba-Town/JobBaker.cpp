@@ -2,7 +2,8 @@
 
 namespace skn
 {
-	JobBaker::JobBaker(s3d::JSONValue json)
+	JobBaker::JobBaker(Building* owner, s3d::JSONValue json)
+		: Job(owner)
 	{
 
 	}

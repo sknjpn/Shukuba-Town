@@ -2,6 +2,16 @@
 
 namespace skn
 {
+	void Building::init_jobs()
+	{
+
+	}
+
+	void Building::init_equipments()
+	{
+
+	}
+
 	Building::Building(s3d::JSONValue json)
 		: m_entrance(json[U"entrance"].get<s3d::Vec2>())
 	{

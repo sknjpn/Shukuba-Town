@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Uncopyable.h"
+#include "Building.h"
 
 namespace skn
 {
@@ -14,7 +15,7 @@ namespace skn
 		Building*	m_owner;
 
 	public:
-		Job();
+		Job(Building* owner);
 		virtual ~Job() = default;
 
 		void		assign(Agent* user);

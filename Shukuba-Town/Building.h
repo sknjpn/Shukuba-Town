@@ -5,6 +5,7 @@
 namespace skn
 {
 	class Equipment;
+	class Job;
 
 	class Building
 		: public Transform
@@ -13,7 +14,11 @@ namespace skn
 		s3d::Polygon	m_base_site;
 		s3d::Polygon	m_base_shape;
 		s3d::Texture	m_texture;
+		std::vector<Job*>		m_jobs;
 		std::vector<Equipment*>	m_equipments;
+
+		void	init_jobs();
+		void	init_equipments();
 
 	public:
 		Building(s3d::JSONValue json);
