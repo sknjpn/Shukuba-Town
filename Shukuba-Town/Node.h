@@ -9,13 +9,13 @@ namespace skn
 	class Node
 		: public Transform
 	{
+		double		m_radius;
 		std::vector<Path*>	m_paths;
 
 		//’Tõ—p
 		Path*		m_use_path;
 		bool		m_added;
 		double		m_cost;
-		double		m_radius;
 
 	public:
 		Node(const s3d::Vec2& position, double radius);
