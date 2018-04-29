@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Uncopyable.h"
-#include "Building.h"
 
 namespace skn
 {
