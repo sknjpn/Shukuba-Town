@@ -8,6 +8,6 @@ namespace skn
 		: public Building
 	{
 	public:
-		BuildingHouse(s3d::JSONValue json);
+		BuildingHouse(const Position& position, const Rotation& rotation, s3d::JSONValue json);
 	};
 }

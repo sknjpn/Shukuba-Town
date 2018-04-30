@@ -3,7 +3,8 @@
 
 namespace skn
 {
-	Equipment::Equipment(s3d::JSONValue json)
+	Equipment::Equipment(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+		: Transform(position, rotation)
 	{
 		//shape
 		{

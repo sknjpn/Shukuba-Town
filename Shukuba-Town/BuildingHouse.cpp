@@ -2,8 +2,8 @@
 
 namespace skn
 {
-	BuildingHouse::BuildingHouse(s3d::JSONValue json)
-		: Building(json)
+	BuildingHouse::BuildingHouse(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+		: Building(position, rotation, json)
 	{
 
 	}

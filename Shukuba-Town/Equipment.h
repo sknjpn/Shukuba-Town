@@ -11,7 +11,7 @@ namespace skn
 		s3d::Texture	m_texture;	//テクスチャ
 
 	public:
-		Equipment(s3d::JSONValue json);
+		Equipment(const Position& position, const Rotation& rotation, s3d::JSONValue json);
 		virtual ~Equipment() = default;
 
 		s3d::Polygon	get_shape() const;

@@ -21,7 +21,7 @@ namespace skn
 		void	init_equipments(s3d::JSONValue json);
 
 	public:
-		Building(s3d::JSONValue json);
+		Building(const Position& position, const Rotation& rotation, s3d::JSONValue json);
 		virtual ~Building() = default;
 
 		void	draw() const;

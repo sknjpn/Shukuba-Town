@@ -33,11 +33,8 @@ namespace skn
 	{
 		Building* building = nullptr;
 
-		if (json[U"type"].getString() == U"BuildingHouse") { building = new BuildingHouse(json); }
-		else { building = new Building(json); }
-
-		building->set_position(position);
-		building->set_rotation(rotation);
+		if (json[U"type"].getString() == U"BuildingHouse") { building = new BuildingHouse(position, rotation, json); }
+		else { building = new Building(position, rotation, json); }
 
 		return building;
 	}
@@ -46,13 +43,10 @@ namespace skn
 	{
 		Equipment* equipment = nullptr;
 
-		if (json[U"type"].getString() == U"EquipmentBed") { equipment = new EquipmentBed(json); }
-		else if (json[U"type"].getString() == U"EquipmentStorage") { equipment = new EquipmentStorage(json); }
-		else if (json[U"type"].getString() == U"EquipmentInterior") { equipment = new EquipmentInterior(json); }
-		else { equipment = new Equipment(json); }
-
-		equipment->set_position(position);
-		equipment->set_rotation(rotation);
+		if (json[U"type"].getString() == U"EquipmentBed") { equipment = new EquipmentBed(position, rotation, json); }
+		else if (json[U"type"].getString() == U"EquipmentStorage") { equipment = new EquipmentStorage(position, rotation, json); }
+		else if (json[U"type"].getString() == U"EquipmentInterior") { equipment = new EquipmentInterior(position, rotation, json); }
+		else { equipment = new Equipment(position, rotation, json); }
 
 		return equipment;
 	}
