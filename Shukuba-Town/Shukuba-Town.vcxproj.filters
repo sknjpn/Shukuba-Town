@@ -266,6 +266,9 @@
     <ClCompile Include="Village.cpp">
       <Filter>SKNJPN\Village</Filter>
     </ClCompile>
+    <ClCompile Include="Junction.cpp">
+      <Filter>SKNJPN\Transform\Node</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -376,6 +379,9 @@
     </ClInclude>
     <ClInclude Include="Village.h">
       <Filter>SKNJPN\Village</Filter>
+    </ClInclude>
+    <ClInclude Include="Junction.h">
+      <Filter>SKNJPN\Transform\Node</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
