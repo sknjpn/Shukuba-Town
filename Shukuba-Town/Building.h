@@ -10,7 +10,17 @@ namespace skn
 	class Building
 		: public Transform
 	{
-		s3d::Vec2		m_entrance;
+		class Entrance
+		{
+			Position		m_position;
+
+		public:
+			Entrance(const Position& position);
+
+			const Position&	get_position() const;
+		};
+
+		Entrance		m_entrance;
 		s3d::Polygon	m_base_site;
 		s3d::Polygon	m_base_shape;
 		s3d::Texture	m_texture;
