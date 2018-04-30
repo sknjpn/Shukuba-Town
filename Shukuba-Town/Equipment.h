@@ -14,8 +14,8 @@ namespace skn
 		Equipment(s3d::JSONValue json);
 		virtual ~Equipment() = default;
 
-		s3d::Polygon		get_shape() const;
+		s3d::Polygon	get_shape() const;
 
-		void			update();
+		void			draw() const;
 	};
 }

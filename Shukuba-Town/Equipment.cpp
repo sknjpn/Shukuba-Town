@@ -24,7 +24,7 @@ namespace skn
 			.movedBy(get_position());
 	}
 
-	void Equipment::update()
+	void Equipment::draw() const
 	{
 		m_texture
 			.rotated(get_rotation())

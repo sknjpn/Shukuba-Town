@@ -24,8 +24,6 @@ namespace skn
 		Building(s3d::JSONValue json);
 		virtual ~Building() = default;
 
-		void	add_equipment(Equipment* equipment);
-
 		void	draw() const;
 
 		s3d::Polygon	get_shape() const;

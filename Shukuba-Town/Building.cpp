@@ -1,15 +1,26 @@
 #include "Building.h"
+#include "Factory.h"
+#include "Equipment.h"
 
 namespace skn
 {
 	void Building::init_jobs(s3d::JSONValue json)
 	{
+		for (auto j : json[U"equipments"].arrayView())
+		{
+			auto position = j[U"position"].get<Position>().rotated(get_rotation()) + get_position();
+			auto rotation = j[U"rotation"].get<Rotation>() + get_rotation();
 
+			m_equipments.emplace_back(Factory::make_equipment(position, rotation, j));
+		}
 	}
 
 	void Building::init_equipments(s3d::JSONValue json)
 	{
-		json[U"jobs"].
+		if (json[U"jobs"].isEmpty())
+		{
+			m_jobs.emplace_back(Factory::make_job(this, json[U"jobs"]));
+		}
 	}
 
 	Building::Building(s3d::JSONValue json)
@@ -28,6 +39,9 @@ namespace skn
 		m_base_site = s3d::ImageProcessing::FindExternalContour(image_site, true)
 			.movedBy(s3d::Vec2::One() / 2.0)
 			.movedBy(-image_site.size() / 2.0);
+
+		init_equipments(json);
+		init_jobs(json);
 	}
 
 	s3d::Polygon Building::get_shape() const
@@ -49,11 +63,6 @@ namespace skn
 		return m_equipments;
 	}
 
-	void Building::add_equipment(Equipment* equipment)
-	{
-		m_equipments.emplace_back(equipment);
-	}
-
 	void Building::draw() const
 	{
 		auto color = s3d::Palette::White;
@@ -65,6 +74,9 @@ namespace skn
 		get_shape().drawFrame(1, s3d::ColorF(color, 0.75));
 
 		get_site().drawFrame(1, s3d::ColorF(color, 0.50));
+
+		//Equipments
+		for (const auto* e : m_equipments) { e->draw(); }
 
 		s3d::Circle(get_position() + m_entrance.rotated(get_rotation()), 32.0)
 			.draw(s3d::ColorF(1.0, 0.25))
