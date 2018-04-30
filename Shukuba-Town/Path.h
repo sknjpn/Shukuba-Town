@@ -38,7 +38,6 @@ namespace skn
 		double		get_width() const;
 		double		get_length() const;
 		s3d::Vec2	get_closest(const s3d::Vec2& position) const;
-		s3d::Vec2	get_position(double t) const;
 
 		const s3d::Line&	get_line() const;
 

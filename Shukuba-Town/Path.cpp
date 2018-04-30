@@ -61,11 +61,6 @@ namespace skn
 		return m_line.closest(position);
 	}
 
-	s3d::Vec2 Path::get_position(double t) const
-	{
-		return m_from->get_position() + (m_to->get_position() - m_from->get_position()).setLength(t);
-	}
-
 	void Path::draw() const
 	{
 		m_shape.draw(s3d::Palette::Khaki);
