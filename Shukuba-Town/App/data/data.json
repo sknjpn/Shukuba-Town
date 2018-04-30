@@ -65,7 +65,11 @@
         "shape": "data/buildings/crop_field_shape.png",
         "site": "data/buildings/crop_field_site.png"
       },
-      "equipments": []
+      "equipments": [],
+      "jobs": {
+        "name": "WheatFarmer",
+        "value": 4
+      }
     },
     {
       "name": "Bakery",
@@ -86,7 +90,11 @@
           "position": "(  -16, -32)",
           "rotation": "0"
         }
-      ]
+      ],
+      "jobs": {
+        "name": "Baker",
+        "value": 2
+      }
     }
   ]
 }

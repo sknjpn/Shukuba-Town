@@ -17,8 +17,8 @@ namespace skn
 		std::vector<Job*>		m_jobs;
 		std::vector<Equipment*>	m_equipments;
 
-		void	init_jobs();
-		void	init_equipments();
+		void	init_jobs(s3d::JSONValue json);
+		void	init_equipments(s3d::JSONValue json);
 
 	public:
 		Building(s3d::JSONValue json);

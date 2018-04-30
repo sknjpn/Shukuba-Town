@@ -2,14 +2,14 @@
 
 namespace skn
 {
-	void Building::init_jobs()
+	void Building::init_jobs(s3d::JSONValue json)
 	{
 
 	}
 
-	void Building::init_equipments()
+	void Building::init_equipments(s3d::JSONValue json)
 	{
-
+		json[U"jobs"].
 	}
 
 	Building::Building(s3d::JSONValue json)
