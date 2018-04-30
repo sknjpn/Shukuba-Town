@@ -2,15 +2,26 @@
 
 namespace skn
 {
-	Job::Job()
-		: m_agent(nullptr)
+	Job::Job(Building* owner)
+		: m_user(nullptr)
+		, m_owner(owner)
 	{
 
 	}
 
-	Agent* Job::get_agent() const
+	void Job::assign(Agent* user)
 	{
-		return m_agent;
+		m_user = user;
+	}
+
+	Agent* Job::get_user() const
+	{
+		return m_user;
+	}
+
+	Building* Job::get_owner() const
+	{
+		return m_owner;
 	}
 
 	void Job::work()

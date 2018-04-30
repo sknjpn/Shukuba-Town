@@ -12,7 +12,7 @@ namespace skn
 		Job*	m_job;
 
 	public:
-		AgentVillager(const Position& position);
+		AgentVillager();
 
 		void	behave() override;
 	};

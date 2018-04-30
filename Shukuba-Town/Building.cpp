@@ -1,7 +1,28 @@
 #include "Building.h"
+#include "Factory.h"
+#include "Equipment.h"
 
 namespace skn
 {
+	void Building::init_jobs(s3d::JSONValue json)
+	{
+		for (auto j : json[U"equipments"].arrayView())
+		{
+			auto position = j[U"position"].get<Position>().rotated(get_rotation()) + get_position();
+			auto rotation = j[U"rotation"].get<Rotation>() + get_rotation();
+
+			m_equipments.emplace_back(Factory::make_equipment(position, rotation, j));
+		}
+	}
+
+	void Building::init_equipments(s3d::JSONValue json)
+	{
+		if (json[U"jobs"].isEmpty())
+		{
+			m_jobs.emplace_back(Factory::make_job(this, json[U"jobs"]));
+		}
+	}
+
 	Building::Building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 		: Transform(position, rotation)
 		, m_entrance(json[U"entrance"].get<s3d::Vec2>())
@@ -11,38 +32,36 @@ namespace skn
 
 		m_texture = s3d::Texture(image_shape);
 
-		m_shape = s3d::ImageProcessing::FindExternalContour(image_shape, true)
+		m_base_shape = s3d::ImageProcessing::FindExternalContour(image_shape, true)
 			.movedBy(s3d::Vec2::One() / 2.0)
 			.movedBy(-image_shape.size() / 2.0)
-			.calculateRoundBuffer(16.0)
-			.rotated(get_rotation())
-			.movedBy(get_position());
+			.calculateRoundBuffer(16.0);
 
-		m_site = s3d::ImageProcessing::FindExternalContour(image_site, true)
+		m_base_site = s3d::ImageProcessing::FindExternalContour(image_site, true)
 			.movedBy(s3d::Vec2::One() / 2.0)
-			.movedBy(-image_site.size() / 2.0)
+			.movedBy(-image_site.size() / 2.0);
+
+		init_equipments(json);
+		init_jobs(json);
+	}
+
+	s3d::Polygon Building::get_shape() const
+	{
+		return m_base_shape
 			.rotated(get_rotation())
 			.movedBy(get_position());
 	}
 
-	const s3d::Polygon& Building::get_shape() const
+	s3d::Polygon Building::get_site() const
 	{
-		return m_shape;
-	}
-
-	const s3d::Polygon& Building::get_site() const
-	{
-		return m_site;
+		return m_base_site
+			.rotated(get_rotation())
+			.movedBy(get_position());
 	}
 
 	const std::vector<Equipment*>& Building::get_equipments() const
 	{
 		return m_equipments;
-	}
-
-	void Building::add_equipment(Equipment* equipment)
-	{
-		m_equipments.emplace_back(equipment);
 	}
 
 	void Building::draw() const
@@ -53,9 +72,12 @@ namespace skn
 			.rotated(get_rotation())
 			.drawAt(get_position(), color);
 
-		m_shape.drawFrame(1, s3d::ColorF(color, 0.75));
+		get_shape().drawFrame(1, s3d::ColorF(color, 0.75));
 
-		m_site.drawFrame(1, s3d::ColorF(color, 0.50));
+		get_site().drawFrame(1, s3d::ColorF(color, 0.50));
+
+		//Equipments
+		for (const auto* e : m_equipments) { e->draw(); }
 
 		s3d::Circle(get_position() + m_entrance.rotated(get_rotation()), 32.0)
 			.draw(s3d::ColorF(1.0, 0.25))

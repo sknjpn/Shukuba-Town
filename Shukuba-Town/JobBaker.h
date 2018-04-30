@@ -10,7 +10,7 @@ namespace skn
 		s3d::Vec2 m_target;
 
 	public:
-		JobBaker(s3d::JSONValue json);
+		JobBaker(Building* owner, s3d::JSONValue json);
 
 		void	work() override;
 	};

@@ -18,7 +18,7 @@ namespace skn
 
 			auto* c_node = g_village->get_closest_node(position);
 
-			if (c_node != nullptr && c_node->get_distance_from(position) <= get_node_radius() * 2.0)
+			if (c_node != nullptr && c_node->get_position().distanceFrom(position) <= get_node_radius() * 2.0)
 			{
 				m_from_position = c_node->get_position();
 
@@ -44,7 +44,7 @@ namespace skn
 
 			auto* c_node = g_village->get_closest_node(position);
 
-			if (c_node != nullptr && c_node->get_distance_from(position) <= get_node_radius() * 2.0)
+			if (c_node != nullptr && c_node->get_position().distanceFrom(position) <= get_node_radius() * 2.0)
 			{
 				m_to_position = c_node->get_position();
 

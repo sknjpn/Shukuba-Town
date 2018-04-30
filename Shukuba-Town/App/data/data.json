@@ -14,31 +14,6 @@
       "nutrition": 0.5
     }
   ],
-  "jobs": [
-    {
-      "name": "WheatFarmer",
-      "type": "JobFarmer",
-      "product": "Wheat"
-    },
-    {
-      "name": "Baker",
-      "type": "JobBaker",
-      "material": "Wheat",
-      "product": "Bread"
-    }
-  ],
-  "equipments": [
-    {
-      "name": "WoodenChair",
-      "type": "EquipmentInterior",
-      "texture": "data/equipments/Chair.png"
-    },
-    {
-      "name": "WoodenBed",
-      "type": "EquipmentBed",
-      "texture": "data/equipments/EquipmentBed.png"
-    }
-  ],
   "buildings": [
     {
       "name": "WoodenHouse",
@@ -51,9 +26,10 @@
       "equipments": [
         {
           "name": "WoodenEquipmentBed",
+          "type": "EquipmentBed",
           "position": "( -16, 24)",
           "rotation": "0",
-          "texture": "data/WoodenBed.png"
+          "texture": "data/equipments/Bed.png"
         }
       ]
     },
@@ -65,7 +41,13 @@
         "shape": "data/buildings/crop_field_shape.png",
         "site": "data/buildings/crop_field_site.png"
       },
-      "equipments": []
+      "equipments": [],
+      "jobs": {
+        "name": "WheatFarmer",
+        "type": "JobFarmer",
+        "value": 4,
+        "product": "Wheat"
+      }
     },
     {
       "name": "Bakery",
@@ -78,15 +60,26 @@
       "equipments": [
         {
           "name": "WoodenChair",
+          "type": "EquipmentInterior",
           "position": "( -48, -32)",
-          "rotation": "0"
+          "rotation": "0",
+          "texture": "data/equipments/Chair.png"
         },
         {
           "name": "WoodenChair",
+          "type": "EquipmentInterior",
           "position": "(  -16, -32)",
-          "rotation": "0"
+          "rotation": "0",
+          "texture": "data/equipments/Chair.png"
         }
-      ]
+      ],
+      "jobs": {
+        "name": "Baker",
+        "type": "JobBaker",
+        "value": 2,
+        "material": "Wheat",
+        "product": "Bread"
+      }
     }
   ]
 }

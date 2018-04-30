@@ -24,11 +24,6 @@ namespace skn
 		return m_paths;
 	}
 
-	double Node::get_distance_from(const s3d::Vec2& position) const
-	{
-		return std::max(0.0, position.distanceFrom(get_position()) - get_radius());
-	}
-
 	Path* Node::get_path(Node* other) const
 	{
 		auto it = std::find_if(

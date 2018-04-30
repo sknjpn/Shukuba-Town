@@ -16,12 +16,12 @@
 
 namespace skn
 {
-	Job* skn::Factory::make_job(s3d::JSONValue json)
+	Job* skn::Factory::make_job(Building* building, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"JobBaker") { return new JobBaker(json); }
-		if (json[U"type"].getString() == U"JobFarmer") { return new JobFarmer(json); }
+		if (json[U"type"].getString() == U"JobBaker") { return new JobBaker(building, json); }
+		if (json[U"type"].getString() == U"JobFarmer") { return new JobFarmer(building, json); }
 
-		return new Job();
+		return new Job(building);
 	}
 
 	Item* Factory::make_item(s3d::JSONValue json)
@@ -31,17 +31,23 @@ namespace skn
 
 	Building* Factory::make_building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"BuildingHouse") { return new BuildingHouse(position, rotation, json); }
+		Building* building = nullptr;
 
-		return new Building(position, rotation, json);
+		if (json[U"type"].getString() == U"BuildingHouse") { building = new BuildingHouse(position, rotation, json); }
+		else { building = new Building(position, rotation, json); }
+
+		return building;
 	}
 
 	Equipment* Factory::make_equipment(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"EquipmentBed") { return new EquipmentBed(position, rotation, json); }
-		if (json[U"type"].getString() == U"EquipmentStorage") { return new EquipmentStorage(position, rotation, json); }
-		if (json[U"type"].getString() == U"EquipmentInterior") { return new EquipmentInterior(position, rotation, json); }
+		Equipment* equipment = nullptr;
 
-		return new Equipment(position, rotation, json);
+		if (json[U"type"].getString() == U"EquipmentBed") { equipment = new EquipmentBed(position, rotation, json); }
+		else if (json[U"type"].getString() == U"EquipmentStorage") { equipment = new EquipmentStorage(position, rotation, json); }
+		else if (json[U"type"].getString() == U"EquipmentInterior") { equipment = new EquipmentInterior(position, rotation, json); }
+		else { equipment = new Equipment(position, rotation, json); }
+
+		return equipment;
 	}
 }

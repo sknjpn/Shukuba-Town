@@ -5,17 +5,22 @@
 namespace skn
 {
 	class Agent;
+	class Building;
 
 	class Job
 		: Uncopyable
 	{
-		Agent*	m_agent;
+		Agent*		m_user;
+		Building*	m_owner;
 
 	public:
-		Job();
+		Job(Building* owner);
 		virtual ~Job() = default;
 
-		Agent* get_agent() const;
+		void		assign(Agent* user);
+
+		Agent*		get_user() const;
+		Building*	get_owner() const;
 
 		virtual void	work();
 	};

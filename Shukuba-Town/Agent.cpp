@@ -3,10 +3,8 @@
 
 namespace skn
 {
-	Agent::Agent(const Position& position, s3d::Color color)
-		: Transform(position)
-		, m_color(color)
-		, m_balloon(this)
+	Agent::Agent()
+		: m_balloon(this)
 		, m_power(0.0)
 	{
 
@@ -82,7 +80,7 @@ namespace skn
 	void Agent::draw() const
 	{
 		s3d::Circle(get_position(), 8)
-			.draw(m_color)
+			.draw()
 			.drawFrame(2.0, s3d::Palette::Black);
 	}
 

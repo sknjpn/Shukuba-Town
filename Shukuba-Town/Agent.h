@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Uncopyable.h"
 #include "Balloon.h"
 #include "Transform.h"
 
@@ -12,12 +11,11 @@ namespace skn
 		: public Transform
 	{
 		double		m_power;
-		s3d::Color	m_color;
 		Balloon		m_balloon;
 		std::vector<Task*>	m_tasks;
 
 	public:
-		Agent(const Position& position, s3d::Color color);
+		Agent();
 		virtual ~Agent() = default;
 
 		void	add_power(double power);

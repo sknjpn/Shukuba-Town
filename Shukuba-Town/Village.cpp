@@ -42,7 +42,8 @@ namespace skn
 		//新しいエージェントの追加
 		for (int i = 0; i < 10; i++)
 		{
-			m_agents.emplace_back(new AgentVillager(s3d::RandomVec2(s3d::Window::ClientRect())));
+			m_agents.emplace_back(new AgentVillager());
+			m_agents.back()->set_position(s3d::RandomVec2(s3d::Window::ClientRect()));
 		}
 	}
 
@@ -139,7 +140,7 @@ namespace skn
 		return m_buildings;
 	}
 
-	Node * Village::get_node(const s3d::Vec2 & position) const
+	Node* Village::get_node(const s3d::Vec2 & position) const
 	{
 		auto it = std::find_if(
 			m_nodes.begin(),
@@ -165,7 +166,7 @@ namespace skn
 		auto it = std::min_element(
 			m_nodes.begin(),
 			m_nodes.end(),
-			[&position](Node* a, Node* b) { return a->get_distance_from(position) < b->get_distance_from(position); }
+			[&position](Node* a, Node* b) { return a->get_position().distanceFrom(position) < b->get_position().distanceFrom(position); }
 		);
 
 		return (it == m_nodes.end()) ? nullptr : *it;
