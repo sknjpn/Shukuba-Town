@@ -1,5 +1,6 @@
 #include "Building.h"
 #include "Factory.h"
+#include "Village.h"
 #include "Equipment.h"
 
 namespace skn
@@ -63,5 +64,23 @@ namespace skn
 		s3d::Circle(get_position() + m_entrance.get_position().rotated(get_rotation()), 32.0)
 			.draw(s3d::ColorF(1.0, 0.25))
 			.drawFrame(1.0, s3d::ColorF(1.0, 1.0));
+	}
+
+	void Building::Entrance::update_connection()
+	{
+		m_junction.reset();
+
+		const auto& paths = g_village->get_paths();
+
+		auto it = std::min_element(
+			paths.begin(),
+			paths.end(),
+			[this](Path* a, Path* b) {return a->get_distance_from(get_position()) < b->get_distance_from(get_position()); }
+		);
+
+		if (it != paths.end() && (*it)->get_distance_from(get_position()) < 32.0)
+		{
+			m_junction.emplace(Junction(*it, (*it)->get_from()->get_position().distanceFrom((*it)->get_closest(get_position()))));
+		}
 	}
 }

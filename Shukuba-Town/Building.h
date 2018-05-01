@@ -24,6 +24,9 @@ namespace skn
 
 			//getter
 			const Junction&	get_junction() const { return m_junction.value(); }
+
+			//‘S’Tõ‚µ‚ÄÅ“K‚ÈJunction‚ÉÚ‘±‚·‚é
+			void		update_connection();
 		};
 
 		Entrance		m_entrance;
