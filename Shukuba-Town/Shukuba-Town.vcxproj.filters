@@ -221,9 +221,6 @@
     <ClCompile Include="Clock.cpp">
       <Filter>SKNJPN\Village</Filter>
     </ClCompile>
-    <ClCompile Include="Job.cpp">
-      <Filter>SKNJPN\Transform\Agent\Job</Filter>
-    </ClCompile>
     <ClCompile Include="JobBaker.cpp">
       <Filter>SKNJPN\Transform\Agent\Job</Filter>
     </ClCompile>

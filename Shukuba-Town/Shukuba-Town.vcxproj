@@ -216,7 +216,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventry.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Job.cpp" />
     <ClCompile Include="JobBaker.cpp" />
     <ClCompile Include="JobFarmer.cpp" />
     <ClCompile Include="Main.cpp" />
