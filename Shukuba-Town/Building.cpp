@@ -45,25 +45,6 @@ namespace skn
 		init_jobs(json);
 	}
 
-	s3d::Polygon Building::get_shape() const
-	{
-		return m_base_shape
-			.rotated(get_rotation())
-			.movedBy(get_position());
-	}
-
-	s3d::Polygon Building::get_site() const
-	{
-		return m_base_site
-			.rotated(get_rotation())
-			.movedBy(get_position());
-	}
-
-	const std::vector<Equipment*>& Building::get_equipments() const
-	{
-		return m_equipments;
-	}
-
 	void Building::draw() const
 	{
 		auto color = s3d::Palette::White;
@@ -82,11 +63,5 @@ namespace skn
 		s3d::Circle(get_position() + m_entrance.get_position().rotated(get_rotation()), 32.0)
 			.draw(s3d::ColorF(1.0, 0.25))
 			.drawFrame(1.0, s3d::ColorF(1.0, 1.0));
-	}
-
-	Building::Entrance::Entrance(const Position& position)
-		: m_position(position)
-	{
-
 	}
 }

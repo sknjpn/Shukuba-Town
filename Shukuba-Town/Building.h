@@ -11,16 +11,20 @@ namespace skn
 	class Building
 		: public Transform
 	{
+		//“üŒû‚ð•\‚·
 		class Entrance
+			: public Transform
 		{
-			Position	m_position;
-			Junction	m_junction;
+			Junction*	m_junction;
 
 		public:
-			Entrance(const Position& position);
+			Entrance(const Position& position)
+				: Transform(position)
+				, m_junction(nullptr)
+			{}
 
-			const Position&	get_position() const { return m_position; }
-			const Junction&	get_junction() const { return m_junction; }
+			//getter
+			const Junction*	get_junction() const { return m_junction; }
 		};
 
 		Entrance		m_entrance;
@@ -37,11 +41,20 @@ namespace skn
 		Building(const Position& position, const Rotation& rotation, s3d::JSONValue json);
 		virtual ~Building() = default;
 
+		s3d::Polygon	get_shape() const
+		{
+			return m_base_shape
+				.rotated(get_rotation())
+				.movedBy(get_position());
+		}
+
+		s3d::Polygon	get_site() const
+		{
+			return m_base_site
+				.rotated(get_rotation())
+				.movedBy(get_position());
+		}
+
 		void	draw() const;
-
-		s3d::Polygon	get_shape() const;
-		s3d::Polygon	get_site() const;
-
-		const std::vector<Equipment*>&	get_equipments() const;
 	};
 }
