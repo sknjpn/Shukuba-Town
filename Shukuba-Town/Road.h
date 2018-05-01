@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Transform.h"
+#include "Uncopyable.h"
 
 namespace skn
 {

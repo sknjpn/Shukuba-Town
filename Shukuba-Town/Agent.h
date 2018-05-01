@@ -15,7 +15,7 @@ namespace skn
 		std::vector<Task*>	m_tasks;
 
 	public:
-		Agent();
+		Agent(const Position& position) : Transform(position), m_power(0), m_balloon(this) {}
 		virtual ~Agent() = default;
 
 		void	add_power(double power);

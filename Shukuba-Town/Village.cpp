@@ -41,8 +41,7 @@ namespace skn
 		//新しいエージェントの追加
 		for (int i = 0; i < 10; i++)
 		{
-			m_agents.emplace_back(new AgentVillager());
-			m_agents.back()->set_position(s3d::RandomVec2(s3d::Window::ClientRect()));
+			m_agents.emplace_back(new AgentVillager(s3d::RandomVec2(s3d::Window::ClientRect())));
 		}
 	}
 

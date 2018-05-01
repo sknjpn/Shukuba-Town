@@ -3,13 +3,6 @@
 
 namespace skn
 {
-	Agent::Agent()
-		: m_balloon(this)
-		, m_power(0.0)
-	{
-
-	}
-
 	void Agent::add_power(double power)
 	{
 		m_power += power;
