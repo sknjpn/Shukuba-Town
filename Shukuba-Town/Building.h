@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Transform.h"
+#include "Road.h"
 
 namespace skn
 {
@@ -12,12 +13,14 @@ namespace skn
 	{
 		class Entrance
 		{
-			Position		m_position;
+			Position	m_position;
+			Junction	m_junction;
 
 		public:
 			Entrance(const Position& position);
 
-			const Position&	get_position() const;
+			const Position&	get_position() const { return m_position; }
+			const Junction&	get_junction() const { return m_junction; }
 		};
 
 		Entrance		m_entrance;

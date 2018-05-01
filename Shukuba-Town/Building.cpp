@@ -89,9 +89,4 @@ namespace skn
 	{
 
 	}
-
-	const Position& Building::Entrance::get_position() const
-	{
-		return m_position;
-	}
 }
