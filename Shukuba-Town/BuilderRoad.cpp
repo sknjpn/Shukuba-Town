@@ -2,8 +2,7 @@
 
 #include "Village.h"
 
-#include "Node.h"
-#include "Path.h"
+#include "Road.h"
 #include "Building.h"
 
 namespace skn
