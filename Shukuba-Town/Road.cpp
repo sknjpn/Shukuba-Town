@@ -77,11 +77,29 @@ namespace skn
 		g_village->delete_path(path);
 	}
 
-	std::vector<Node*>	Node::make_route(Node* target)
+	Junction::Junction(Node* node)
+		: Transform(node->get_position())
+		, m_node(node)
+		, m_path(nullptr)
+		, m_t(0)
 	{
-		std::vector<Node*> result;
 
-		if (target == this) { return result; }
+	}
+
+	Junction::Junction(Path* path, double t)
+		: Transform(path->get_from()->get_position() + (path->get_to()->get_position() - path->get_from()->get_position()).setLength(t))
+		, m_node(nullptr)
+		, m_path(path)
+		, m_t(t)
+	{
+
+	}
+
+	std::vector<Junction> Junction::make_route(const Junction& target) const
+	{
+		std::vector<Junction> result;
+
+		if (&target == this) { return result; }
 
 		//‰Šú‰»
 		for (auto* n : g_village->get_nodes())
@@ -91,8 +109,24 @@ namespace skn
 			n->m_use_path = nullptr;
 		}
 
-		s3d::Array<Node*> nodes{ target };
-		target->m_cost = 1;
+		s3d::Array<Node*> nodes;
+
+		if (target.m_node != nullptr)
+		{
+			nodes.emplace_back(target.m_node);
+			target.m_node->m_cost = 1;
+		}
+		else
+		{
+			auto* nf = target.m_path->get_from();
+			auto* nt = target.m_path->get_to();
+
+			nodes.emplace_back(nf);
+			nf->m_cost = 1 + target.get_position().distanceFrom(nf->get_position());
+
+			nodes.emplace_back(nt);
+			nt->m_cost = 1 + target.get_position().distanceFrom(nt->get_position());
+		}
 
 		for (size_t i = 0; i < nodes.size(); i++)
 		{
@@ -118,38 +152,45 @@ namespace skn
 			}
 		}
 
-		//Ú‘±‚ª‚È‚©‚Á‚½ê‡
-		if (m_cost == 0) { result; }
+		Node* node = nullptr;
+
+		if (m_node != nullptr)
+		{
+			if (m_node->m_cost == 0) { return result; }
+
+			node = m_node;
+		}
+		else
+		{
+			auto* nf = m_path->get_from();
+			auto* nt = m_path->get_to();
+
+			if (nf->m_cost == 0) { return result; }
+
+			if (nt->m_cost + get_position().distanceFrom(nt->get_position()) < nf->m_cost + get_position().distanceFrom(nf->get_position()))
+			{
+				node = nt;
+			}
+			else
+			{
+				node = nf;
+			}
+
+		}
 
 		std::vector<Path*> paths;
-
-		auto* node = this;
 
 		while (node->m_use_path != nullptr)
 		{
 			paths.emplace_back(node->m_use_path);
 
 			node = node->m_use_path->get_opposite(node);
+
+			result.emplace_back(node);
 		}
 
+		result.emplace_back(target);
+
 		return result;
-	}
-
-	Junction::Junction(Node* node)
-		: Transform(node->get_position())
-		, m_node(node)
-		, m_path(nullptr)
-		, m_t(0)
-	{
-
-	}
-
-	Junction::Junction(Path* path, double t)
-		: Transform(path->get_from()->get_position() + (path->get_to()->get_position() - path->get_from()->get_position()).setLength(t))
-		, m_node(nullptr)
-		, m_path(path)
-		, m_t(t)
-	{
-
 	}
 }

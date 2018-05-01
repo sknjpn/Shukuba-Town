@@ -6,10 +6,13 @@
 namespace skn
 {
 	class Path;
+	class Junction;
 
 	class Node
 		: public Transform
 	{
+		friend Junction;
+
 		double		m_radius;
 		std::vector<Path*>	m_paths;
 
@@ -27,8 +30,6 @@ namespace skn
 
 		void		connect(Node* other, double width);
 		void		disconnect(Node* other);
-
-		std::vector<Node*>	make_route(Node* target);
 	};
 
 	class Path
@@ -78,5 +79,7 @@ namespace skn
 	public:
 		Junction(Node* node);
 		Junction(Path* path, double t);
+
+		std::vector<Junction>	make_route(const Junction& target) const;
 	};
 }

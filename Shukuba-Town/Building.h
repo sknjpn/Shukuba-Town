@@ -15,16 +15,15 @@ namespace skn
 		class Entrance
 			: public Transform
 		{
-			Junction*	m_junction;
+			s3d::Optional<Junction>	m_junction;
 
 		public:
 			Entrance(const Position& position)
 				: Transform(position)
-				, m_junction(nullptr)
 			{}
 
 			//getter
-			const Junction*	get_junction() const { return m_junction; }
+			const Junction&	get_junction() const { return m_junction.value(); }
 		};
 
 		Entrance		m_entrance;
