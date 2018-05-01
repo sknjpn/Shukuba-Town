@@ -1,14 +1,11 @@
 #pragma once
 
-#include "Uncopyable.h"
-
 namespace skn
 {
 	typedef s3d::Vec2	Position;
 	typedef double		Rotation;
 
 	class Transform
-		: Uncopyable
 	{
 		Position	m_position;
 		Rotation	m_rotation;
@@ -17,14 +14,13 @@ namespace skn
 		~Transform() = default;
 
 	public:
-		Transform();
-		Transform(const Position& position);
-		Transform(const Position& position, const Rotation& rotation);
+		Transform(const Position& position) : m_position(position), m_rotation(0) {}
+		Transform(const Position& position, const Rotation& rotation) : m_position(position), m_rotation(rotation) {}
 
-		const Position&	get_position() const;
-		const Rotation&	get_rotation() const;
+		const Position&	get_position() const { return m_position; }
+		const Rotation&	get_rotation() const { return m_rotation; }
 
-		void	set_position(const Position& position);
-		void	set_rotation(const Rotation& rotation);
+		void	set_position(const Position& position) { m_position = position; }
+		void	set_rotation(const Rotation& rotation) { m_rotation = rotation; }
 	};
 }
