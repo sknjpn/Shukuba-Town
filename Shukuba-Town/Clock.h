@@ -8,14 +8,14 @@ namespace skn
 		double		m_time;
 
 	public:
-		Clock();
+		Clock() : m_speed(0), m_time(0) {}
 
-		void		set_speed(double speed);
-		double		get_speed() const;
+		void		set_speed(double speed) { m_speed = speed; }
+		double		get_speed() const { return m_speed; }
 
-		void		set_time(double time);
+		void		set_time(double time) { m_time = time; }
 
-		void		update();
+		void		update() { m_time += m_speed; }
 
 		s3d::String	get_time_as_string() const;
 	};

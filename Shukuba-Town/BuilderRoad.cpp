@@ -262,16 +262,6 @@ namespace skn
 
 	}
 
-	double BuilderRoad::Sample::get_width() const
-	{
-		return m_width;
-	}
-
-	void BuilderRoad::Sample::set_selected(bool is_selected)
-	{
-		m_is_selected = is_selected;
-	}
-
 	bool BuilderRoad::Sample::is_clicked(const s3d::Vec2& position) const
 	{
 		return s3d::RoundRect(s3d::Rect(64), 8)

@@ -145,31 +145,6 @@ namespace skn
 			.movedBy(-image_site.size() / 2.0);
 	}
 
-	s3d::Texture BuilderBuilding::Sample::get_texture() const
-	{
-		return m_texture;
-	}
-
-	const s3d::Polygon& BuilderBuilding::Sample::get_base_shape() const
-	{
-		return m_base_shape;
-	}
-
-	const s3d::Polygon& BuilderBuilding::Sample::get_base_site() const
-	{
-		return m_base_site;
-	}
-
-	s3d::JSONValue BuilderBuilding::Sample::get_json() const
-	{
-		return m_json;
-	}
-
-	void BuilderBuilding::Sample::set_selected(bool is_selected)
-	{
-		m_is_selected = is_selected;
-	}
-
 	bool BuilderBuilding::Sample::is_clicked(const s3d::Vec2& position) const
 	{
 		return s3d::RoundRect(s3d::Rect(64), 8)
