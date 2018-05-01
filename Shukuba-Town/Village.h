@@ -44,8 +44,6 @@ namespace skn
 		Agent*		add_agent(Agent* agent);
 		Building*	add_building(Building* building);
 
-		void		add_building(Transform* transform);
-
 		Item*		get_item(const s3d::String& name);
 
 		void		delete_node(Node* node);
