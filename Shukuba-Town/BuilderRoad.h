@@ -19,7 +19,7 @@ namespace skn
 
 			double	get_width() const { return m_width; }
 
-			void	set_selected(bool is_selected) { return m_is_selected = is_selected; }
+			void	set_selected(bool is_selected) { m_is_selected = is_selected; }
 
 			bool	is_clicked(const s3d::Vec2& position) const;
 
