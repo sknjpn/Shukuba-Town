@@ -20,7 +20,7 @@ namespace skn
 	public:
 		Node(const s3d::Vec2& position, double radius);
 
-		double		get_radius() const;
+		double		get_radius() const { return m_radius; }
 
 		Path*		get_path(Node* other) const;
 
@@ -28,8 +28,6 @@ namespace skn
 		void		disconnect(Node* other);
 
 		std::vector<Node*>	make_route(Node* target);
-
-		const std::vector<Path*>&	get_paths() const;
 	};
 
 	class Path
@@ -47,25 +45,24 @@ namespace skn
 	public:
 		Path(Node* from, Node* to, double width);
 
-		void		disconnect();
+		//getter
+		Node*		get_from() const { return m_from; }
+		Node*		get_to() const { return m_to; }
+		double		get_width() const { return m_width; }
+		double		get_length() const { return m_length; }
 
-		bool		intersects(const s3d::Vec2& position) const;
-		bool		intersects(const s3d::Circle& circle) const;
+		void		disconnect() { m_from->disconnect(m_to); }
 
-		double		get_distance_from(const Path* other) const;
+		double		get_distance_from(const Path* other) const{ return get_distance_from(other->m_line); }
 		double		get_distance_from(const s3d::Line& line) const;
-		double		get_distance_from(const s3d::Vec2& position) const;
+		double		get_distance_from(const s3d::Vec2& position) const { return get_closest(position).distanceFrom(position); }
 
-		bool		has(const Node* node) const;
+		bool		has(const Node* node) const { return node == m_from || node == m_to; }
+		Node*		get_opposite(const Node* node) const { return (node == m_from) ? m_to : m_from; }
 
-		Node*		get_opposite(const Node* node) const;
-		Node*		get_from() const;
-		Node*		get_to() const;
-		double		get_width() const;
-		double		get_length() const;
-		s3d::Vec2	get_closest(const s3d::Vec2& position) const;
+		s3d::Vec2	get_closest(const s3d::Vec2& position) const { return m_line.closest(position); }
 
-		const s3d::Line&	get_line() const;
+		const s3d::Line&	get_line() const { return m_line; }
 
 		void		draw() const;
 	};

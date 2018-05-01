@@ -21,26 +21,6 @@ namespace skn
 		m_shape.append(s3d::Circle(p2, m_width / 2.0).asPolygon());
 	}
 
-	void Path::disconnect()
-	{
-		m_from->disconnect(m_to);
-	}
-
-	double Path::get_width() const
-	{
-		return m_width;
-	}
-
-	double Path::get_length() const
-	{
-		return m_length;
-	}
-
-	double Path::get_distance_from(const Path* other) const
-	{
-		return get_distance_from(other->m_line);
-	}
-
 	double Path::get_distance_from(const s3d::Line& line) const
 	{
 		return std::max(0.0, std::min({
@@ -51,55 +31,11 @@ namespace skn
 			}));
 	}
 
-	double Path::get_distance_from(const s3d::Vec2& position) const
-	{
-		return std::max(0.0, get_closest(position).distanceFrom(position));
-	}
-
-	s3d::Vec2 Path::get_closest(const s3d::Vec2& position) const
-	{
-		return m_line.closest(position);
-	}
-
 	void Path::draw() const
 	{
 		m_shape.draw(s3d::Palette::Khaki);
 	}
 
-	bool Path::intersects(const s3d::Vec2& position) const
-	{
-		return get_closest(position).distanceFrom(position) <= m_width / 2.0;
-	}
-
-	bool Path::intersects(const s3d::Circle& circle) const
-	{
-		return get_closest(circle.center).distanceFrom(circle.center) <= m_width / 2.0 + circle.r;
-	}
-
-	bool Path::has(const Node* node) const
-	{
-		return m_from == node || m_to == node;
-	}
-
-	Node* Path::get_opposite(const Node* node) const
-	{
-		return (node == m_from) ? m_to : m_from;
-	}
-
-	Node* Path::get_from() const
-	{
-		return m_from;
-	}
-
-	Node* Path::get_to() const
-	{
-		return m_to;
-	}
-
-	const s3d::Line& Path::get_line() const
-	{
-		return m_line;
-	}
 	Node::Node(const s3d::Vec2& position, double radius)
 		: Transform(position)
 		, m_radius(radius)
@@ -108,16 +44,6 @@ namespace skn
 		, m_cost(0.0)
 	{
 
-	}
-
-	double Node::get_radius() const
-	{
-		return m_radius;
-	}
-
-	const std::vector<Path*>& Node::get_paths() const
-	{
-		return m_paths;
 	}
 
 	Path* Node::get_path(Node* other) const

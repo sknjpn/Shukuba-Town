@@ -206,7 +206,6 @@ namespace skn
 			for (auto* n : m_nodes)
 			{
 				s3d::Circle(n->get_position(), n->get_radius())
-					.draw(s3d::ColorF(s3d::HSV(n->get_paths().size() * 60.0), 0.5))
 					.drawFrame(2.0, s3d::Palette::Black);
 			}
 

@@ -8,6 +8,8 @@ namespace skn
 		: public Equipment
 	{
 	public:
-		EquipmentInterior(const Position& position, const Rotation& rotation, s3d::JSONValue json);
+		EquipmentInterior(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+			: Equipment(position, rotation, json)
+		{}
 	};
 }
