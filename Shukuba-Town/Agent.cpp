@@ -3,26 +3,6 @@
 
 namespace skn
 {
-	void Agent::add_power(double power)
-	{
-		m_power += power;
-	}
-
-	void Agent::add_task(Task* task)
-	{
-		m_tasks.emplace_back(task);
-	}
-
-	double Agent::get_power() const
-	{
-		return m_power;
-	}
-
-	const std::vector<Task*>& Agent::get_tasks() const
-	{
-		return m_tasks;
-	}
-
 	bool Agent::move(const s3d::Vec2& target)
 	{
 		double distance = get_position().distanceFrom(target);
