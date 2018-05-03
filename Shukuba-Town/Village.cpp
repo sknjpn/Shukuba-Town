@@ -45,34 +45,6 @@ namespace skn
 		}
 	}
 
-	Node* Village::add_node(Node* node)
-	{
-		m_nodes.emplace_back(node);
-
-		return node;
-	}
-
-	Path* Village::add_path(Path* path)
-	{
-		m_paths.emplace_back(path);
-
-		return path;
-	}
-
-	Agent* Village::add_agent(Agent* agent)
-	{
-		m_agents.emplace_back(agent);
-
-		return agent;
-	}
-
-	Building* Village::add_building(Building* building)
-	{
-		m_buildings.emplace_back(building);
-
-		return building;
-	}
-
 	Item* Village::get_item(const s3d::String& name)
 	{
 		return *std::find_if(m_items.begin(), m_items.end(), [&name](Item* i) { return i->get_name() == name; });
@@ -113,31 +85,6 @@ namespace skn
 		m_transforms.erase(it);
 	}
 
-	const std::vector<Item*>& Village::get_items() const
-	{
-		return m_items;
-	}
-
-	const std::vector<Node*>& Village::get_nodes() const
-	{
-		return m_nodes;
-	}
-
-	const std::vector<Path*>& Village::get_paths() const
-	{
-		return m_paths;
-	}
-
-	const std::vector<Agent*>& Village::get_agents() const
-	{
-		return m_agents;
-	}
-
-	const std::vector<Building*>& Village::get_buildings() const
-	{
-		return m_buildings;
-	}
-
 	Node* Village::get_node(const s3d::Vec2 & position) const
 	{
 		auto it = std::find_if(
@@ -147,16 +94,6 @@ namespace skn
 		);
 
 		return (it == m_nodes.end()) ? nullptr : *it;
-	}
-
-	const Camera& Village::get_camera() const
-	{
-		return m_camera;
-	}
-
-	s3d::JSONValue Village::get_json() const
-	{
-		return m_json;
 	}
 
 	Node* Village::get_closest_node(const s3d::Vec2& position) const
