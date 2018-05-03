@@ -8,6 +8,12 @@ namespace skn
 	class Path;
 	class Junction;
 
+	class Anchor
+		: public Transform
+	{
+
+	};
+
 	class Node
 		: public Transform
 		, public Uncopyable
