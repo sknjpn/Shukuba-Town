@@ -52,30 +52,22 @@ namespace skn
 
 	void Village::delete_node(Node* node)
 	{
-		auto it = std::find(m_nodes.begin(), m_nodes.end(), node);
-
-		m_nodes.erase(it);
+		m_nodes.erase(std::find(m_nodes.begin(), m_nodes.end(), node));
 	}
 
 	void Village::delete_path(Path* path)
 	{
-		auto it = std::find(m_paths.begin(), m_paths.end(), path);
-
-		m_paths.erase(it);
+		m_paths.erase(std::find(m_paths.begin(), m_paths.end(), path));
 	}
 
 	void Village::delete_agent(Agent* agent)
 	{
-		auto it = std::find(m_agents.begin(), m_agents.end(), agent);
-
-		m_agents.erase(it);
+		m_agents.erase(std::find(m_agents.begin(), m_agents.end(), agent));
 	}
 
 	void Village::delete_building(Building* building)
 	{
-		auto it = std::find(m_buildings.begin(), m_buildings.end(), building);
-
-		m_buildings.erase(it);
+		m_buildings.erase(std::find(m_buildings.begin(), m_buildings.end(), building));
 	}
 
 	void Village::remove_transform(Transform * transform)
