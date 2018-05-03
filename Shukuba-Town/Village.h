@@ -31,6 +31,7 @@ namespace skn
 		std::vector<Node*>		m_nodes;
 		std::vector<Path*>		m_paths;
 		std::vector<Agent*>		m_agents;
+		std::vector<Anchor*>	m_anchors;
 		std::vector<Building*>	m_buildings;
 		std::vector<Transform*>	m_transforms;
 
