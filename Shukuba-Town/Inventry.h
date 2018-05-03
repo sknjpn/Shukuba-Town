@@ -8,7 +8,7 @@ namespace skn
 	class Item;
 
 	class Inventry
-		: Uncopyable
+		: public Uncopyable
 	{
 		int		m_max_size;
 		std::vector<Pouch*>	m_pouches;

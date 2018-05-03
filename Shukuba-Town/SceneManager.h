@@ -7,7 +7,7 @@ namespace skn
 	class Scene;
 
 	class SceneManager
-		: Uncopyable
+		: public Uncopyable
 	{
 		Scene*	m_scene;
 

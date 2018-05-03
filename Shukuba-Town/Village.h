@@ -17,7 +17,7 @@ namespace skn
 	class Transform;
 
 	class Village
-		: Uncopyable
+		: public Uncopyable
 	{
 		Camera		m_camera;
 		Clock		m_clock;

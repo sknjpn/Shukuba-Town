@@ -8,7 +8,7 @@ namespace skn
 	class Building;
 
 	class Job
-		: Uncopyable
+		: public Uncopyable
 	{
 		Agent*		m_user;
 		Building*	m_owner;

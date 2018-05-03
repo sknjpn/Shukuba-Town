@@ -10,6 +10,7 @@ namespace skn
 
 	class Node
 		: public Transform
+		, public Uncopyable
 	{
 		friend Junction;
 
@@ -33,7 +34,7 @@ namespace skn
 	};
 
 	class Path
-		: Uncopyable
+		: public Uncopyable
 	{
 		double	m_length;
 		double	m_width;

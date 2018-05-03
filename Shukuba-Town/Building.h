@@ -10,6 +10,7 @@ namespace skn
 
 	class Building
 		: public Transform
+		, public Uncopyable
 	{
 		//“üŒû‚ð•\‚·
 		class Entrance

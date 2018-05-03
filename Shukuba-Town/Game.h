@@ -5,7 +5,7 @@
 namespace skn
 {
 	class Game
-		: Uncopyable
+		: public Uncopyable
 	{
 	public:
 		Game();

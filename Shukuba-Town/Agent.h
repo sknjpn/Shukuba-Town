@@ -9,6 +9,7 @@ namespace skn
 
 	class Agent
 		: public Transform
+		, public Uncopyable
 	{
 		double		m_power;
 		Balloon		m_balloon;

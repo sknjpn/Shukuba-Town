@@ -1,11 +1,13 @@
 #pragma once
 
 #include "Transform.h"
+#include "Uncopyable.h"
 
 namespace skn
 {
 	class Equipment
 		: public Transform
+		, public Uncopyable
 	{
 		s3d::Polygon	m_base_shape;
 		s3d::Texture	m_texture;	//テクスチャ
