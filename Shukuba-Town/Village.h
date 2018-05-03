@@ -46,10 +46,10 @@ namespace skn
 		Agent*		add_agent(Agent* agent) { return m_agents.emplace_back(agent); }
 		Building*	add_building(Building* building) { return m_buildings.emplace_back(building); }
 
-		void		delete_node(Node* node);
-		void		delete_path(Path* path);
-		void		delete_agent(Agent* agent);
-		void		delete_building(Building* building);
+		void		delete_node(Node* node) { m_nodes.erase(std::find(m_nodes.begin(), m_nodes.end(), node)); }
+		void		delete_path(Path* path) { m_paths.erase(std::find(m_paths.begin(), m_paths.end(), path)); }
+		void		delete_agent(Agent* agent) { m_agents.erase(std::find(m_agents.begin(), m_agents.end(), agent)); }
+		void		delete_building(Building* building) { m_buildings.erase(std::find(m_buildings.begin(), m_buildings.end(), building)); }
 
 		const std::vector<Item*>&		get_items() const { return m_items; }
 		const std::vector<Node*>&		get_nodes() const { return m_nodes; }

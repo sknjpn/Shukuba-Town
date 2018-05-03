@@ -50,26 +50,6 @@ namespace skn
 		return *std::find_if(m_items.begin(), m_items.end(), [&name](Item* i) { return i->get_name() == name; });
 	}
 
-	void Village::delete_node(Node* node)
-	{
-		m_nodes.erase(std::find(m_nodes.begin(), m_nodes.end(), node));
-	}
-
-	void Village::delete_path(Path* path)
-	{
-		m_paths.erase(std::find(m_paths.begin(), m_paths.end(), path));
-	}
-
-	void Village::delete_agent(Agent* agent)
-	{
-		m_agents.erase(std::find(m_agents.begin(), m_agents.end(), agent));
-	}
-
-	void Village::delete_building(Building* building)
-	{
-		m_buildings.erase(std::find(m_buildings.begin(), m_buildings.end(), building));
-	}
-
 	void Village::remove_transform(Transform * transform)
 	{
 		auto it = std::find(m_transforms.begin(), m_transforms.end(), transform);
