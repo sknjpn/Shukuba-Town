@@ -42,17 +42,20 @@ namespace skn
 		Node*		add_node(Node* node) { return m_nodes.emplace_back(node); }
 		Path*		add_path(Path* path) { return m_paths.emplace_back(path); }
 		Agent*		add_agent(Agent* agent) { return m_agents.emplace_back(agent); }
+		Anchor*		add_anchor(Anchor* anchor) { return m_anchors.emplace_back(anchor); }
 		Building*	add_building(Building* building) { return m_buildings.emplace_back(building); }
 
 		void		delete_node(Node* node) { m_nodes.erase(std::find(m_nodes.begin(), m_nodes.end(), node)); }
 		void		delete_path(Path* path) { m_paths.erase(std::find(m_paths.begin(), m_paths.end(), path)); }
 		void		delete_agent(Agent* agent) { m_agents.erase(std::find(m_agents.begin(), m_agents.end(), agent)); }
+		void		delete_anchor(Anchor* anchor) { m_anchors.erase(std::find(m_anchors.begin(), m_anchors.end(), anchor)); }
 		void		delete_building(Building* building) { m_buildings.erase(std::find(m_buildings.begin(), m_buildings.end(), building)); }
 
 		const std::vector<Item*>&		get_items() const { return m_items; }
 		const std::vector<Node*>&		get_nodes() const { return m_nodes; }
 		const std::vector<Path*>&		get_paths() const { return m_paths; }
 		const std::vector<Agent*>&		get_agents() const { return m_agents; }
+		const std::vector<Anchor*>&		get_anchors() const { return m_anchors; }
 		const std::vector<Building*>&	get_buildings() const { return m_buildings; }
 
 		Item*		get_item(const s3d::String& name);
