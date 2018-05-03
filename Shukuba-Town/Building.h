@@ -14,19 +14,19 @@ namespace skn
 	{
 		//入口を表す
 		class Entrance
-			: public Transform
+			: public Anchor
 		{
-			s3d::Optional<Junction>	m_junction;
+			Anchor*	m_anchor;
 
 		public:
 			Entrance(const Position& position)
-				: Transform(position)
+				: Anchor(position)
 			{}
 
 			//getter
-			const Junction&	get_junction() const { return m_junction.value(); }
+			const Anchor*	get_anchor() const { return m_anchor; }
 
-			//全探索して最適なJunctionに接続する
+			//全探索して最適なAnchorに接続する
 			void		update_connection();
 		};
 

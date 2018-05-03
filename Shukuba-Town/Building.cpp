@@ -68,7 +68,7 @@ namespace skn
 
 	void Building::Entrance::update_connection()
 	{
-		m_junction.reset();
+		m_anchor = nullptr;
 
 		const auto& paths = g_village->get_paths();
 
@@ -80,7 +80,7 @@ namespace skn
 
 		if (it != paths.end() && (*it)->get_distance_from(get_position()) < 32.0)
 		{
-			m_junction.emplace(Junction(*it, (*it)->get_from()->get_position().distanceFrom((*it)->get_closest(get_position()))));
+			m_anchor = new Junction(*it, (*it)->get_from()->get_position().distanceFrom((*it)->get_closest(get_position())));
 		}
 	}
 }
