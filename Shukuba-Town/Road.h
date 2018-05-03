@@ -13,6 +13,8 @@ namespace skn
 	{
 	public:
 		Anchor(const Position& position) : Transform(position) {}
+
+		virtual ~Anchor() = default;
 	};
 
 	class Rope
