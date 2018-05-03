@@ -45,7 +45,7 @@
       "jobs": {
         "name": "WheatFarmer",
         "type": "JobFarmer",
-        "value": 4,
+        "count": 4,
         "product": "Wheat"
       }
     },
@@ -76,7 +76,7 @@
       "jobs": {
         "name": "Baker",
         "type": "JobBaker",
-        "value": 2,
+        "count": 2,
         "material": "Wheat",
         "product": "Bread"
       }

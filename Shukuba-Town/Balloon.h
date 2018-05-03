@@ -7,7 +7,7 @@ namespace skn
 	class Agent;
 
 	class Balloon
-		: Uncopyable
+		: public Uncopyable
 	{
 		Agent*		m_agent;
 		s3d::Font	m_font;

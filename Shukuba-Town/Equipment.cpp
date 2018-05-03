@@ -18,13 +18,6 @@ namespace skn
 		}
 	}
 
-	s3d::Polygon Equipment::get_shape() const
-	{
-		return m_base_shape
-			.rotated(get_rotation())
-			.movedBy(get_position());
-	}
-
 	void Equipment::draw() const
 	{
 		m_texture

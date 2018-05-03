@@ -5,7 +5,7 @@
 namespace skn
 {
 	class Camera
-		: Uncopyable	//コピー不可
+		: public Uncopyable	//コピー不可
 	{
 		s3d::RectF	m_target_region;
 		s3d::RectF	m_smooth_region;

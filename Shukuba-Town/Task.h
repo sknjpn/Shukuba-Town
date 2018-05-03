@@ -7,7 +7,7 @@ namespace skn
 	class Agent;
 
 	class Task
-		: Uncopyable
+		: public Uncopyable
 	{
 	public:
 		virtual	~Task() = default;

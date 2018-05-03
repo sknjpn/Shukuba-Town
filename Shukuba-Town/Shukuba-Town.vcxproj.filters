@@ -68,7 +68,7 @@
     <Filter Include="SKNJPN\Village\Builder">
       <UniqueIdentifier>{616ea962-fbc0-473b-86f7-cb3e646f7caf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SKNJPN\Transform\Node">
+    <Filter Include="SKNJPN\Transform\Road">
       <UniqueIdentifier>{d9c86499-1baf-4da6-a0ee-e6443ac93f14}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -221,9 +221,6 @@
     <ClCompile Include="Clock.cpp">
       <Filter>SKNJPN\Village</Filter>
     </ClCompile>
-    <ClCompile Include="Job.cpp">
-      <Filter>SKNJPN\Transform\Agent\Job</Filter>
-    </ClCompile>
     <ClCompile Include="JobBaker.cpp">
       <Filter>SKNJPN\Transform\Agent\Job</Filter>
     </ClCompile>
@@ -254,17 +251,14 @@
     <ClCompile Include="TaskWait.cpp">
       <Filter>SKNJPN\Transform\Agent\Task</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>SKNJPN\Transform\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="Path.cpp">
-      <Filter>SKNJPN\Transform\Node</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>SKNJPN\Transform</Filter>
     </ClCompile>
     <ClCompile Include="Village.cpp">
       <Filter>SKNJPN\Village</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>SKNJPN\Transform\Road</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -365,17 +359,14 @@
     <ClInclude Include="TaskWait.h">
       <Filter>SKNJPN\Transform\Agent\Task</Filter>
     </ClInclude>
-    <ClInclude Include="Path.h">
-      <Filter>SKNJPN\Transform\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>SKNJPN\Transform\Node</Filter>
-    </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>SKNJPN\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Village.h">
       <Filter>SKNJPN\Village</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>SKNJPN\Transform\Road</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

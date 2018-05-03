@@ -5,7 +5,7 @@
 namespace skn
 {
 	class Builder
-		: Uncopyable
+		: public Uncopyable
 	{
 	public:
 		Builder() = default;

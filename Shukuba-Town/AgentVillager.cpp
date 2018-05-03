@@ -9,12 +9,6 @@
 
 namespace skn
 {
-	AgentVillager::AgentVillager()
-		: m_job(nullptr)
-	{
-
-	}
-
 	void AgentVillager::behave()
 	{
 		if (m_job != nullptr)

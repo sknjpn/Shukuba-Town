@@ -2,8 +2,7 @@
 
 #include "Village.h"
 
-#include "Node.h"
-#include "Path.h"
+#include "Road.h"
 #include "Building.h"
 
 namespace skn
@@ -261,16 +260,6 @@ namespace skn
 		, m_width(width)
 	{
 
-	}
-
-	double BuilderRoad::Sample::get_width() const
-	{
-		return m_width;
-	}
-
-	void BuilderRoad::Sample::set_selected(bool is_selected)
-	{
-		m_is_selected = is_selected;
 	}
 
 	bool BuilderRoad::Sample::is_clicked(const s3d::Vec2& position) const

@@ -5,7 +5,7 @@
 namespace skn
 {
 	class Scene
-		: Uncopyable
+		: public Uncopyable
 	{
 	public:
 		virtual ~Scene() = default;

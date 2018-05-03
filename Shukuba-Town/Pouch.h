@@ -7,7 +7,7 @@ namespace skn
 	class Item;
 
 	class Pouch
-		: Uncopyable
+		: public Uncopyable
 	{
 		Item*	m_item;
 		int		m_size;

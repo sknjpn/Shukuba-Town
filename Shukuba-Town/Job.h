@@ -8,20 +8,21 @@ namespace skn
 	class Building;
 
 	class Job
-		: Uncopyable
+		: public Uncopyable
 	{
 		Agent*		m_user;
 		Building*	m_owner;
 
 	public:
-		Job(Building* owner);
+		Job(Building* owner) : m_user(nullptr), m_owner(owner) {}
 		virtual ~Job() = default;
 
-		void		assign(Agent* user);
+		void		assign(Agent* user) { m_user = user; }
 
-		Agent*		get_user() const;
-		Building*	get_owner() const;
+		//getter
+		Agent*		get_user() const { return m_user; }
+		Building*	get_owner() const { return m_owner; }
 
-		virtual void	work();
+		virtual void	work() {};
 	};
 }

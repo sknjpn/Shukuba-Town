@@ -13,11 +13,11 @@ namespace skn
 	class Node;
 	class Path;
 	class Agent;
+	class Anchor;
 	class Building;
-	class Transform;
 
 	class Village
-		: Uncopyable
+		: public Uncopyable
 	{
 		Camera		m_camera;
 		Clock		m_clock;
@@ -31,41 +31,40 @@ namespace skn
 		std::vector<Node*>		m_nodes;
 		std::vector<Path*>		m_paths;
 		std::vector<Agent*>		m_agents;
+		std::vector<Anchor*>	m_anchors;
 		std::vector<Building*>	m_buildings;
-		std::vector<Transform*>	m_transforms;
 
 		void		set_builder(Builder* builder);
 
 	public:
 		Village();
 
-		Node*		add_node(Node* node);
-		Path*		add_path(Path* path);
-		Agent*		add_agent(Agent* agent);
-		Building*	add_building(Building* building);
+		Node*		add_node(Node* node) { return m_nodes.emplace_back(node); }
+		Path*		add_path(Path* path) { return m_paths.emplace_back(path); }
+		Agent*		add_agent(Agent* agent) { return m_agents.emplace_back(agent); }
+		Anchor*		add_anchor(Anchor* anchor) { return m_anchors.emplace_back(anchor); }
+		Building*	add_building(Building* building) { return m_buildings.emplace_back(building); }
 
-		void		add_building(Transform* transform);
+		void		delete_node(Node* node) { m_nodes.erase(std::find(m_nodes.begin(), m_nodes.end(), node)); }
+		void		delete_path(Path* path) { m_paths.erase(std::find(m_paths.begin(), m_paths.end(), path)); }
+		void		delete_agent(Agent* agent) { m_agents.erase(std::find(m_agents.begin(), m_agents.end(), agent)); }
+		void		delete_anchor(Anchor* anchor) { m_anchors.erase(std::find(m_anchors.begin(), m_anchors.end(), anchor)); }
+		void		delete_building(Building* building) { m_buildings.erase(std::find(m_buildings.begin(), m_buildings.end(), building)); }
+
+		const std::vector<Item*>&		get_items() const { return m_items; }
+		const std::vector<Node*>&		get_nodes() const { return m_nodes; }
+		const std::vector<Path*>&		get_paths() const { return m_paths; }
+		const std::vector<Agent*>&		get_agents() const { return m_agents; }
+		const std::vector<Anchor*>&		get_anchors() const { return m_anchors; }
+		const std::vector<Building*>&	get_buildings() const { return m_buildings; }
 
 		Item*		get_item(const s3d::String& name);
 
-		void		delete_node(Node* node);
-		void		delete_path(Path* path);
-		void		delete_agent(Agent* agent);
-		void		delete_building(Building* building);
-
-		void		remove_transform(Transform* transform);
-
-		const std::vector<Item*>&		get_items() const;
-		const std::vector<Node*>&		get_nodes() const;
-		const std::vector<Path*>&		get_paths() const;
-		const std::vector<Agent*>&		get_agents() const;
-		const std::vector<Building*>&	get_buildings() const;
-
 		Node*		get_node(const s3d::Vec2& position) const;
 
-		const Camera&	get_camera() const;
+		const Camera&	get_camera() const { return m_camera; }
 
-		s3d::JSONValue	get_json() const;
+		s3d::JSONValue	get_json() const { return m_json; }
 
 		//Node, PathŠÖ˜A
 		Node*		get_closest_node(const s3d::Vec2& position) const;
