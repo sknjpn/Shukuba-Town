@@ -18,6 +18,11 @@ namespace skn
 	{
 		Anchor*	m_anchor_from;
 		Anchor*	m_anchor_to;
+		double	m_width;
+
+	public:
+		double	get_width() const { return m_width; }
+			
 	};
 
 	class Node
