@@ -37,7 +37,7 @@ namespace skn
 	}
 
 	Node::Node(const s3d::Vec2& position, double radius)
-		: Transform(position)
+		: Anchor(position)
 		, m_radius(radius)
 		, m_use_path(nullptr)
 		, m_added(false)
@@ -77,29 +77,19 @@ namespace skn
 		g_village->delete_path(path);
 	}
 
-	Junction::Junction(Node* node)
-		: Transform(node->get_position())
-		, m_node(node)
-		, m_path(nullptr)
-		, m_t(0)
-	{
-
-	}
-
 	Junction::Junction(Path* path, double t)
-		: Transform(path->get_from()->get_position() + (path->get_to()->get_position() - path->get_from()->get_position()).setLength(t))
-		, m_node(nullptr)
+		: Anchor(path->get_from()->get_position() + (path->get_to()->get_position() - path->get_from()->get_position()).setLength(t))
 		, m_path(path)
 		, m_t(t)
 	{
 
 	}
 
-	std::vector<Junction> Junction::make_route(const Junction& target) const
+	std::vector<Anchor*> Junction::make_route(Anchor* target) const
 	{
-		std::vector<Junction> result;
+		std::vector<Anchor*> result;
 
-		if (&target == this) { return result; }
+		if (target == this) { return result; }
 
 		//‰Šú‰»
 		for (auto* n : g_village->get_nodes())
@@ -110,22 +100,22 @@ namespace skn
 		}
 
 		s3d::Array<Node*> nodes;
-
-		if (target.m_node != nullptr)
+		/*
+		if (target->m_node != nullptr)
 		{
-			nodes.emplace_back(target.m_node);
-			target.m_node->m_cost = 1;
+			nodes.emplace_back(target->m_node);
+			target->m_node->m_cost = 1;
 		}
 		else
 		{
-			auto* nf = target.m_path->get_from();
-			auto* nt = target.m_path->get_to();
+			auto* nf = target->m_path->get_from();
+			auto* nt = target->m_path->get_to();
 
 			nodes.emplace_back(nf);
-			nf->m_cost = 1 + target.get_position().distanceFrom(nf->get_position());
+			nf->m_cost = 1 + target->get_position().distanceFrom(nf->get_position());
 
 			nodes.emplace_back(nt);
-			nt->m_cost = 1 + target.get_position().distanceFrom(nt->get_position());
+			nt->m_cost = 1 + target->get_position().distanceFrom(nt->get_position());
 		}
 
 		for (size_t i = 0; i < nodes.size(); i++)
@@ -190,7 +180,7 @@ namespace skn
 		}
 
 		result.emplace_back(target);
-
+		*/
 		return result;
 	}
 }

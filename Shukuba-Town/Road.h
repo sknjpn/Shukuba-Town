@@ -11,7 +11,8 @@ namespace skn
 	class Anchor
 		: public Transform
 	{
-
+	public:
+		Anchor(const Position& position) : Transform(position) {}
 	};
 
 	class Rope
@@ -24,12 +25,10 @@ namespace skn
 		Rope(Anchor* from, Anchor* to, double width) : m_anchor_from(from), m_anchor_to(to), m_width(width) {}
 
 		double	get_width() const { return m_width; }
-
 	};
 
 	class Node
-		: public Transform
-		, public Uncopyable
+		: public Anchor
 	{
 		friend Junction;
 
@@ -90,16 +89,14 @@ namespace skn
 	};
 
 	class Junction
-		: public Transform
+		: public Anchor
 	{
-		Node*	m_node;
 		Path*	m_path;
 		double	m_t;
 
 	public:
-		Junction(Node* node);
 		Junction(Path* path, double t);
 
-		std::vector<Junction>	make_route(const Junction& target) const;
+		std::vector<Anchor*>	make_route(Anchor* target) const;
 	};
 }
