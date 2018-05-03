@@ -23,12 +23,12 @@ namespace skn
 
 	double Path::get_distance_from(const s3d::Line& line) const
 	{
-		return std::max(0.0, std::min({
+		return std::min({
 			m_line.begin.distanceFrom(line.begin),
 			m_line.begin.distanceFrom(line.end),
 			m_line.end.distanceFrom(line.begin),
 			m_line.end.distanceFrom(line.end),
-			}));
+			});
 	}
 
 	void Path::draw() const
