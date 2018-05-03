@@ -14,6 +14,12 @@ namespace skn
 
 	};
 
+	class Rope
+	{
+		Anchor*	m_anchor_from;
+		Anchor*	m_anchor_to;
+	};
+
 	class Node
 		: public Transform
 		, public Uncopyable
