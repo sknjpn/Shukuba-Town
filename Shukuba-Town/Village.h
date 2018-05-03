@@ -15,7 +15,6 @@ namespace skn
 	class Agent;
 	class Anchor;
 	class Building;
-	class Transform;
 
 	class Village
 		: public Uncopyable
@@ -34,7 +33,6 @@ namespace skn
 		std::vector<Agent*>		m_agents;
 		std::vector<Anchor*>	m_anchors;
 		std::vector<Building*>	m_buildings;
-		std::vector<Transform*>	m_transforms;
 
 		void		set_builder(Builder* builder);
 
@@ -58,8 +56,6 @@ namespace skn
 		const std::vector<Building*>&	get_buildings() const { return m_buildings; }
 
 		Item*		get_item(const s3d::String& name);
-
-		void		remove_transform(Transform* transform);
 
 		Node*		get_node(const s3d::Vec2& position) const;
 

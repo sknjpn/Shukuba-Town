@@ -50,13 +50,6 @@ namespace skn
 		return *std::find_if(m_items.begin(), m_items.end(), [&name](Item* i) { return i->get_name() == name; });
 	}
 
-	void Village::remove_transform(Transform * transform)
-	{
-		auto it = std::find(m_transforms.begin(), m_transforms.end(), transform);
-
-		m_transforms.erase(it);
-	}
-
 	Node* Village::get_node(const s3d::Vec2 & position) const
 	{
 		auto it = std::find_if(
