@@ -21,8 +21,10 @@ namespace skn
 		double	m_width;
 
 	public:
+		Rope(Anchor* from, Anchor* to, double width) : m_anchor_from(from), m_anchor_to(to), m_width(width) {}
+
 		double	get_width() const { return m_width; }
-			
+
 	};
 
 	class Node
@@ -73,7 +75,7 @@ namespace skn
 
 		void		disconnect() { m_from->disconnect(m_to); }
 
-		double		get_distance_from(const Path* other) const{ return get_distance_from(other->m_line); }
+		double		get_distance_from(const Path* other) const { return get_distance_from(other->m_line); }
 		double		get_distance_from(const s3d::Line& line) const;
 		double		get_distance_from(const s3d::Vec2& position) const { return get_closest(position).distanceFrom(position); }
 
