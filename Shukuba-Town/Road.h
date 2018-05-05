@@ -5,6 +5,7 @@
 
 namespace skn
 {
+	class Path;
 	class Road;
 	class Junction;
 

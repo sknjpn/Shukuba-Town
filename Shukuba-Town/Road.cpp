@@ -91,6 +91,7 @@ namespace skn
 
 		if (target == this) { return result; }
 
+		/*
 		//‰Šú‰»
 		for (auto* n : g_village->get_nodes())
 		{
@@ -100,7 +101,6 @@ namespace skn
 		}
 
 		s3d::Array<Node*> nodes;
-		/*
 		if (target->m_node != nullptr)
 		{
 			nodes.emplace_back(target->m_node);
