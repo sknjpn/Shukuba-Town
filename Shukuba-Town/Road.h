@@ -7,6 +7,7 @@ namespace skn
 {
 	class Path;
 	class Road;
+	class Junction;
 
 	class Anchor
 		: public Transform
@@ -61,6 +62,8 @@ namespace skn
 		double	m_width;
 		Node*	m_from;
 		Node*	m_to;
+
+		std::vector<Junction*>	m_junctions;
 
 		//ê}å`
 		s3d::Line		m_line;
