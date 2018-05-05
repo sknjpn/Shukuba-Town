@@ -91,6 +91,8 @@ namespace skn
 
 		const s3d::Line&	get_line() const { return m_line; }
 
+		Junction*	add_junction(double t);
+
 		void		draw() const;
 	};
 
