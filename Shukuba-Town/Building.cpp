@@ -70,15 +70,15 @@ namespace skn
 	{
 		m_anchor = nullptr;
 
-		const auto& paths = g_village->get_paths();
+		const auto& roads = g_village->get_roads();
 
 		auto it = std::min_element(
-			paths.begin(),
-			paths.end(),
-			[this](Path* a, Path* b) {return a->get_distance_from(get_position()) < b->get_distance_from(get_position()); }
+			roads.begin(),
+			roads.end(),
+			[this](Road* a, Road* b) {return a->get_distance_from(get_position()) < b->get_distance_from(get_position()); }
 		);
 
-		if (it != paths.end() && (*it)->get_distance_from(get_position()) < 32.0)
+		if (it != roads.end() && (*it)->get_distance_from(get_position()) < 32.0)
 		{
 			m_anchor = new Junction(*it, (*it)->get_from()->get_position().distanceFrom((*it)->get_closest(get_position())));
 		}

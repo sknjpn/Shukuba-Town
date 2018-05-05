@@ -72,15 +72,15 @@ namespace skn
 		return (it == m_nodes.end()) ? nullptr : *it;
 	}
 
-	Path* Village::get_closest_path(const s3d::Vec2& position) const
+	Road* Village::get_closest_road(const s3d::Vec2& position) const
 	{
 		auto it = std::min_element(
-			m_paths.begin(),
-			m_paths.end(),
-			[&position](Path* a, Path* b) { return a->get_distance_from(position) < b->get_distance_from(position); }
+			m_roads.begin(),
+			m_roads.end(),
+			[&position](Road* a, Road* b) { return a->get_distance_from(position) < b->get_distance_from(position); }
 		);
 
-		return (it == m_paths.end()) ? nullptr : *it;
+		return (it == m_roads.end()) ? nullptr : *it;
 	}
 
 	void Village::update()
@@ -100,7 +100,7 @@ namespace skn
 			//Transformer2D
 			auto t = m_camera.create_transformer();
 
-			for (auto* p : m_paths) { p->draw(); }
+			for (auto* p : m_roads) { p->draw(); }
 
 			for (auto* b : m_buildings) { b->draw(); }
 

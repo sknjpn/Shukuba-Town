@@ -22,8 +22,8 @@ namespace skn
 			}
 		}
 
-		//Path‚Æ‚Ìd‚È‚è
-		for (auto* p : g_village->get_paths())
+		//Road‚Æ‚Ìd‚È‚è
+		for (auto* p : g_village->get_roads())
 		{
 			if (p->get_line().intersects(shape))
 			{
