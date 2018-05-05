@@ -29,6 +29,7 @@ namespace skn
 		Path(Anchor* from, Anchor* to, double width) : m_from(from), m_to(to), m_width(width) {}
 
 		double	get_width() const { return m_width; }
+		double	get_length() const { return m_from->get_position().distanceFrom(m_to->get_position()); }
 	};
 
 	class Node
