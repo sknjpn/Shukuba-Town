@@ -11,20 +11,22 @@ namespace skn
 	class Anchor
 		: public Transform
 	{
+		std::vector<Path*>	m_paths;
+
 	public:
 		Anchor(const Position& position) : Transform(position) {}
 
 		virtual ~Anchor() = default;
 	};
 
-	class Rope
+	class Path
 	{
 		Anchor*	m_anchor_from;
 		Anchor*	m_anchor_to;
 		double	m_width;
 
 	public:
-		Rope(Anchor* from, Anchor* to, double width) : m_anchor_from(from), m_anchor_to(to), m_width(width) {}
+		Path(Anchor* from, Anchor* to, double width) : m_anchor_from(from), m_anchor_to(to), m_width(width) {}
 
 		double	get_width() const { return m_width; }
 	};
