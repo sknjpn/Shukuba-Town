@@ -7,7 +7,6 @@ namespace skn
 {
 	class Path;
 	class Road;
-	class Junction;
 
 	class Anchor
 		: public Transform
@@ -36,8 +35,6 @@ namespace skn
 	class Node
 		: public Anchor
 	{
-		friend Junction;
-
 		double		m_radius;
 		std::vector<Road*>	m_roads;
 
