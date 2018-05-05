@@ -21,12 +21,12 @@ namespace skn
 
 	class Path
 	{
-		Anchor*	m_anchor_from;
-		Anchor*	m_anchor_to;
+		Anchor*	m_from;
+		Anchor*	m_to;
 		double	m_width;
 
 	public:
-		Path(Anchor* from, Anchor* to, double width) : m_anchor_from(from), m_anchor_to(to), m_width(width) {}
+		Path(Anchor* from, Anchor* to, double width) : m_from(from), m_to(to), m_width(width) {}
 
 		double	get_width() const { return m_width; }
 	};
