@@ -35,7 +35,7 @@ namespace skn
 		void		set_from_position(const s3d::Vec2& position);
 		void		set_to_position(const s3d::Vec2& position);
 
-		double		get_path_width() const;
+		double		get_road_width() const;
 		double		get_node_radius() const;
 
 		bool		can_set() const;

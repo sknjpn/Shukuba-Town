@@ -3,7 +3,7 @@
 
 namespace skn
 {
-	Path::Path(Node* from, Node* to, double width)
+	Road::Road(Node* from, Node* to, double width)
 		: m_from(from)
 		, m_to(to)
 		, m_width(width)
@@ -21,7 +21,7 @@ namespace skn
 		m_shape.append(s3d::Circle(p2, m_width / 2.0).asPolygon());
 	}
 
-	double Path::get_distance_from(const s3d::Line& line) const
+	double Road::get_distance_from(const s3d::Line& line) const
 	{
 		return std::min({
 			m_line.begin.distanceFrom(line.begin),
@@ -31,7 +31,7 @@ namespace skn
 			});
 	}
 
-	void Path::draw() const
+	void Road::draw() const
 	{
 		m_shape.draw(s3d::Palette::Khaki);
 	}
@@ -39,47 +39,47 @@ namespace skn
 	Node::Node(const s3d::Vec2& position, double radius)
 		: Anchor(position)
 		, m_radius(radius)
-		, m_use_path(nullptr)
+		, m_use_road(nullptr)
 		, m_added(false)
 		, m_cost(0.0)
 	{
 
 	}
 
-	Path* Node::get_path(Node* other) const
+	Road* Node::get_road(Node* other) const
 	{
 		auto it = std::find_if(
-			m_paths.begin(),
-			m_paths.end(),
-			[other, this](Path* p) { return p->get_opposite(this) == other; }
+			m_roads.begin(),
+			m_roads.end(),
+			[other, this](Road* p) { return p->get_opposite(this) == other; }
 		);
 
-		return (it == m_paths.end()) ? nullptr : *it;
+		return (it == m_roads.end()) ? nullptr : *it;
 	}
 
 	void Node::connect(Node* other, double width)
 	{
-		auto* path = g_village->add_path(new Path(this, other, width));
+		auto* road = g_village->add_road(new Road(this, other, width));
 
-		this->m_paths.emplace_back(path);
-		other->m_paths.emplace_back(path);
+		this->m_roads.emplace_back(road);
+		other->m_roads.emplace_back(road);
 	}
 
 	void Node::disconnect(Node* other)
 	{
-		auto path = get_path(other);
+		auto road = get_road(other);
 
-		if (path == nullptr) { LOG_ERROR(U"íœ‘ÎÛ‚ÌÚ‘±‚ª‚ ‚è‚Ü‚¹‚ñ"); return; }
+		if (road == nullptr) { LOG_ERROR(U"íœ‘ÎÛ‚ÌÚ‘±‚ª‚ ‚è‚Ü‚¹‚ñ"); return; }
 
-		this->m_paths.erase(std::find(this->m_paths.begin(), this->m_paths.end(), path));
-		other->m_paths.erase(std::find(other->m_paths.begin(), other->m_paths.end(), path));
+		this->m_roads.erase(std::find(this->m_roads.begin(), this->m_roads.end(), road));
+		other->m_roads.erase(std::find(other->m_roads.begin(), other->m_roads.end(), road));
 
-		g_village->delete_path(path);
+		g_village->delete_road(road);
 	}
 
-	Junction::Junction(Path* path, double t)
-		: Anchor(path->get_from()->get_position() + (path->get_to()->get_position() - path->get_from()->get_position()).setLength(t))
-		, m_path(path)
+	Junction::Junction(Road* road, double t)
+		: Anchor(road->get_from()->get_position() + (road->get_to()->get_position() - road->get_from()->get_position()).setLength(t))
+		, m_road(road)
 		, m_t(t)
 	{
 
@@ -96,7 +96,7 @@ namespace skn
 		{
 			n->m_cost = 0;
 			n->m_added = false;
-			n->m_use_path = nullptr;
+			n->m_use_road = nullptr;
 		}
 
 		s3d::Array<Node*> nodes;
@@ -108,8 +108,8 @@ namespace skn
 		}
 		else
 		{
-			auto* nf = target->m_path->get_from();
-			auto* nt = target->m_path->get_to();
+			auto* nf = target->m_road->get_from();
+			auto* nt = target->m_road->get_to();
 
 			nodes.emplace_back(nf);
 			nf->m_cost = 1 + target->get_position().distanceFrom(nf->get_position());
@@ -124,14 +124,14 @@ namespace skn
 
 			n1->m_added = false;
 
-			for (auto* p : n1->m_paths)
+			for (auto* p : n1->m_roads)
 			{
 				auto* n2 = p->get_opposite(n1);
 
 				if (n2->m_cost == 0 || n2->m_cost > n1->m_cost + p->get_length())
 				{
 					n2->m_cost = n1->m_cost + p->get_length();
-					n2->m_use_path = n2->get_path(n1);
+					n2->m_use_road = n2->get_road(n1);
 
 					if (!n2->m_added)
 					{
@@ -152,8 +152,8 @@ namespace skn
 		}
 		else
 		{
-			auto* nf = m_path->get_from();
-			auto* nt = m_path->get_to();
+			auto* nf = m_road->get_from();
+			auto* nt = m_road->get_to();
 
 			if (nf->m_cost == 0) { return result; }
 
@@ -168,13 +168,13 @@ namespace skn
 
 		}
 
-		std::vector<Path*> paths;
+		std::vector<Road*> roads;
 
-		while (node->m_use_path != nullptr)
+		while (node->m_use_road != nullptr)
 		{
-			paths.emplace_back(node->m_use_path);
+			roads.emplace_back(node->m_use_road);
 
-			node = node->m_use_path->get_opposite(node);
+			node = node->m_use_road->get_opposite(node);
 
 			result.emplace_back(node);
 		}
