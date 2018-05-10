@@ -164,5 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SceneManager.h">
+      <Filter>sknjpn</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
