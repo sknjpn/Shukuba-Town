@@ -1,10 +1,6 @@
 #pragma once
 
-class Scene
-{
-
-};
-
+class Scene;
 
 class SceneManager
 {

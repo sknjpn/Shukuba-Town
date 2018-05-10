@@ -44,6 +44,12 @@
     <Filter Include="sknjpn">
       <UniqueIdentifier>{3e04fff1-82a1-4a05-bb7e-0e4029bc3870}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sknjpn\Title">
+      <UniqueIdentifier>{3be8f414-c015-4680-b24c-72a2afbf8020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sknjpn\Game">
+      <UniqueIdentifier>{680f1706-9a91-4e9d-b90c-a5925ddd70b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -166,6 +172,15 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SceneManager.h">
       <Filter>sknjpn</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>sknjpn</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>sknjpn\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>sknjpn\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
