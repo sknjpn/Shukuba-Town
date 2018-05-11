@@ -53,6 +53,9 @@
     <Filter Include="sknjpn\Utility">
       <UniqueIdentifier>{779b787a-b952-4523-83d3-7c12ff4da800}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sknjpn\Game\Field">
+      <UniqueIdentifier>{ca6b9c29-546b-45a7-86f4-118093917c72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -170,6 +173,9 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Field.cpp">
+      <Filter>sknjpn\Game\Field</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -187,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="Uncopyable.h">
       <Filter>sknjpn\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
