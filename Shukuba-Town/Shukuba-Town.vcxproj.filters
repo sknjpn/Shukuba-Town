@@ -191,6 +191,7 @@
     <ClCompile Include="Field.cpp">
       <Filter>sknjpn\Game\Field</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
