@@ -247,8 +247,11 @@
     <Text Include="App\engine\font\noto\LICENSE_OFL.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agent.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Path.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="stdafx.h" />

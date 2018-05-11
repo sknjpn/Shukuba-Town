@@ -206,5 +206,14 @@
     <ClInclude Include="Field.h">
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>sknjpn\Game\Field\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>sknjpn\Game\Field\Road</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
