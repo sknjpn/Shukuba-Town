@@ -215,5 +215,8 @@
     <ClInclude Include="Path.h">
       <Filter>sknjpn\Game\Field\Road</Filter>
     </ClInclude>
+    <ClInclude Include="Drawable.h">
+      <Filter>sknjpn\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
