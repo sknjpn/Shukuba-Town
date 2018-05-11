@@ -231,5 +231,11 @@
     <ClInclude Include="Builder.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
+    <ClInclude Include="BuilderRoad.h">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderBuilding.h">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
