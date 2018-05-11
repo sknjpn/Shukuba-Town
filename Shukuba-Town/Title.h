@@ -5,5 +5,7 @@
 class Title
 	: public Scene
 {
-
+public:
+	void start() override {}
+	void update() override {}
 };
