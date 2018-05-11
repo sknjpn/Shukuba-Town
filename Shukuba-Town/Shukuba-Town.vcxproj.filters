@@ -221,5 +221,8 @@
     <ClInclude Include="Transform.h">
       <Filter>sknjpn\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Building.h">
+      <Filter>sknjpn\Game\Field\Building</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
