@@ -248,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
+    <ClInclude Include="Builder.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Field.h" />

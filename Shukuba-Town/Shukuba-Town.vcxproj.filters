@@ -68,6 +68,9 @@
     <Filter Include="sknjpn\Game\Field\Road">
       <UniqueIdentifier>{9a842702-0248-4db7-96af-c8fc9e04e963}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sknjpn\Game\Field\Builder">
+      <UniqueIdentifier>{fb8348a3-5fee-4cbf-b96a-5e0f38e5903e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="Building.h">
       <Filter>sknjpn\Game\Field\Building</Filter>
+    </ClInclude>
+    <ClInclude Include="Builder.h">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
