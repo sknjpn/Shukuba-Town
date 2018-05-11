@@ -218,5 +218,8 @@
     <ClInclude Include="Drawable.h">
       <Filter>sknjpn\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>sknjpn\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
