@@ -56,6 +56,18 @@
     <Filter Include="sknjpn\Game\Field">
       <UniqueIdentifier>{ca6b9c29-546b-45a7-86f4-118093917c72}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sknjpn\Game\Field\Building">
+      <UniqueIdentifier>{5e5d1b8d-a472-448e-b99b-912c94d9bdaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sknjpn\Game\Field\Building\Equipment">
+      <UniqueIdentifier>{74206b98-b3e0-43e3-831b-55d8ca7095c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sknjpn\Game\Field\Agent">
+      <UniqueIdentifier>{c811778d-287a-4777-9914-742d488d4661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sknjpn\Game\Field\Road">
+      <UniqueIdentifier>{9a842702-0248-4db7-96af-c8fc9e04e963}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
