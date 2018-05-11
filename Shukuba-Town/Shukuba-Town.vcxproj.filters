@@ -50,6 +50,9 @@
     <Filter Include="sknjpn\Game">
       <UniqueIdentifier>{680f1706-9a91-4e9d-b90c-a5925ddd70b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sknjpn\Utility">
+      <UniqueIdentifier>{779b787a-b952-4523-83d3-7c12ff4da800}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>sknjpn\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Uncopyable.h">
+      <Filter>sknjpn\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
