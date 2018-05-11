@@ -191,9 +191,6 @@
     <ClInclude Include="Game.h">
       <Filter>sknjpn\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Uncopyable.h">
-      <Filter>sknjpn\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>

@@ -5,5 +5,5 @@
 class Scene
 	: public Uncopyable
 {
-
+	Uncopyable
 };
