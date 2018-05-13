@@ -8,10 +8,11 @@ class Node final
 	: public Uncopyable
 	, public Transform
 {
+	double m_radius;
 	Array<Path*> m_paths;
 
 public:
-	Node(const Vec2& position);
+	Node(const Vec2& position, double radius);
 	~Node();
 
 	void connect(Node* to) { m_paths.emplace_back(new Path(this, to)); to->m_paths.emplace_back(new Path(to, this)); }
