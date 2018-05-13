@@ -3,6 +3,7 @@
 class Builder;
 class Node;
 class Path;
+class Camera;
 class Building;
 
 class Field 
@@ -13,6 +14,7 @@ class Field
 	Array<Building*> m_buildings;
 
 	Builder* m_builder;
+	Camera* m_camera;
 
 public:
 	Field();

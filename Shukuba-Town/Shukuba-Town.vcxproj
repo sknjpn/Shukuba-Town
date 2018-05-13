@@ -198,6 +198,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Builder_Road.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Path.cpp" />
@@ -257,6 +258,7 @@
     <ClInclude Include="Builder_Building.h" />
     <ClInclude Include="Builder_Road.h" />
     <ClInclude Include="Building.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Scene_Game.h" />

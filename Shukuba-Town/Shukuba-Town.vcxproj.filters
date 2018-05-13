@@ -206,6 +206,9 @@
     <ClCompile Include="Path.cpp">
       <Filter>sknjpn\Game\Field\Road</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>sknjpn\Game\Field</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -250,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="Scene_Title.h">
       <Filter>sknjpn\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

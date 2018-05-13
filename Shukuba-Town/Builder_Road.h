@@ -18,19 +18,19 @@ class Builder_Road
 
 		void	set_selected(bool is_selected) { m_is_selected = is_selected; }
 
-		bool	is_clicked(const s3d::Vec2& position) const;
+		bool	is_clicked(const Vec2& position) const;
 
-		void	draw(const s3d::Vec2& position);
+		void	draw(const Vec2& position);
 	};
 
-	s3d::Vec2	m_from_position;
-	s3d::Vec2	m_to_position;
+	Vec2	m_from_position;
+	Vec2	m_to_position;
 
 	Sample*		m_selected_sample;
 	std::vector<Sample*>	m_samples;
 
-	void		set_from_position(const s3d::Vec2& position);
-	void		set_to_position(const s3d::Vec2& position);
+	void		set_from_position(const Vec2& position);
+	void		set_to_position(const Vec2& position);
 
 	double		get_path_width() const;
 	double		get_node_radius() const;

@@ -6,7 +6,7 @@
 #include "Path.h"
 #include "Building.h"
 
-void Builder_Road::set_from_position(const s3d::Vec2& position)
+void Builder_Road::set_from_position(const Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
@@ -32,7 +32,7 @@ void Builder_Road::set_from_position(const s3d::Vec2& position)
 	m_from_position = position;
 }
 
-void Builder_Road::set_to_position(const s3d::Vec2& position)
+void Builder_Road::set_to_position(const Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
@@ -65,12 +65,12 @@ double Builder_Road::get_path_width() const
 
 bool Builder_Road::can_set() const
 {
-	const s3d::Line line(m_from_position, m_to_position);
+	const Line line(m_from_position, m_to_position);
 
 	//Nodeä‘ãóó£Ç…ëŒÇ∑ÇÈêßå¿
 	if (m_from_position.distanceFrom(m_to_position) <= get_node_radius() * 2.0)
 	{
-		s3d::Print << U"f1";
+		Print << U"f1";
 
 		return false;
 	}
@@ -82,7 +82,7 @@ bool Builder_Road::can_set() const
 			line.begin != n->get_position() &&
 			line.end != n->get_position())
 		{
-			s3d::Print << U"f2";
+			Print << U"f2";
 
 			return false;
 		}
@@ -100,7 +100,7 @@ bool Builder_Road::can_set() const
 			(position.value() - p->get_from()->get_position()).length() > length &&
 			(position.value() - p->get_to()->get_position()).length() > length)
 		{
-			s3d::Print << U"f3";
+			Print << U"f3";
 
 			return false;
 		}
@@ -113,7 +113,7 @@ bool Builder_Road::can_set() const
 		//Ç∑Ç≈Ç…Ç†ÇÈê⁄ë±Ç…ëŒÇ∑ÇÈêßå¿
 		if (from_node != nullptr && to_node != nullptr && from_node->get_path(to_node) != nullptr)
 		{
-			s3d::Print << U"f4";
+			Print << U"f4";
 
 			return false;
 		}
@@ -126,7 +126,7 @@ bool Builder_Road::can_set() const
 				p->get_line().intersects(m_to_position) &&
 				!p->has(to_node))
 			{
-				s3d::Print << U"f5";
+				Print << U"f5";
 
 				return false;
 			}
@@ -138,7 +138,7 @@ bool Builder_Road::can_set() const
 	{
 		if (b->get_shape().intersects(line))
 		{
-			s3d::Print << U"f6";
+			Print << U"f6";
 
 			return false;
 		}
@@ -163,16 +163,16 @@ Builder_Road::Builder_Road()
 
 void Builder_Road::update()
 {
-	s3d::Print << U"ìπòHåöê›ÉÇÅ[Éh";
+	Print << U"ìπòHåöê›ÉÇÅ[Éh";
 
-	//if (s3d::Cursor::PosF().y < s3d::Window::Size().y - 80)
+	//if (Cursor::PosF().y < Window::Size().y - 80)
 	{
 		//Transformer2D
 		auto t = g_field->get_camera().create_transformer();
 
-		set_to_position(s3d::Cursor::PosF());
+		set_to_position(Cursor::PosF());
 
-		if (s3d::MouseL.pressed() && can_set())
+		if (MouseL.pressed() && can_set())
 		{
 			auto* from_node = g_field->get_node(m_from_position);
 			auto* to_node = g_field->get_node(m_to_position);
@@ -209,31 +209,31 @@ void Builder_Road::update()
 			set_from_position(m_to_position);
 		}
 
-		if (!s3d::MouseL.pressed())
+		if (!MouseL.pressed())
 		{
 			set_from_position(m_to_position);
 		}
 
 		//ï`âÊ
 		{
-			auto color = s3d::ColorF(can_set() ? s3d::Palette::Green : s3d::Palette::Red, 0.5);
+			auto color = ColorF(can_set() ? Palette::Green : Palette::Red, 0.5);
 
 			if (m_from_position.distanceFrom(m_to_position) > 1.0)
 			{
 				auto p1 = m_from_position;
 				auto p2 = m_to_position;
-				auto vector = (p1 - p2).setLength(get_path_width() / 2.0).rotated(s3d::Math::HalfPi);
+				auto vector = (p1 - p2).setLength(get_path_width() / 2.0).rotated(Math::HalfPi);
 
-				s3d::Array<s3d::Vec2> points{ p1 - vector, p1 + vector, p2 + vector, p2 - vector, };
-				s3d::Polygon shape(points);
-				shape.append(s3d::Circle(p1, get_path_width() / 2.0).asPolygon());
-				shape.append(s3d::Circle(p2, get_path_width() / 2.0).asPolygon());
+				Array<Vec2> points{ p1 - vector, p1 + vector, p2 + vector, p2 - vector, };
+				Polygon shape(points);
+				shape.append(Circle(p1, get_path_width() / 2.0).asPolygon());
+				shape.append(Circle(p2, get_path_width() / 2.0).asPolygon());
 
 				shape.draw(color);
 			}
 			else
 			{
-				s3d::Circle(m_from_position, get_path_width() / 2.0).draw(color);
+				Circle(m_from_position, get_path_width() / 2.0).draw(color);
 			}
 		}
 	}
@@ -241,7 +241,7 @@ void Builder_Road::update()
 	for (int i = 0; i < int(m_samples.size()); ++i)
 	{
 		auto* s = m_samples[i];
-		auto position = s3d::Vec2(8 + i * 80, s3d::Window::Size().y - 72);
+		auto position = Vec2(8 + i * 80, Window::Size().y - 72);
 
 		if (s->is_clicked(position))
 		{
@@ -261,22 +261,22 @@ Builder_Road::Sample::Sample(double width)
 
 }
 
-bool Builder_Road::Sample::is_clicked(const s3d::Vec2& position) const
+bool Builder_Road::Sample::is_clicked(const Vec2& position) const
 {
-	return s3d::RoundRect(s3d::Rect(64), 8)
+	return RoundRect(Rect(64), 8)
 		.movedBy(position)
 		.leftClicked();
 }
 
-void Builder_Road::Sample::draw(const s3d::Vec2& position)
+void Builder_Road::Sample::draw(const Vec2& position)
 {
-	auto color = m_is_selected ? s3d::Palette::Orange : s3d::Palette::White;
+	auto color = m_is_selected ? Palette::Orange : Palette::White;
 
-	s3d::RoundRect(s3d::Rect(64), 8)
+	RoundRect(Rect(64), 8)
 		.movedBy(position)
-		.draw(s3d::ColorF(color, 0.5))
+		.draw(ColorF(color, 0.5))
 		.drawFrame(1.0, color);
 
-	s3d::Circle(position.movedBy(32, 32), m_width / 2.0).draw(s3d::Palette::Darkgreen);
-	s3d::Circle(position.movedBy(32, 32), m_width / 4.0).draw(s3d::Palette::Khaki);
+	Circle(position.movedBy(32, 32), m_width / 2.0).draw(Palette::Darkgreen);
+	Circle(position.movedBy(32, 32), m_width / 4.0).draw(Palette::Khaki);
 }
