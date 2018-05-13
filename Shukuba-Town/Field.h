@@ -34,6 +34,8 @@ public:
 
 	Path* get_closest_path(const Vec2& position) const;
 	Node* get_closest_node(const Vec2& position) const;
+
+	Camera* get_camera() const { return m_camera; }
 };
 
 extern Field* g_field;
