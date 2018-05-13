@@ -2,8 +2,8 @@
 #include "Node.h"
 #include "Field.h"
 
-Path::Path(Node* from, Node* to)
-	: m_from(from), m_to(to) 
+Path::Path(Node* from, Node* to, double width)
+	: m_from(from), m_to(to), m_width(width)
 {
 	g_field->add_path(this);
 }
