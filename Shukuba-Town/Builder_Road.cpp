@@ -6,7 +6,7 @@
 #include "Path.h"
 #include "Building.h"
 
-void Builder_Road::set_from_position(const s3d::Vec2 & position)
+void Builder_Road::set_from_position(const s3d::Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
@@ -32,7 +32,7 @@ void Builder_Road::set_from_position(const s3d::Vec2 & position)
 	m_from_position = position;
 }
 
-void Builder_Road::set_to_position(const s3d::Vec2 & position)
+void Builder_Road::set_to_position(const s3d::Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 

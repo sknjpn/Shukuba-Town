@@ -1,7 +1,7 @@
 #include "SceneManager.h"
 #include "Scene.h"
 
-void SceneManager::Run(Scene * scene)
+void SceneManager::Run(Scene* scene)
 {
 	if (s_instance == nullptr)
 	{

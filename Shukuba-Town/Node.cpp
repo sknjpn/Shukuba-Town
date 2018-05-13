@@ -1,7 +1,7 @@
 #include "Node.h"
 #include "Field.h"
 
-Node::Node(const Vec2 & position)
+Node::Node(const Vec2& position)
 	: Transform(position) 
 {
 	//field‚É“o˜^
