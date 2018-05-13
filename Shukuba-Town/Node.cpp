@@ -16,10 +16,12 @@ Node::~Node()
 
 void Node::connect(Node * to, double width)
 {
-	m_paths.emplace_back(new Path(this, to, width)); to->m_paths.emplace_back(new Path(to, this, width));
+	this->m_paths.emplace_back(new Path(this, to, width)); 
+	to->m_paths.emplace_back(new Path(to, this, width));
 }
 
 void Node::disconnect(Node * to)
 {
-	m_paths.remove_if([to](Path* p) { return p->get_to() == to; }); to->m_paths.remove_if([this](Path* p) { return p->get_to() == this; });
+	this->m_paths.remove_if([to](Path* p) { return p->get_to() == to; }); 
+	to->m_paths.remove_if([this](Path* p) { return p->get_to() == this; });
 }
