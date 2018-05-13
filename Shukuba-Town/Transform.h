@@ -10,6 +10,7 @@ class Transform
 
 public:
 	Transform() : m_position(0, 0), m_rotation(0) {}
+	Transform(const Position& position) : m_position(position), m_rotation(0) {}
 	Transform(const Position& position, const Rotation& rotation) : m_position(position), m_rotation(rotation) {}
 
 	const Position& get_position() const { return m_position; }
