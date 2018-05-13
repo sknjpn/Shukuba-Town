@@ -4,7 +4,7 @@
 
 class Node;
 
-class Path
+class Path final
 	: public Uncopyable
 	, public Drawable
 {

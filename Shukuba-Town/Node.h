@@ -4,7 +4,7 @@
 
 class Path;
 
-class Node
+class Node final
 	: public Uncopyable
 	, public Transform
 {
