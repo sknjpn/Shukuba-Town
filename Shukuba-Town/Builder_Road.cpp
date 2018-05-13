@@ -1,4 +1,4 @@
-#include "Builder_Road.h"
+#include "Builder_path.h"
 
 #include "Field.h"
 
@@ -8,13 +8,13 @@
 
 namespace skn
 {
-	void Builder_Road::set_from_position(const s3d::Vec2 & position)
+	void Builder_path::set_from_position(const s3d::Vec2 & position)
 	{
-		auto* c_road = g_field->get_closest_road(position);
+		auto* c_path = g_field->get_closest_path(position);
 
-		if (c_road != nullptr && c_road->get_distance_from(position) <= get_node_radius() * 2.0)
+		if (c_path != nullptr && c_path->get_distance_from(position) <= get_node_radius() * 2.0)
 		{
-			m_from_position = c_road->get_closest(position);
+			m_from_position = c_path->get_closest(position);
 
 			auto* c_node = g_field->get_closest_node(position);
 
@@ -34,13 +34,13 @@ namespace skn
 		m_from_position = position;
 	}
 
-	void Builder_Road::set_to_position(const s3d::Vec2 & position)
+	void Builder_path::set_to_position(const s3d::Vec2 & position)
 	{
-		auto* c_road = g_field->get_closest_road(position);
+		auto* c_path = g_field->get_closest_path(position);
 
-		if (c_road != nullptr && c_road->get_distance_from(position) <= get_node_radius() * 2.0)
+		if (c_path != nullptr && c_path->get_distance_from(position) <= get_node_radius() * 2.0)
 		{
-			m_to_position = c_road->get_closest(position);
+			m_to_position = c_path->get_closest(position);
 
 			auto* c_node = g_field->get_closest_node(position);
 
@@ -60,12 +60,12 @@ namespace skn
 		m_to_position = position;
 	}
 
-	double Builder_Road::get_road_width() const
+	double Builder_path::get_path_width() const
 	{
 		return m_selected_sample->get_width();
 	}
 
-	bool Builder_Road::can_set() const
+	bool Builder_path::can_set() const
 	{
 		const s3d::Line line(m_from_position, m_to_position);
 
@@ -77,7 +77,7 @@ namespace skn
 			return false;
 		}
 
-		//Road‚ÆNodeŠÔ‹——£‚É‘Î‚·‚é§ŒÀ
+		//path‚ÆNodeŠÔ‹——£‚É‘Î‚·‚é§ŒÀ
 		for (auto* n : g_field->get_nodes())
 		{
 			if (line.closest(n->get_position()).distanceFrom(n->get_position()) <= get_node_radius() * 2.0 &&
@@ -90,8 +90,8 @@ namespace skn
 			}
 		}
 
-		//RoadŒð·‚É‘Î‚·‚é§ŒÀ
-		for (auto* p : g_field->get_roads())
+		//pathŒð·‚É‘Î‚·‚é§ŒÀ
+		for (auto* p : g_field->get_paths())
 		{
 			auto position = line.intersectsAt(p->get_line());
 			auto length = 1.0;
@@ -113,7 +113,7 @@ namespace skn
 			auto* to_node = g_field->get_node(m_to_position);
 
 			//‚·‚Å‚É‚ ‚éÚ‘±‚É‘Î‚·‚é§ŒÀ
-			if (from_node != nullptr && to_node != nullptr && from_node->get_road(to_node) != nullptr)
+			if (from_node != nullptr && to_node != nullptr && from_node->get_path(to_node) != nullptr)
 			{
 				s3d::Print << U"f4";
 
@@ -121,7 +121,7 @@ namespace skn
 			}
 
 			//‚·‚Å‚É‚ ‚éƒpƒX‚É‘Î‚·‚éÚ‘±‚Ö‚Ì§ŒÀ
-			for (auto* p : g_field->get_roads())
+			for (auto* p : g_field->get_paths())
 			{
 				if (p->get_line().intersects(m_from_position) &&
 					!p->has(from_node) &&
@@ -149,12 +149,12 @@ namespace skn
 		return true;
 	}
 
-	double Builder_Road::get_node_radius() const
+	double Builder_path::get_node_radius() const
 	{
 		return 16.0;
 	}
 
-	Builder_Road::Builder_Road()
+	Builder_path::Builder_path()
 	{
 		m_samples.emplace_back(new Sample(16.0));
 		m_samples.emplace_back(new Sample(24.0));
@@ -163,7 +163,7 @@ namespace skn
 		m_selected_sample->set_selected(true);
 	}
 
-	void Builder_Road::update()
+	void Builder_path::update()
 	{
 		s3d::Print << U"“¹˜HŒšÝƒ‚[ƒh";
 
@@ -183,9 +183,9 @@ namespace skn
 				if (to_node == nullptr) { to_node = g_field->add_node(new Node(m_to_position, get_node_radius())); }
 
 				{
-					auto roads = g_field->get_roads();
+					auto paths = g_field->get_paths();
 
-					for (auto* p : roads)
+					for (auto* p : paths)
 					{
 						if (p->get_line().intersects(m_from_position) && !p->has(from_node))
 						{
@@ -205,7 +205,7 @@ namespace skn
 				}
 
 				//Ú‘±
-				from_node->connect(to_node, get_road_width());
+				from_node->connect(to_node, get_path_width());
 
 				//from‚Ì“]Š·
 				set_from_position(m_to_position);
@@ -224,18 +224,18 @@ namespace skn
 				{
 					auto p1 = m_from_position;
 					auto p2 = m_to_position;
-					auto vector = (p1 - p2).setLength(get_road_width() / 2.0).rotated(s3d::Math::HalfPi);
+					auto vector = (p1 - p2).setLength(get_path_width() / 2.0).rotated(s3d::Math::HalfPi);
 
 					s3d::Array<s3d::Vec2> points{ p1 - vector, p1 + vector, p2 + vector, p2 - vector, };
 					s3d::Polygon shape(points);
-					shape.append(s3d::Circle(p1, get_road_width() / 2.0).asPolygon());
-					shape.append(s3d::Circle(p2, get_road_width() / 2.0).asPolygon());
+					shape.append(s3d::Circle(p1, get_path_width() / 2.0).asPolygon());
+					shape.append(s3d::Circle(p2, get_path_width() / 2.0).asPolygon());
 
 					shape.draw(color);
 				}
 				else
 				{
-					s3d::Circle(m_from_position, get_road_width() / 2.0).draw(color);
+					s3d::Circle(m_from_position, get_path_width() / 2.0).draw(color);
 				}
 			}
 		}
@@ -256,21 +256,21 @@ namespace skn
 		}
 	}
 
-	Builder_Road::Sample::Sample(double width)
+	Builder_path::Sample::Sample(double width)
 		: m_is_selected(false)
 		, m_width(width)
 	{
 
 	}
 
-	bool Builder_Road::Sample::is_clicked(const s3d::Vec2& position) const
+	bool Builder_path::Sample::is_clicked(const s3d::Vec2& position) const
 	{
 		return s3d::RoundRect(s3d::Rect(64), 8)
 			.movedBy(position)
 			.leftClicked();
 	}
 
-	void Builder_Road::Sample::draw(const s3d::Vec2& position)
+	void Builder_path::Sample::draw(const s3d::Vec2& position)
 	{
 		auto color = m_is_selected ? s3d::Palette::Orange : s3d::Palette::White;
 
