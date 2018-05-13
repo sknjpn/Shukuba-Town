@@ -123,9 +123,11 @@ bool Builder_Road::can_set() const
 		for (auto* p : g_field->get_paths())
 		{
 			if (p->get_line().intersects(m_from_position) &&
-				!p->has(from_node) &&
 				p->get_line().intersects(m_to_position) &&
-				!p->has(to_node))
+				p->get_from() != from_node &&
+				p->get_from() != to_node &&
+				p->get_to() != from_node &&
+				p->get_to() != to_node)
 			{
 				Print << U"f5";
 
@@ -186,14 +188,18 @@ void Builder_Road::update()
 
 				for (auto* p : paths)
 				{
-					if (p->get_line().intersects(m_from_position) && !p->has(from_node))
+					if (p->get_line().intersects(m_from_position) &&
+						p->get_from() != from_node &&
+						p->get_to() != from_node)
 					{
 						p->get_from()->connect(from_node, p->get_width());
 						p->get_to()->connect(from_node, p->get_width());
 
 						p->disconnect();
 					}
-					else if (p->get_line().intersects(m_to_position) && !p->has(to_node))
+					else if (p->get_line().intersects(m_to_position) &&
+						p->get_from() != to_node &&
+						p->get_to() != to_node)
 					{
 						p->get_from()->connect(to_node, p->get_width());
 						p->get_to()->connect(to_node, p->get_width());
