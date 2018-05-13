@@ -16,12 +16,22 @@ Node::~Node()
 
 void Node::connect(Node* to, double width)
 {
-	this->m_paths.emplace_back(new Path(this, to, width)); 
+	this->m_paths.emplace_back(new Path(this, to, width));
 	to->m_paths.emplace_back(new Path(to, this, width));
 }
 
 void Node::disconnect(Node* to)
 {
-	this->m_paths.remove_if([to](Path* p) { return p->get_to() == to; }); 
+	this->m_paths.remove_if([to](Path* p) { return p->get_to() == to; });
 	to->m_paths.remove_if([this](Path* p) { return p->get_to() == this; });
+}
+
+bool Node::has_path(Node* to) const
+{
+	return m_paths.end() != std::find_if(m_paths.begin(), m_paths.end(), [to](Path* p) { return p->get_to() == to; });
+}
+
+Path* Node::get_path(Node* to) const
+{
+	return *std::find_if(m_paths.begin(), m_paths.end(), [to](Path* p) { return p->get_to() == to; });
 }
