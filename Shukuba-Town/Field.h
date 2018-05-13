@@ -25,6 +25,10 @@ public:
 	void remove_node(Node* node) { m_nodes.remove(node); }
 	void remove_path(Path* path) { m_paths.remove(path); }
 	void remove_building(Building* building) { m_buildings.remove(building); }
+
+	const Array<Node*>& get_nodes() const { return m_nodes; }
+	const Array<Path*>& get_paths() const { return m_paths; }
+	const Array<Building*>& get_buildings() const { return m_buildings; }
 };
 
 extern Field* g_field;
