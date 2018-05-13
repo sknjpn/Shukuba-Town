@@ -1,6 +1,7 @@
 #include "Builder_Road.h"
 
 #include "Field.h"
+#include "Camera.h"
 
 #include "Node.h"
 #include "Path.h"
@@ -168,7 +169,7 @@ void Builder_Road::update()
 	//if (Cursor::PosF().y < Window::Size().y - 80)
 	{
 		//Transformer2D
-		auto t = g_field->get_camera().create_transformer();
+		auto t = g_field->get_camera()->create_transformer();
 
 		set_to_position(Cursor::PosF());
 
