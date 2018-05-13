@@ -197,6 +197,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Scene_Game.cpp" />
     <ClCompile Include="Main.cpp" />
