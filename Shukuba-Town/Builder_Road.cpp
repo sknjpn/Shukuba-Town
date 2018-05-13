@@ -178,8 +178,8 @@ void Builder_Road::update()
 			auto* from_node = g_field->get_node(m_from_position);
 			auto* to_node = g_field->get_node(m_to_position);
 
-			if (from_node == nullptr) { from_node = g_field->add_node(new Node(m_from_position, get_node_radius())); }
-			if (to_node == nullptr) { to_node = g_field->add_node(new Node(m_to_position, get_node_radius())); }
+			if (from_node == nullptr) { from_node = new Node(m_from_position, get_node_radius(); }
+			if (to_node == nullptr) { to_node = new Node(m_to_position, get_node_radius(); }
 
 			{
 				auto paths = g_field->get_paths();
