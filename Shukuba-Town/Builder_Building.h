@@ -2,7 +2,7 @@
 
 #include "Builder.h"
 
-class BuilderBuilding
+class Builder_Building
 	: public Builder
 {
 

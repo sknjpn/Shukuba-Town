@@ -2,7 +2,7 @@
 
 #include "Builder.h"
 
-class BuilderRoad
+class Builder_Road
 	: public Builder
 {
 

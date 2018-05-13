@@ -232,10 +232,10 @@
     <ClInclude Include="Builder.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
-    <ClInclude Include="BuilderRoad.h">
+    <ClInclude Include="Builder_Building.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
-    <ClInclude Include="BuilderBuilding.h">
+    <ClInclude Include="Builder_Road.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
   </ItemGroup>

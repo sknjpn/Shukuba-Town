@@ -251,8 +251,8 @@
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Builder.h" />
-    <ClInclude Include="BuilderBuilding.h" />
-    <ClInclude Include="BuilderRoad.h" />
+    <ClInclude Include="Builder_Building.h" />
+    <ClInclude Include="Builder_Road.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Field.h" />
