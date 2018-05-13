@@ -7,6 +7,8 @@ class SceneManager
 {
 	Scene* m_scene;
 
+	static SceneManager* s_instance;
+
 public:
 	static void Run(Scene* scene);
 };
