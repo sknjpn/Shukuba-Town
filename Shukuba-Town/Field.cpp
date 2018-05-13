@@ -1,6 +1,6 @@
 #include "Field.h"
 
-Field* field = nullptr;
+Field* g_field = nullptr;
 
 Field::Field()
 {
