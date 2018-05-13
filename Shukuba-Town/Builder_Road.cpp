@@ -10,9 +10,9 @@ void Builder_Road::set_from_position(const s3d::Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
-	if (c_path != nullptr && c_path->get_distance_from(position) <= get_node_radius() * 2.0)
+	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= get_node_radius() * 2.0)
 	{
-		m_from_position = c_path->get_closest(position);
+		m_from_position = c_path->get_line().closest(position);
 
 		auto* c_node = g_field->get_closest_node(position);
 
@@ -36,9 +36,9 @@ void Builder_Road::set_to_position(const s3d::Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
-	if (c_path != nullptr && c_path->get_distance_from(position) <= get_node_radius() * 2.0)
+	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= get_node_radius() * 2.0)
 	{
-		m_to_position = c_path->get_closest(position);
+		m_to_position = c_path->get_line().closest(position);
 
 		auto* c_node = g_field->get_closest_node(position);
 
