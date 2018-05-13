@@ -10,7 +10,8 @@ class Node
 	Array<Path*> m_paths;
 
 public:
-	Node(const Vec2& position) : Transform(position) {}
+	Node(const Vec2& position);
+	~Node();
 
 	void connect(Node* to) { m_paths.emplace_back(new Path(this, to)); to->m_paths.emplace_back(new Path(to, this)); }
 	void disconnect(Node* to) { m_paths.remove_if([to](Path* p) { return p->get_to() == to; }); to->m_paths.remove_if([this](Path* p) { return p->get_to() == this; }); }

@@ -200,6 +200,9 @@
     <ClCompile Include="Builder_Road.cpp">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>sknjpn\Game\Field\Road</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
