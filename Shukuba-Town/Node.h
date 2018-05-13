@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Transform.h"
-#include "Path.h"
+
+class Path;
 
 class Node
 	: public Uncopyable
