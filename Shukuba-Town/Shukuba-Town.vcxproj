@@ -256,13 +256,13 @@
     <ClInclude Include="Building.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Field.h" />
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Title.h" />
+    <ClInclude Include="Scene_Title.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

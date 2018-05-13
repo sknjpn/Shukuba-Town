@@ -1,12 +1,12 @@
-#include "Game.h"
+#include "Scene_Game.h"
 #include "Field.h"
 
-void Game::start()
+void Scene_Game::start()
 {
 	g_field = new Field();
 }
 
-void Game::update()
+void Scene_Game::update()
 {
 
 }

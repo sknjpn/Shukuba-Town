@@ -202,12 +202,6 @@
     <ClInclude Include="Scene.h">
       <Filter>sknjpn</Filter>
     </ClInclude>
-    <ClInclude Include="Title.h">
-      <Filter>sknjpn\Title</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>sknjpn\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
@@ -237,6 +231,12 @@
     </ClInclude>
     <ClInclude Include="Builder_Road.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Game.h">
+      <Filter>sknjpn\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Title.h">
+      <Filter>sknjpn\Title</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

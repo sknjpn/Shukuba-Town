@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 
-class Game
+class Scene_Game
 	: public Scene
 {
 public:
