@@ -1,4 +1,4 @@
-#include "Builder_path.h"
+#include "Builder_Road.h"
 
 #include "Field.h"
 
@@ -8,7 +8,7 @@
 
 namespace skn
 {
-	void Builder_path::set_from_position(const s3d::Vec2 & position)
+	void Builder_Road::set_from_position(const s3d::Vec2 & position)
 	{
 		auto* c_path = g_field->get_closest_path(position);
 
@@ -34,7 +34,7 @@ namespace skn
 		m_from_position = position;
 	}
 
-	void Builder_path::set_to_position(const s3d::Vec2 & position)
+	void Builder_Road::set_to_position(const s3d::Vec2 & position)
 	{
 		auto* c_path = g_field->get_closest_path(position);
 
@@ -60,12 +60,12 @@ namespace skn
 		m_to_position = position;
 	}
 
-	double Builder_path::get_path_width() const
+	double Builder_Road::get_path_width() const
 	{
 		return m_selected_sample->get_width();
 	}
 
-	bool Builder_path::can_set() const
+	bool Builder_Road::can_set() const
 	{
 		const s3d::Line line(m_from_position, m_to_position);
 
@@ -149,12 +149,12 @@ namespace skn
 		return true;
 	}
 
-	double Builder_path::get_node_radius() const
+	double Builder_Road::get_node_radius() const
 	{
 		return 16.0;
 	}
 
-	Builder_path::Builder_path()
+	Builder_Road::Builder_Road()
 	{
 		m_samples.emplace_back(new Sample(16.0));
 		m_samples.emplace_back(new Sample(24.0));
@@ -163,7 +163,7 @@ namespace skn
 		m_selected_sample->set_selected(true);
 	}
 
-	void Builder_path::update()
+	void Builder_Road::update()
 	{
 		s3d::Print << U"“¹˜HŒšÝƒ‚[ƒh";
 
@@ -256,21 +256,21 @@ namespace skn
 		}
 	}
 
-	Builder_path::Sample::Sample(double width)
+	Builder_Road::Sample::Sample(double width)
 		: m_is_selected(false)
 		, m_width(width)
 	{
 
 	}
 
-	bool Builder_path::Sample::is_clicked(const s3d::Vec2& position) const
+	bool Builder_Road::Sample::is_clicked(const s3d::Vec2& position) const
 	{
 		return s3d::RoundRect(s3d::Rect(64), 8)
 			.movedBy(position)
 			.leftClicked();
 	}
 
-	void Builder_path::Sample::draw(const s3d::Vec2& position)
+	void Builder_Road::Sample::draw(const s3d::Vec2& position)
 	{
 		auto color = m_is_selected ? s3d::Palette::Orange : s3d::Palette::White;
 
