@@ -191,9 +191,11 @@
     <ClCompile Include="Field.cpp">
       <Filter>sknjpn\Game\Field</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Scene_Game.cpp">
       <Filter>sknjpn\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>sknjpn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
