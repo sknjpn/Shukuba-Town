@@ -12,7 +12,8 @@ class Path
 	Node* m_to;
 
 public:
-	Path(Node* from, Node* to) : m_from(from), m_to(to) {}
+	Path(Node* from, Node* to);
+	~Path();
 
 	Node* get_from() const { return m_from; }
 	Node* get_to() const { return m_to; }

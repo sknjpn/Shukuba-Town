@@ -203,6 +203,7 @@
     <ClCompile Include="Node.cpp">
       <Filter>sknjpn\Game\Field\Road</Filter>
     </ClCompile>
+    <ClCompile Include="Path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
