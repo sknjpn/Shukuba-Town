@@ -29,6 +29,9 @@ public:
 	const Array<Node*>& get_nodes() const { return m_nodes; }
 	const Array<Path*>& get_paths() const { return m_paths; }
 	const Array<Building*>& get_buildings() const { return m_buildings; }
+
+	Path* get_closest_path(const Vec2& position) const;
+	Node* get_closest_node(const Vec2& position) const;
 };
 
 extern Field* g_field;

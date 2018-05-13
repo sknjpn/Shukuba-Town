@@ -18,5 +18,7 @@ public:
 	Node* get_from() const { return m_from; }
 	Node* get_to() const { return m_to; }
 
+	Line get_line() const;
+
 	void draw() override {}
 };
