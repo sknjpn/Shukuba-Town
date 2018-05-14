@@ -15,7 +15,7 @@ namespace skn
 		auto shape = get_shape();
 
 		//‚Ù‚©‚ÌBuilding‚Æ‚Ìd‚È‚è
-		for (auto* b : g_village->get_buildings())
+		for (auto* b : g_field->get_buildings())
 		{
 			if (b->get_shape().intersects(shape))
 			{
@@ -24,7 +24,7 @@ namespace skn
 		}
 
 		//Road‚Æ‚Ìd‚È‚è
-		for (auto* p : g_village->get_roads())
+		for (auto* p : g_field->get_roads())
 		{
 			if (p->get_line().intersects(shape))
 			{
@@ -52,7 +52,7 @@ namespace skn
 	Builder_Building::Builder_Building()
 		: m_rotation(0)
 	{
-		for (auto json : g_village->get_json()[U"buildings"].arrayView())
+		for (auto json : g_field->get_json()[U"buildings"].arrayView())
 		{
 			m_samples.emplace_back(new Sample(json));
 		}
@@ -68,7 +68,7 @@ namespace skn
 		if (Cursor::PosF().y < Window::Size().y - 80)
 		{
 			//Transformer2D
-			auto t = g_village->get_camera().create_transformer();
+			auto t = g_field->get_camera().create_transformer();
 
 			if (MouseR.down())
 			{
@@ -86,7 +86,7 @@ namespace skn
 			{
 				auto json = m_selected_sample->get_json();
 
-				g_village->add_building(Factory::make_building(Cursor::PosF(), m_rotation, json));
+				g_field->add_building(Factory::make_building(Cursor::PosF(), m_rotation, json));
 			}
 
 			{
