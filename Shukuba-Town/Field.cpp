@@ -50,5 +50,13 @@ void Field::update()
 {
 	m_builder->update();
 
+	{
+		auto t = m_camera->create_transformer();
+
+		for (auto* p : m_paths)
+		{
+			p->draw();
+		}
+	}
 }
 
