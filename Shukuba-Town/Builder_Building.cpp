@@ -4,6 +4,7 @@
 #include "Field.h"
 
 #include "Factory.h"
+#include "Camera.h"
 
 #include "Path.h"
 #include "Node.h"
@@ -68,7 +69,7 @@ namespace skn
 		if (Cursor::PosF().y < Window::Size().y - 80)
 		{
 			//Transformer2D
-			auto t = g_field->get_camera().create_transformer();
+			auto t = g_field->get_camera()->create_transformer();
 
 			if (MouseR.down())
 			{
