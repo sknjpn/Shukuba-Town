@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "name": "Wheat",
+      "type": "Crop",
+      "texture": "data/items/Wheat.png",
+      "weight": 1.0
+    },
+    {
+      "name": "Bread",
+      "type": "Food",
+      "weight": 1.0,
+      "texture": "data/items/Bread.png",
+      "nutrition": 0.5
+    }
+  ],
+  "buildings": [
+    {
+      "name": "WoodenHouse",
+      "type": "BuildingHouse",
+      "entrance": "(64, -16)",
+      "texture": {
+        "shape": "data/buildings/house_shape.png",
+        "site": "data/buildings/house_site.png"
+      },
+      "equipments": [
+        {
+          "name": "WoodenEquipmentBed",
+          "type": "EquipmentBed",
+          "position": "( -16, 24)",
+          "rotation": "0",
+          "texture": "data/equipments/Bed.png"
+        }
+      ]
+    },
+    {
+      "name": "SmallCropField",
+      "type": "BuildingHouse",
+      "entrance": "(80, -24)",
+      "texture": {
+        "shape": "data/buildings/crop_field_shape.png",
+        "site": "data/buildings/crop_field_site.png"
+      },
+      "equipments": [],
+      "jobs": {
+        "name": "WheatFarmer",
+        "type": "JobFarmer",
+        "count": 4,
+        "product": "Wheat"
+      }
+    },
+    {
+      "name": "Bakery",
+      "type": "BuildingHouse",
+      "entrance": "(80, -48)",
+      "texture": {
+        "shape": "data/buildings/store_shape.png",
+        "site": "data/buildings/store_site.png"
+      },
+      "equipments": [
+        {
+          "name": "WoodenChair",
+          "type": "EquipmentInterior",
+          "position": "( -48, -32)",
+          "rotation": "0",
+          "texture": "data/equipments/Chair.png"
+        },
+        {
+          "name": "WoodenChair",
+          "type": "EquipmentInterior",
+          "position": "(  -16, -32)",
+          "rotation": "0",
+          "texture": "data/equipments/Chair.png"
+        }
+      ],
+      "jobs": {
+        "name": "Baker",
+        "type": "JobBaker",
+        "count": 2,
+        "material": "Wheat",
+        "product": "Bread"
+      }
+    }
+  ]
+}
