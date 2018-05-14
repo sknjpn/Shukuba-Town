@@ -20,6 +20,8 @@ public:
 	Node* get_to() const { return m_to; }
 	double get_width() const { return m_width; }
 
+	Path* get_opposite() const;
+
 	Line get_line() const;
 
 	void draw() override {}
