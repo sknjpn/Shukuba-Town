@@ -262,5 +262,8 @@
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="Equipment.h">
+      <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
