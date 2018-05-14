@@ -20,4 +20,6 @@ public:
 
 	bool has_path(Node* to) const;
 	Path* get_path(Node* to) const;
+
+	double get_radius() const { return m_radius; }
 };

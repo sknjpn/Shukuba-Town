@@ -53,7 +53,6 @@ Node* Field::get_node(const Vec2 & position) const
 void Field::update()
 {
 	m_camera->update();
-	m_builder->update();
 
 	{
 		auto t = m_camera->create_transformer();
@@ -62,6 +61,15 @@ void Field::update()
 		{
 			p->draw();
 		}
+
+		for (auto* n : m_nodes)
+		{
+			Circle(n->get_position(), n->get_radius()).draw()
+				.draw(ColorF(Palette::White, 0.5))
+				.drawFrame(1.0, Palette::Black);
+		}
 	}
+
+	m_builder->update();
 }
 
