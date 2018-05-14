@@ -264,6 +264,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="Equipment_Interior.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Scene_Game.h" />

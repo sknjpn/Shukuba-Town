@@ -268,5 +268,8 @@
     <ClInclude Include="Equipment.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
+    <ClInclude Include="Equipment_Interior.h">
+      <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
