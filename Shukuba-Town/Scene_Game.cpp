@@ -8,5 +8,5 @@ void Scene_Game::start()
 
 void Scene_Game::update()
 {
-
+	g_field->update();
 }
