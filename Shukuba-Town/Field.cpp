@@ -52,6 +52,7 @@ Node* Field::get_node(const Vec2 & position) const
 
 void Field::update()
 {
+	m_camera->update();
 	m_builder->update();
 
 	{
