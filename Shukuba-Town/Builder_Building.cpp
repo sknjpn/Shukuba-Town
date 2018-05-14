@@ -24,7 +24,7 @@ namespace skn
 		}
 
 		//Road‚Æ‚Ìd‚È‚è
-		for (auto* p : g_field->get_roads())
+		for (auto* p : g_field->get_paths())
 		{
 			if (p->get_line().intersects(shape))
 			{

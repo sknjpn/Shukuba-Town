@@ -200,6 +200,7 @@
     <ClCompile Include="Builder_Building.cpp" />
     <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Path.cpp" />
@@ -261,6 +262,7 @@
     <ClInclude Include="Building.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Drawable.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="Node.h" />

@@ -212,6 +212,7 @@
     <ClCompile Include="Builder_Building.cpp">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClCompile>
+    <ClCompile Include="Factory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -260,5 +261,6 @@
     <ClInclude Include="Camera.h">
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
+    <ClInclude Include="Factory.h" />
   </ItemGroup>
 </Project>
