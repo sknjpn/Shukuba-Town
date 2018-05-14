@@ -1,4 +1,5 @@
 #include "Field.h"
+#include "Builder.h"
 #include "Camera.h"
 #include "Node.h"
 #include "Path.h"
@@ -47,5 +48,7 @@ Node* Field::get_node(const Vec2 & position) const
 
 void Field::update()
 {
+	m_builder->update();
+
 }
 
