@@ -195,7 +195,8 @@ void Builder_Road::update()
 						p->get_from()->connect(from_node, p->get_width());
 						p->get_to()->connect(from_node, p->get_width());
 
-						p->disconnect();
+						p->get_from()->disconnect(p->get_to());
+						p->get_to()->disconnect(p->get_from());
 					}
 					else if (p->get_line().intersects(m_to_position) &&
 						p->get_from() != to_node &&
@@ -204,7 +205,8 @@ void Builder_Road::update()
 						p->get_from()->connect(to_node, p->get_width());
 						p->get_to()->connect(to_node, p->get_width());
 
-						p->disconnect();
+						p->get_from()->disconnect(p->get_to());
+						p->get_to()->disconnect(p->get_from());
 					}
 				}
 			}

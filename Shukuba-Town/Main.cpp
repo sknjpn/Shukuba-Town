@@ -1,9 +1,7 @@
 ﻿#include "SceneManager.h"
+#include "Scene_Game.h"
 
 void Main()
 {
-	while (System::Update())
-	{
-
-	}
+	SceneManager::Run(new Scene_Game);
 }
