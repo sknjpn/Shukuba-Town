@@ -24,5 +24,5 @@ public:
 
 	Line get_line() const;
 
-	void draw() override {}
+	void draw() override;
 };

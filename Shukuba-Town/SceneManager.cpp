@@ -12,6 +12,8 @@ void SceneManager::Run(Scene* scene)
 
 	while (System::Update())
 	{
+		ClearPrint();
+
 		scene->update();
 	}
 }

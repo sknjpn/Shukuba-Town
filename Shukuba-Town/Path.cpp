@@ -22,3 +22,8 @@ Line Path::get_line() const
 {
 	return Line(m_from->get_position(), m_to->get_position());
 }
+
+void Path::draw()
+{
+	get_line().stretched(-m_width / 2.0).draw(m_width);
+}
