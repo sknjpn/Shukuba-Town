@@ -15,7 +15,7 @@ Path::~Path()
 
 Path* Path::get_opposite() const
 {
-	return m_from->get_path(m_to);
+	return m_to->get_path(m_from);
 }
 
 Line Path::get_line() const
