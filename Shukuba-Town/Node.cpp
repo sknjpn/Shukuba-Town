@@ -33,5 +33,5 @@ bool Node::has_path(Node* to) const
 
 Path* Node::get_path(Node* to) const
 {
-	return *std::find_if(m_paths.begin(), m_paths.end(), [to](Path* p) { return p->get_to() == to; });
+	return has_path(to) ? *std::find_if(m_paths.begin(), m_paths.end(), [to](Path* p) { return p->get_to() == to; }) : nullptr;
 }
