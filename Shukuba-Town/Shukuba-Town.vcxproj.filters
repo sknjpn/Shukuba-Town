@@ -209,6 +209,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>sknjpn\Game\Field</Filter>
     </ClCompile>
+    <ClCompile Include="Builder_Building.cpp">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
