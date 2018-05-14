@@ -8,11 +8,12 @@ void SceneManager::Run(Scene* scene)
 		s_instance = new SceneManager();
 	}
 
+	scene->start();
+
 	while (System::Update())
 	{
 		scene->update();
 	}
 }
-
 
 SceneManager* SceneManager::s_instance = nullptr;
