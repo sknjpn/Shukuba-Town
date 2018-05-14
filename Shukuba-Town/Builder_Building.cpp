@@ -10,7 +10,7 @@
 
 namespace skn
 {
-	bool BuilderBuilding::can_set() const
+	bool Builder_Building::can_set() const
 	{
 		auto shape = get_shape();
 
@@ -35,21 +35,21 @@ namespace skn
 		return true;
 	}
 
-	Polygon BuilderBuilding::get_shape() const
+	Polygon Builder_Building::get_shape() const
 	{
 		return m_selected_sample->get_base_shape()
 			.rotated(m_rotation)
 			.movedBy(Cursor::PosF());
 	}
 
-	Polygon BuilderBuilding::get_site() const
+	Polygon Builder_Building::get_site() const
 	{
 		return m_selected_sample->get_base_site()
 			.rotated(m_rotation)
 			.movedBy(Cursor::PosF());
 	}
 
-	BuilderBuilding::BuilderBuilding()
+	Builder_Building::Builder_Building()
 		: m_rotation(0)
 	{
 		for (auto json : g_village->get_json()[U"buildings"].arrayView())
@@ -61,7 +61,7 @@ namespace skn
 		m_selected_sample->set_selected(true);
 	}
 
-	void BuilderBuilding::update()
+	void Builder_Building::update()
 	{
 		Print << U"Œš•¨ŒšÝƒ‚[ƒh";
 
@@ -127,7 +127,7 @@ namespace skn
 		}
 	}
 
-	BuilderBuilding::Sample::Sample(JSONValue json)
+	Builder_Building::Sample::Sample(JSONValue json)
 		: m_is_selected(false)
 		, m_json(json)
 	{
@@ -146,14 +146,14 @@ namespace skn
 			.movedBy(-image_site.size() / 2.0);
 	}
 
-	bool BuilderBuilding::Sample::is_clicked(const Vec2& position) const
+	bool Builder_Building::Sample::is_clicked(const Vec2& position) const
 	{
 		return RoundRect(Rect(64), 8)
 			.movedBy(position)
 			.leftClicked();
 	}
 
-	bool BuilderBuilding::Sample::is_mouse_over(const Vec2& position) const
+	bool Builder_Building::Sample::is_mouse_over(const Vec2& position) const
 	{
 		auto rect = Rect(64);
 
@@ -162,7 +162,7 @@ namespace skn
 			.mouseOver();
 	}
 
-	void BuilderBuilding::Sample::draw(const Vec2& position)
+	void Builder_Building::Sample::draw(const Vec2& position)
 	{
 		auto color = m_is_selected ? Palette::Orange : Palette::White;
 		auto rect = Rect(64);
