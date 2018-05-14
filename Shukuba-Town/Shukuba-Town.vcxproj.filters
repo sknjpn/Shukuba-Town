@@ -271,5 +271,8 @@
     <ClInclude Include="Equipment_Interior.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
+    <ClInclude Include="Sample.h">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
