@@ -4,11 +4,15 @@
 #include "Node.h"
 #include "Path.h"
 
+#include "Builder_Road.h"
+
 Field* g_field = nullptr;
 
 Field::Field()
 {
-	m_camera = new Camera();
+	m_camera = new Camera;
+
+	m_builder = new Builder_Road;
 }
 
 
