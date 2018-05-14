@@ -38,6 +38,8 @@ public:
 	Node* get_node(const Vec2& position) const;
 
 	Camera* get_camera() const { return m_camera; }
+
+	void update();
 };
 
 extern Field* g_field;

@@ -45,3 +45,7 @@ Node* Field::get_node(const Vec2 & position) const
 	return (it == m_nodes.end()) ? nullptr : *it;
 }
 
+void Field::update()
+{
+}
+
