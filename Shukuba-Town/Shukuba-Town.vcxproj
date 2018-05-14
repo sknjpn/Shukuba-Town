@@ -199,6 +199,7 @@
   <ItemGroup>
     <ClCompile Include="Builder_Building.cpp" />
     <ClCompile Include="Builder_Road.cpp" />
+    <ClCompile Include="Building.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Field.cpp" />

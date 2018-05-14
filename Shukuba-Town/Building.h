@@ -13,7 +13,7 @@ class Building
 	Texture m_texture;
 
 public:
-	void draw() override {}
+	void draw() override;
 
 	const Polygon& get_shape() const { return m_shape; }
 	const Polygon& get_floor() const { return m_floor; }
