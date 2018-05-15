@@ -13,7 +13,7 @@ Field::Field()
 	, m_builder(nullptr)
 	, m_camera(new Camera)
 {
-	m_builder = new Builder_Road;
+
 }
 
 
@@ -70,6 +70,10 @@ void Field::update()
 				.drawFrame(1.0, Palette::Black);
 		}
 	}
+
+	if(KeyE.down()){}
+	if(KeyR.down()){}
+	m_builder = new Builder_Road;
 
 	m_builder->update();
 }
