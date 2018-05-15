@@ -16,6 +16,8 @@ class Field
 	Builder* m_builder;
 	Camera* m_camera;
 
+	JSONReader m_json;
+
 public:
 	Field();
 	~Field();
@@ -38,6 +40,8 @@ public:
 	Node* get_node(const Vec2& position) const;
 
 	Camera* get_camera() const { return m_camera; }
+
+	const JSONReader& get_json() const { return m_json; }
 
 	void update();
 };
