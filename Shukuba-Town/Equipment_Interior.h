@@ -2,8 +2,14 @@
 
 #include "Equipment.h"
 
-class Equipment_Interior
-	: public Equipment
+namespace skn
 {
-
-};
+	class EquipmentInterior
+		: public Equipment
+	{
+	public:
+		EquipmentInterior(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+			: Equipment(position, rotation, json)
+		{}
+	};
+}

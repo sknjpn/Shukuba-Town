@@ -201,9 +201,9 @@
     <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="EquipmentBed.cpp" />
-    <ClCompile Include="EquipmentInterior.cpp" />
-    <ClCompile Include="EquipmentStorage.cpp" />
+    <ClCompile Include="Equipment_Bed.cpp" />
+    <ClCompile Include="Equipment_Interior.cpp" />
+    <ClCompile Include="Equipment_Storage.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Job_Baker.cpp" />
@@ -269,10 +269,9 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Equipment.h" />
-    <ClInclude Include="EquipmentBed.h" />
-    <ClInclude Include="EquipmentInterior.h" />
-    <ClInclude Include="EquipmentStorage.h" />
+    <ClInclude Include="Equipment_Bed.h" />
     <ClInclude Include="Equipment_Interior.h" />
+    <ClInclude Include="Equipment_Storage.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Job.h" />

@@ -224,13 +224,13 @@
     <ClCompile Include="Factory.cpp">
       <Filter>sknjpn\Game\Field</Filter>
     </ClCompile>
-    <ClCompile Include="EquipmentInterior.cpp">
+    <ClCompile Include="Equipment_Bed.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
-    <ClCompile Include="EquipmentStorage.cpp">
+    <ClCompile Include="Equipment_Interior.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
-    <ClCompile Include="EquipmentBed.cpp">
+    <ClCompile Include="Equipment_Storage.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
   </ItemGroup>
@@ -284,9 +284,6 @@
     <ClInclude Include="Equipment.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="Equipment_Interior.h">
-      <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
-    </ClInclude>
     <ClInclude Include="Sample.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
@@ -302,13 +299,13 @@
     <ClInclude Include="Factory.h">
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
-    <ClInclude Include="EquipmentInterior.h">
+    <ClInclude Include="Equipment_Bed.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="EquipmentStorage.h">
+    <ClInclude Include="Equipment_Interior.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="EquipmentBed.h">
+    <ClInclude Include="Equipment_Storage.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
   </ItemGroup>
