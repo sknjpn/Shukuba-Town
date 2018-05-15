@@ -50,10 +50,17 @@ Polygon Builder_Building::get_site() const
 
 Position Builder_Building::get_setting_position() const
 {
-	auto entrance = Cursor::PosF().movedBy(m_selected_sample->get_json()[U"entrance])
-	auto* node = g_field->get_closest_node(Cursor::PosF());
+	auto entrance = Cursor::PosF() + m_selected_sample->get_entrance().rotated(m_rotation);
+	auto* node = g_field->get_closest_node(entrance);
 
-	return Position();
+	if (node == nullptr)
+	{
+		return Cursor::PosF();
+	}
+	else
+	{
+		return node->get_position() - m_selected_sample->get_entrance().rotated(m_rotation);
+	}
 }
 
 Builder_Building::Builder_Building()
@@ -137,6 +144,7 @@ void Builder_Building::update()
 Builder_Building::Sample::Sample(JSONValue json)
 	: m_is_selected(false)
 	, m_json(json)
+	, m_entrance(json[U"entrance"].get<Position>())
 {
 	Image	image_shape(json[U"texture"][U"shape"].get<FilePath>());
 	Image	image_site(json[U"texture"][U"site"].get<FilePath>());
