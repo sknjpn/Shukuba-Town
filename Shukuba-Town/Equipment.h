@@ -24,6 +24,6 @@ namespace skn
 				.movedBy(get_position());
 		}
 
-		void			draw() const override;
+		void			draw() override;
 	};
 }

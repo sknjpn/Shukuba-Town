@@ -18,7 +18,7 @@ namespace skn
 		}
 	}
 
-	void Equipment::draw() const
+	void Equipment::draw()
 	{
 		m_texture
 			.rotated(get_rotation())
