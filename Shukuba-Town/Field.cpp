@@ -72,8 +72,8 @@ void Field::update()
 		}
 	}
 
-	if (KeyE.down()) { set_builder(new Builder_Road); }
-	if (KeyR.down()) { set_builder(new Builder_Building); }
+	if (Key1.down()) { set_builder(new Builder_Road); }
+	if (Key2.down()) { set_builder(new Builder_Building); }
 
 	if (m_builder != nullptr) { m_builder->update(); }
 }
