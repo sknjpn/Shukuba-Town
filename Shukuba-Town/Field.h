@@ -18,7 +18,7 @@ class Field
 
 	JSONReader m_json;
 
-	void set_builder(Builder* builder) { if (m_builder != nullptr) { delete m_builder; } m_builder = builder; }
+	void set_builder(Builder* builder);
 
 public:
 	Field();
