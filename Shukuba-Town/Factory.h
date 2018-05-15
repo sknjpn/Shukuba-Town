@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Transform.h"
-
 namespace skn
 {
 	class Job;
