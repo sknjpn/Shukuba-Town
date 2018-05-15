@@ -1,22 +1,63 @@
 #pragma once
 
-#include "Drawable.h"
 #include "Transform.h"
+#include "Road.h"
 
-class Building
-	: public Drawable
-	, public Transform
-	, public Uncopyable
+namespace skn
 {
-	Polygon m_shape;
-	Polygon m_floor;
-	Texture m_texture;
+	class Equipment;
+	class Job;
 
-public:
-	Building();
+	class Building
+		: public Transform
+		, public Uncopyable
+	{
+		//ì¸å˚Çï\Ç∑
+		class Entrance
+			: public Anchor
+		{
+			Anchor*	m_anchor;
 
-	void draw() override;
+		public:
+			Entrance(const Position& position)
+				: Anchor(position)
+			{}
 
-	const Polygon& get_shape() const { return m_shape; }
-	const Polygon& get_floor() const { return m_floor; }
-};
+			//getter
+			const Anchor*	get_anchor() const { return m_anchor; }
+
+			//ëSíTçıÇµÇƒç≈ìKÇ»AnchorÇ…ê⁄ë±Ç∑ÇÈ
+			void		update_connection();
+		};
+
+		Entrance		m_entrance;
+		s3d::Polygon	m_base_site;
+		s3d::Polygon	m_base_shape;
+		s3d::Texture	m_texture;
+		std::vector<Job*>		m_jobs;
+		std::vector<Equipment*>	m_equipments;
+
+		void	init_jobs(s3d::JSONValue json);
+		void	init_equipments(s3d::JSONValue json);
+
+	public:
+		Building(const Position& position, const Rotation& rotation, s3d::JSONValue json);
+		virtual ~Building() = default;
+
+		s3d::Polygon	get_shape() const
+		{
+			return m_base_shape
+				.rotated(get_rotation())
+				.movedBy(get_position());
+		}
+
+		s3d::Polygon	get_site() const
+		{
+			return m_base_site
+				.rotated(get_rotation())
+				.movedBy(get_position());
+		}
+
+		void	draw() const;
+	};
+}
