@@ -24,11 +24,6 @@ namespace skn
 		return new Job(building);
 	}
 
-	Item* Factory::make_item(s3d::JSONValue json)
-	{
-		return new Item(json);
-	}
-
 	Building* Factory::make_building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 	{
 		Building* building = nullptr;
