@@ -4,14 +4,10 @@
 #include "JobBaker.h"
 #include "JobFarmer.h"
 
-#include "Item.h"
-
 #include "Building.h"
-#include "BuildingHouse.h"
 
 #include "Equipment.h"
 #include "Equipment_Bed.h"
-#include "EquipmentStorage.h"
 #include "Equipment_Interior.h"
 
 namespace skn
