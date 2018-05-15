@@ -3,7 +3,7 @@
 #include "Field.h"
 #include "Equipment.h"
 
-void Building::init_jobs(s3d::JSONValue json)
+void Building::init_jobs(JSONValue json)
 {
 	for (auto j : json[U"equipments"].arrayView())
 	{
@@ -14,7 +14,7 @@ void Building::init_jobs(s3d::JSONValue json)
 	}
 }
 
-void Building::init_equipments(s3d::JSONValue json)
+void Building::init_equipments(JSONValue json)
 {
 	if (json[U"jobs"].isEmpty())
 	{
@@ -22,22 +22,22 @@ void Building::init_equipments(s3d::JSONValue json)
 	}
 }
 
-Building::Building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+Building::Building(const Position& position, const Rotation& rotation, JSONValue json)
 	: Transform(position, rotation)
 	, m_entrance(json[U"entrance"].get<Position>())
 {
-	s3d::Image	image_shape(json[U"texture"][U"shape"].get<s3d::FilePath>());
-	s3d::Image	image_site(json[U"texture"][U"site"].get<s3d::FilePath>());
+	Image	image_shape(json[U"texture"][U"shape"].get<FilePath>());
+	Image	image_site(json[U"texture"][U"site"].get<FilePath>());
 
-	m_texture = s3d::Texture(image_shape);
+	m_texture = Texture(image_shape);
 
-	m_base_shape = s3d::ImageProcessing::FindExternalContour(image_shape, true)
-		.movedBy(s3d::Vec2::One() / 2.0)
+	m_base_shape = ImageProcessing::FindExternalContour(image_shape, true)
+		.movedBy(Vec2::One() / 2.0)
 		.movedBy(-image_shape.size() / 2.0)
 		.calculateRoundBuffer(16.0);
 
-	m_base_site = s3d::ImageProcessing::FindExternalContour(image_site, true)
-		.movedBy(s3d::Vec2::One() / 2.0)
+	m_base_site = ImageProcessing::FindExternalContour(image_site, true)
+		.movedBy(Vec2::One() / 2.0)
 		.movedBy(-image_site.size() / 2.0);
 
 	init_equipments(json);
@@ -46,22 +46,22 @@ Building::Building(const Position& position, const Rotation& rotation, s3d::JSON
 
 void Building::draw() const
 {
-	auto color = s3d::Palette::White;
+	auto color = Palette::White;
 
 	m_texture
 		.rotated(get_rotation())
 		.drawAt(get_position(), color);
 
-	get_shape().drawFrame(1, s3d::ColorF(color, 0.75));
+	get_shape().drawFrame(1, ColorF(color, 0.75));
 
-	get_site().drawFrame(1, s3d::ColorF(color, 0.50));
+	get_site().drawFrame(1, ColorF(color, 0.50));
 
 	//Equipments
 	for (const auto* e : m_equipments) { e->draw(); }
 
-	s3d::Circle(get_position() + m_entrance.get_position().rotated(get_rotation()), 32.0)
-		.draw(s3d::ColorF(1.0, 0.25))
-		.drawFrame(1.0, s3d::ColorF(1.0, 1.0));
+	Circle(get_position() + m_entrance.get_position().rotated(get_rotation()), 32.0)
+		.draw(ColorF(1.0, 0.25))
+		.drawFrame(1.0, ColorF(1.0, 1.0));
 }
 
 void Building::Entrance::update_connection()

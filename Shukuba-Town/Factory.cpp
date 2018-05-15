@@ -10,7 +10,7 @@
 #include "Equipment_Bed.h"
 #include "Equipment_Interior.h"
 
-Job* Factory::make_job(Building* building, s3d::JSONValue json)
+Job* Factory::make_job(Building* building, JSONValue json)
 {
 	if (json[U"type"].getString() == U"Job_Baker") { return new Job_Baker(building, json); }
 	if (json[U"type"].getString() == U"Job_Farmer") { return new Job_Farmer(building, json); }
@@ -18,7 +18,7 @@ Job* Factory::make_job(Building* building, s3d::JSONValue json)
 	return new Job(building);
 }
 
-Building* Factory::make_building(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+Building* Factory::make_building(const Position& position, const Rotation& rotation, JSONValue json)
 {
 	Building* building = nullptr;
 
@@ -28,7 +28,7 @@ Building* Factory::make_building(const Position& position, const Rotation& rotat
 	return building;
 }
 
-Equipment* Factory::make_equipment(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+Equipment* Factory::make_equipment(const Position& position, const Rotation& rotation, JSONValue json)
 {
 	Equipment* equipment = nullptr;
 

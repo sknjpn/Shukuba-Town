@@ -8,14 +8,14 @@ class Equipment
 	, public Uncopyable
 	, public Drawable
 {
-	s3d::Polygon	m_base_shape;
-	s3d::Texture	m_texture;	//テクスチャ
+	Polygon	m_base_shape;
+	Texture	m_texture;	//テクスチャ
 
 public:
-	Equipment(const Position& position, const Rotation& rotation, s3d::JSONValue json);
+	Equipment(const Position& position, const Rotation& rotation, JSONValue json);
 	virtual ~Equipment() = default;
 
-	s3d::Polygon	get_shape() const
+	Polygon	get_shape() const
 	{
 		return m_base_shape
 			.rotated(get_rotation())
