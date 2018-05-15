@@ -5,6 +5,7 @@
 #include "Path.h"
 
 #include "Builder_Road.h"
+#include "Builder_Building.h"
 
 Field* g_field = nullptr;
 
@@ -71,10 +72,9 @@ void Field::update()
 		}
 	}
 
-	if(KeyE.down()){}
-	if(KeyR.down()){}
-	m_builder = new Builder_Road;
+	if (KeyE.down()) { set_builder(new Builder_Road); }
+	if (KeyR.down()) { set_builder(new Builder_Building); }
 
-	m_builder->update();
+	if (m_builder != nullptr) { m_builder->update(); }
 }
 
