@@ -9,6 +9,7 @@
 Field* g_field = nullptr;
 
 Field::Field()
+	: m_json(U"data/data.json")
 {
 	m_camera = new Camera;
 
