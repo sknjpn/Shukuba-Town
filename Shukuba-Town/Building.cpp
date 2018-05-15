@@ -2,6 +2,7 @@
 #include "Factory.h"
 #include "Field.h"
 #include "Equipment.h"
+#include "Node.h"
 
 void Building::init_jobs(JSONValue json)
 {
@@ -22,9 +23,9 @@ void Building::init_equipments(JSONValue json)
 	}
 }
 
-Building::Building(const Position& position, const Rotation& rotation, JSONValue json)
-	: Transform(position, rotation)
-	, m_entrance(json[U"entrance"].get<Position>())
+Building::Building(Node* entrance, const Rotation& rotation, JSONValue json)
+	: Transform(entrance->get_position(), rotation)
+	, m_entrance(entrance)
 {
 	Image	image_shape(json[U"texture"][U"shape"].get<FilePath>());
 	Image	image_site(json[U"texture"][U"site"].get<FilePath>());
@@ -57,27 +58,9 @@ void Building::draw() const
 	get_site().drawFrame(1, ColorF(color, 0.50));
 
 	//Equipments
-	for (const auto* e : m_equipments) { e->draw(); }
+	for (auto* e : m_equipments) { e->draw(); }
 
-	Circle(get_position() + m_entrance.get_position().rotated(get_rotation()), 32.0)
+	Circle(get_position().rotated(get_rotation()), 32.0)
 		.draw(ColorF(1.0, 0.25))
 		.drawFrame(1.0, ColorF(1.0, 1.0));
-}
-
-void Building::Entrance::update_connection()
-{
-	m_node = nullptr;
-
-	const auto& roads = g_village->get_roads();
-
-	auto it = std::min_element(
-		roads.begin(),
-		roads.end(),
-		[this](Road* a, Road* b) {return a->get_distance_from(get_position()) < b->get_distance_from(get_position()); }
-	);
-
-	if (it != roads.end() && (*it)->get_distance_from(get_position()) < 32.0)
-	{
-		m_node = new Junction(*it, (*it)->get_from()->get_position().distanceFrom((*it)->get_closest(get_position())));
-	}
 }

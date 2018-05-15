@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Transform.h"
+
 class Job;
 class Building;
 class Equipment;

@@ -21,7 +21,7 @@ class Building
 	void	init_equipments(JSONValue json);
 
 public:
-	Building(const Position& position, const Rotation& rotation, JSONValue json);
+	Building(Node* entrance, const Rotation& rotation, JSONValue json);
 	virtual ~Building() = default;
 
 	Polygon	get_shape() const
