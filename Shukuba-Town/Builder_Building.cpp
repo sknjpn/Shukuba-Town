@@ -34,20 +34,6 @@ bool Builder_Building::can_set() const
 	return true;
 }
 
-Polygon Builder_Building::get_shape() const
-{
-	return m_selected_sample->get_base_shape()
-		.rotated(m_rotation)
-		.movedBy(Cursor::PosF());
-}
-
-Polygon Builder_Building::get_site() const
-{
-	return m_selected_sample->get_base_site()
-		.rotated(m_rotation)
-		.movedBy(Cursor::PosF());
-}
-
 Position Builder_Building::get_setting_position() const
 {
 	auto entrance = Cursor::PosF() + m_selected_sample->get_entrance().rotated(m_rotation);
@@ -108,11 +94,14 @@ void Builder_Building::update()
 
 			m_selected_sample->get_texture()
 				.rotated(m_rotation)
-				.drawAt(Cursor::PosF(), ColorF(color, 0.50));
+				.drawAt(get_setting_position(), ColorF(color, 0.50));
 
-			get_shape().drawFrame(1, ColorF(color, 0.50));
-
-			get_site().drawFrame(1, ColorF(color, 0.25));
+			m_selected_sample->get_base_shape()
+				.rotated(m_rotation)
+				.movedBy(Cursor::PosF()).drawFrame(1, ColorF(color, 0.50));
+			m_selected_sample->get_base_site()
+				.rotated(m_rotation)
+				.movedBy(Cursor::PosF()).drawFrame(1, ColorF(color, 0.25));
 		}
 
 		if (MouseR.pressed())

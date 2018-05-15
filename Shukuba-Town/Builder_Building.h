@@ -42,9 +42,6 @@ class Builder_Building
 
 	bool		can_set() const;
 
-	Polygon		get_shape() const;
-	Polygon		get_site() const;
-
 	Position	get_setting_position() const;
 
 public:
