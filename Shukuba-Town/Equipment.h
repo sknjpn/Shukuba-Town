@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Transform.h"
+#include "Drawable.h"
 
 namespace skn
 {
@@ -22,6 +23,6 @@ namespace skn
 				.movedBy(get_position());
 		}
 
-		void			draw() const;
+		void			draw() const override;
 	};
 }
