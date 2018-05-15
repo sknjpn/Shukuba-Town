@@ -8,6 +8,7 @@ namespace skn
 	class Equipment
 		: public Transform
 		, public Uncopyable
+		, public Drawable
 	{
 		s3d::Polygon	m_base_shape;
 		s3d::Texture	m_texture;	//テクスチャ
