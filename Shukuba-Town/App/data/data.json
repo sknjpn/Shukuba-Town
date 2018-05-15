@@ -17,7 +17,6 @@
   "buildings": [
     {
       "name": "WoodenHouse",
-      "type": "BuildingHouse",
       "entrance": "(64, -16)",
       "texture": {
         "shape": "data/buildings/house_shape.png",
@@ -35,7 +34,6 @@
     },
     {
       "name": "SmallCropField",
-      "type": "BuildingHouse",
       "entrance": "(80, -24)",
       "texture": {
         "shape": "data/buildings/crop_field_shape.png",
@@ -51,7 +49,6 @@
     },
     {
       "name": "Bakery",
-      "type": "BuildingHouse",
       "entrance": "(80, -48)",
       "texture": {
         "shape": "data/buildings/store_shape.png",
