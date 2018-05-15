@@ -230,6 +230,9 @@
     <ClCompile Include="Equipment_Interior.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
