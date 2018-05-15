@@ -230,9 +230,6 @@
     <ClCompile Include="Equipment_Interior.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
-    <ClCompile Include="Equipment_Storage.cpp">
-      <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -303,9 +300,6 @@
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
     <ClInclude Include="Equipment_Interior.h">
-      <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipment_Storage.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
   </ItemGroup>

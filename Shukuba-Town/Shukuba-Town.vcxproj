@@ -203,7 +203,6 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Equipment_Bed.cpp" />
     <ClCompile Include="Equipment_Interior.cpp" />
-    <ClCompile Include="Equipment_Storage.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Job_Baker.cpp" />
@@ -271,7 +270,6 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="Equipment_Bed.h" />
     <ClInclude Include="Equipment_Interior.h" />
-    <ClInclude Include="Equipment_Storage.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Job.h" />
