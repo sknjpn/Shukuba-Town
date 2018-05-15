@@ -10,25 +10,7 @@ class Building
 	: public Transform
 	, public Uncopyable
 {
-	//“üŒû‚ğ•\‚·
-	class Entrance
-		: public Node
-	{
-		Node*	m_node;
-
-	public:
-		Entrance(const Position& position)
-			: Node(position)
-		{}
-
-		//getter
-		const Node*	get_node() const { return m_node; }
-
-		//‘S’Tõ‚µ‚ÄÅ“K‚ÈNode‚ÉÚ‘±‚·‚é
-		void		update_connection();
-	};
-
-	Entrance		m_entrance;
+	Node*		m_entrance;
 	s3d::Polygon	m_base_site;
 	s3d::Polygon	m_base_shape;
 	s3d::Texture	m_texture;
