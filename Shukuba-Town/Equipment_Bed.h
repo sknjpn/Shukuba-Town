@@ -4,11 +4,11 @@
 
 namespace skn
 {
-	class EquipmentBed
+	class Equipment_Bed
 		: public Equipment
 	{
 	public:
-		EquipmentBed(const Position& position, const Rotation& rotation, s3d::JSONValue json)
+		Equipment_Bed(const Position& position, const Rotation& rotation, s3d::JSONValue json)
 			: Equipment(position, rotation, json)
 		{}
 	};

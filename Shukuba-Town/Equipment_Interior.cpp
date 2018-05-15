@@ -1,4 +1,4 @@
-#include "EquipmentInterior.h"
+#include "Equipment_Interior.h"
 
 namespace skn
 {

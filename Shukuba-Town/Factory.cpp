@@ -10,9 +10,9 @@
 #include "BuildingHouse.h"
 
 #include "Equipment.h"
-#include "EquipmentBed.h"
+#include "Equipment_Bed.h"
 #include "EquipmentStorage.h"
-#include "EquipmentInterior.h"
+#include "Equipment_Interior.h"
 
 namespace skn
 {
@@ -43,9 +43,9 @@ namespace skn
 	{
 		Equipment* equipment = nullptr;
 
-		if (json[U"type"].getString() == U"EquipmentBed") { equipment = new EquipmentBed(position, rotation, json); }
+		if (json[U"type"].getString() == U"Equipment_Bed") { equipment = new Equipment_Bed(position, rotation, json); }
 		else if (json[U"type"].getString() == U"EquipmentStorage") { equipment = new EquipmentStorage(position, rotation, json); }
-		else if (json[U"type"].getString() == U"EquipmentInterior") { equipment = new EquipmentInterior(position, rotation, json); }
+		else if (json[U"type"].getString() == U"Equipment_Interior") { equipment = new Equipment_Interior(position, rotation, json); }
 		else { equipment = new Equipment(position, rotation, json); }
 
 		return equipment;
