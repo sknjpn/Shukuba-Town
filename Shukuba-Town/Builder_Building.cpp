@@ -11,7 +11,10 @@
 
 bool Builder_Building::can_set() const
 {
-	auto shape = get_shape();
+	auto shape =
+		m_selected_sample->get_base_shape()
+		.rotated(m_rotation)
+		.movedBy(get_setting_position());
 
 	//‚Ù‚©‚ÌBuilding‚Æ‚Ìd‚È‚è
 	for (auto* b : g_field->get_buildings())
@@ -39,7 +42,7 @@ Position Builder_Building::get_setting_position() const
 	auto entrance = Cursor::PosF() + m_selected_sample->get_entrance().rotated(m_rotation);
 	auto* node = g_field->get_closest_node(entrance);
 
-	if (node == nullptr)
+	if (node == nullptr || node->get_position().distanceFrom(entrance) > node->get_radius())
 	{
 		return Cursor::PosF();
 	}
@@ -91,6 +94,7 @@ void Builder_Building::update()
 
 		{
 			auto color = can_set() ? Palette::Green : Palette::Red;
+			auto position = get_setting_position();
 
 			m_selected_sample->get_texture()
 				.rotated(m_rotation)
@@ -98,10 +102,11 @@ void Builder_Building::update()
 
 			m_selected_sample->get_base_shape()
 				.rotated(m_rotation)
-				.movedBy(Cursor::PosF()).drawFrame(1, ColorF(color, 0.50));
+				.movedBy(position).drawFrame(1, ColorF(color, 0.50));
+
 			m_selected_sample->get_base_site()
 				.rotated(m_rotation)
-				.movedBy(Cursor::PosF()).drawFrame(1, ColorF(color, 0.25));
+				.movedBy(position).drawFrame(1, ColorF(color, 0.25));
 		}
 
 		if (MouseR.pressed())
