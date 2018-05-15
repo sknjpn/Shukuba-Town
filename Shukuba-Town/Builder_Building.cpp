@@ -48,6 +48,14 @@ Polygon Builder_Building::get_site() const
 		.movedBy(Cursor::PosF());
 }
 
+Position Builder_Building::get_setting_position() const
+{
+	auto entrance = Cursor::PosF().movedBy(m_selected_sample->get_json()[U"entrance])
+	auto* node = g_field->get_closest_node(Cursor::PosF());
+
+	return Position();
+}
+
 Builder_Building::Builder_Building()
 	: m_rotation(0)
 {
