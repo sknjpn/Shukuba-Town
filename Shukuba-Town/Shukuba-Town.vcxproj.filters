@@ -216,6 +216,12 @@
     <ClCompile Include="Building.cpp">
       <Filter>sknjpn\Game\Field\Building</Filter>
     </ClCompile>
+    <ClCompile Include="JobBaker.cpp">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="JobFarmer.cpp">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -273,6 +279,15 @@
     </ClInclude>
     <ClInclude Include="Sample.h">
       <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Job.h">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="JobBaker.h">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="JobFarmer.h">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
