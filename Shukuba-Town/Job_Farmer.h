@@ -4,13 +4,13 @@
 
 namespace skn
 {
-	class JobFarmer
+	class Job_Farmer
 		: public Job
 	{
 		s3d::Vec2 m_target;
 
 	public:
-		JobFarmer(Building* owner, s3d::JSONValue json);
+		Job_Farmer(Building* owner, s3d::JSONValue json);
 
 		void	work() override;
 	};

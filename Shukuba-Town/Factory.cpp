@@ -1,8 +1,8 @@
 #include "Factory.h"
 
 #include "Job.h"
-#include "JobBaker.h"
-#include "JobFarmer.h"
+#include "Job_Baker.h"
+#include "Job_Farmer.h"
 
 #include "Building.h"
 
@@ -14,8 +14,8 @@ namespace skn
 {
 	Job* skn::Factory::make_job(Building* building, s3d::JSONValue json)
 	{
-		if (json[U"type"].getString() == U"JobBaker") { return new JobBaker(building, json); }
-		if (json[U"type"].getString() == U"JobFarmer") { return new JobFarmer(building, json); }
+		if (json[U"type"].getString() == U"Job_Baker") { return new Job_Baker(building, json); }
+		if (json[U"type"].getString() == U"Job_Farmer") { return new Job_Farmer(building, json); }
 
 		return new Job(building);
 	}

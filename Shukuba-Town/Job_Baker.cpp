@@ -1,14 +1,14 @@
-#include "JobBaker.h"
+#include "Job_Baker.h"
 
 namespace skn
 {
-	JobBaker::JobBaker(Building* owner, s3d::JSONValue json)
+	Job_Baker::Job_Baker(Building* owner, s3d::JSONValue json)
 		: Job(owner)
 	{
 
 	}
 
-	void JobBaker::work()
+	void Job_Baker::work()
 	{
 
 	}
