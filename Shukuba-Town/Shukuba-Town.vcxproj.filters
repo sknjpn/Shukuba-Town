@@ -216,10 +216,10 @@
     <ClCompile Include="Building.cpp">
       <Filter>sknjpn\Game\Field\Building</Filter>
     </ClCompile>
-    <ClCompile Include="JobBaker.cpp">
+    <ClCompile Include="Job_Farmer.cpp">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClCompile>
-    <ClCompile Include="JobFarmer.cpp">
+    <ClCompile Include="Job_Baker.cpp">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClCompile>
   </ItemGroup>
@@ -283,10 +283,10 @@
     <ClInclude Include="Job.h">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClInclude>
-    <ClInclude Include="JobBaker.h">
+    <ClInclude Include="Job_Farmer.h">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClInclude>
-    <ClInclude Include="JobFarmer.h">
+    <ClInclude Include="Job_Baker.h">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClInclude>
   </ItemGroup>

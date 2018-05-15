@@ -203,8 +203,8 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Field.cpp" />
-    <ClCompile Include="JobBaker.cpp" />
-    <ClCompile Include="JobFarmer.cpp" />
+    <ClCompile Include="Job_Baker.cpp" />
+    <ClCompile Include="Job_Farmer.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Scene_Game.cpp" />
@@ -270,8 +270,8 @@
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Job.h" />
-    <ClInclude Include="JobBaker.h" />
-    <ClInclude Include="JobFarmer.h" />
+    <ClInclude Include="Job_Baker.h" />
+    <ClInclude Include="Job_Farmer.h" />
     <ClInclude Include="Sample.h" />
     <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="Node.h" />
