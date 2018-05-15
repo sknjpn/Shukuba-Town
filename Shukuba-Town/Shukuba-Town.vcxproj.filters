@@ -212,7 +212,6 @@
     <ClCompile Include="Builder_Building.cpp">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClCompile>
-    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Building.cpp">
       <Filter>sknjpn\Game\Field\Building</Filter>
     </ClCompile>
@@ -221,6 +220,9 @@
     </ClCompile>
     <ClCompile Include="Job_Baker.cpp">
       <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>sknjpn\Game\Field</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -270,7 +272,6 @@
     <ClInclude Include="Camera.h">
       <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
-    <ClInclude Include="Factory.h" />
     <ClInclude Include="Equipment.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
@@ -288,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="Job_Baker.h">
       <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>sknjpn\Game\Field</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
