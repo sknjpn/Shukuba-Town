@@ -85,7 +85,7 @@ void Builder_Building::update()
 		{
 			auto json = m_selected_sample->get_json();
 
-			g_field->add_building(Factory::make_building(Cursor::PosF(), m_rotation, json));
+			//g_field->add_building(Factory::make_building(Cursor::PosF(), m_rotation, json));
 		}
 
 		{
