@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Transform.h"
+#include "Drawable.h"
 
 class Node;
 class Equipment;
@@ -9,6 +10,7 @@ class Job;
 class Building
 	: public Transform
 	, public Uncopyable
+	, public Drawable
 {
 	Node*		m_entrance;
 	Polygon	m_base_site;
@@ -38,5 +40,5 @@ public:
 			.movedBy(get_position());
 	}
 
-	void	draw() const;
+	void	draw() override;
 };

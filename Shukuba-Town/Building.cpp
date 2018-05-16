@@ -52,7 +52,7 @@ Building::~Building()
 	g_field->remove_building(this);
 }
 
-void Building::draw() const
+void Building::draw()
 {
 	auto color = Palette::White;
 
