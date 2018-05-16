@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Node.h"
 #include "Path.h"
+#include "Building.h"
 
 #include "Builder_Road.h"
 #include "Builder_Building.h"
@@ -79,6 +80,11 @@ void Field::update()
 			Circle(n->get_position(), n->get_radius()).draw()
 				.draw(ColorF(Palette::White, 0.5))
 				.drawFrame(1.0, Palette::Black);
+		}
+
+		for (auto* b : m_buildings)
+		{
+			b->draw();
 		}
 	}
 
