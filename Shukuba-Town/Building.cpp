@@ -27,6 +27,8 @@ Building::Building(Node* entrance, const Rotation& rotation, JSONValue json)
 	: Transform(entrance->get_position(), rotation)
 	, m_entrance(entrance)
 {
+	g_field->add_building(this);
+
 	Image	image_shape(json[U"texture"][U"shape"].get<FilePath>());
 	Image	image_site(json[U"texture"][U"site"].get<FilePath>());
 
@@ -43,6 +45,11 @@ Building::Building(Node* entrance, const Rotation& rotation, JSONValue json)
 
 	init_equipments(json);
 	init_jobs(json);
+}
+
+Building::~Building()
+{
+	g_field->remove_building(this);
 }
 
 void Building::draw() const

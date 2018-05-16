@@ -22,7 +22,7 @@ class Building
 
 public:
 	Building(Node* entrance, const Rotation& rotation, JSONValue json);
-	virtual ~Building() = default;
+	~Building();
 
 	Polygon	get_shape() const
 	{
