@@ -88,8 +88,12 @@ void Builder_Building::update()
 		if (MouseL.down() && can_set())
 		{
 			auto json = m_selected_sample->get_json();
+			auto position = Cursor::PosF();
+			auto* node = g_field->get_node(position);
 
-			//g_field->add_building(Factory::make_building(Cursor::PosF(), m_rotation, json));
+			if (node == nullptr) { node = new Node(position, 16.0); }
+
+			new Building(node, m_rotation, json);
 		}
 
 		{
