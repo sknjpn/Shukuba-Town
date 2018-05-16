@@ -15,6 +15,8 @@ public:
 	Node(const Vec2& position, double radius);
 	~Node();
 
+	static const double s_node_radius;
+
 	void connect(Node* to, double width);
 	void disconnect(Node* to);
 
