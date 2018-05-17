@@ -77,7 +77,7 @@ void Field::update()
 
 		for (auto* n : m_nodes)
 		{
-			Circle(n->get_position(), n->get_radius()).draw()
+			Circle(n->get_position(), Node::s_radius).draw()
 				.draw(ColorF(Palette::White, 0.5))
 				.drawFrame(1.0, Palette::Black);
 		}

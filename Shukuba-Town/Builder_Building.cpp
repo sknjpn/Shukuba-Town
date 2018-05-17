@@ -42,7 +42,7 @@ Position Builder_Building::get_setting_position() const
 	auto entrance = Cursor::PosF() + m_selected_sample->get_entrance().rotated(m_rotation);
 	auto* node = g_field->get_closest_node(entrance);
 
-	if (node == nullptr || node->get_position().distanceFrom(entrance) > node->get_radius())
+	if (node == nullptr || node->get_position().distanceFrom(entrance) > Node::s_radius)
 	{
 		return Cursor::PosF();
 	}
@@ -91,7 +91,7 @@ void Builder_Building::update()
 			auto position = Cursor::PosF();
 			auto* node = g_field->get_node(position);
 
-			if (node == nullptr) { node = new Node(position, 16.0); }
+			if (node == nullptr) { node = new Node(position); }
 
 			new Building(node, m_rotation, json);
 		}

@@ -11,13 +11,13 @@ void Builder_Road::set_from_position(const Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
-	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= get_node_radius() * 2.0)
+	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= Node::s_radius * 2.0)
 	{
 		m_from_position = c_path->get_line().closest(position);
 
 		auto* c_node = g_field->get_closest_node(position);
 
-		if (c_node != nullptr && c_node->get_position().distanceFrom(position) <= get_node_radius() * 2.0)
+		if (c_node != nullptr && c_node->get_position().distanceFrom(position) <= Node::s_radius * 2.0)
 		{
 			m_from_position = c_node->get_position();
 
@@ -37,13 +37,13 @@ void Builder_Road::set_to_position(const Vec2& position)
 {
 	auto* c_path = g_field->get_closest_path(position);
 
-	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= get_node_radius() * 2.0)
+	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= Node::s_radius * 2.0)
 	{
 		m_to_position = c_path->get_line().closest(position);
 
 		auto* c_node = g_field->get_closest_node(position);
 
-		if (c_node != nullptr && c_node->get_position().distanceFrom(position) <= get_node_radius() * 2.0)
+		if (c_node != nullptr && c_node->get_position().distanceFrom(position) <= Node::s_radius * 2.0)
 		{
 			m_to_position = c_node->get_position();
 
@@ -59,17 +59,12 @@ void Builder_Road::set_to_position(const Vec2& position)
 	m_to_position = position;
 }
 
-double Builder_Road::Node::s_radius * 2.0 const
-{
-	return m_selected_sample->get_width();
-}
-
 bool Builder_Road::can_set() const
 {
 	const Line line(m_from_position, m_to_position);
 
 	//Nodeä‘ãóó£Ç…ëŒÇ∑ÇÈêßå¿
-	if (m_from_position.distanceFrom(m_to_position) <= get_node_radius() * 2.0)
+	if (m_from_position.distanceFrom(m_to_position) <= Node::s_radius * 2.0)
 	{
 		Print << U"f1";
 
@@ -79,7 +74,7 @@ bool Builder_Road::can_set() const
 	//pathÇ∆Nodeä‘ãóó£Ç…ëŒÇ∑ÇÈêßå¿
 	for (auto* n : g_field->get_nodes())
 	{
-		if (line.closest(n->get_position()).distanceFrom(n->get_position()) <= get_node_radius() * 2.0 &&
+		if (line.closest(n->get_position()).distanceFrom(n->get_position()) <= Node::s_radius * 2.0 &&
 			line.begin != n->get_position() &&
 			line.end != n->get_position())
 		{
@@ -150,11 +145,6 @@ bool Builder_Road::can_set() const
 	return true;
 }
 
-double Builder_Road::get_node_radius() const
-{
-	return 16.0;
-}
-
 Builder_Road::Builder_Road()
 {
 	m_samples.emplace_back(new Sample(16.0));
@@ -180,8 +170,8 @@ void Builder_Road::update()
 			auto* from_node = g_field->get_node(m_from_position);
 			auto* to_node = g_field->get_node(m_to_position);
 
-			if (from_node == nullptr) { from_node = new Node(m_from_position, get_node_radius()); }
-			if (to_node == nullptr) { to_node = new Node(m_to_position, get_node_radius()); }
+			if (from_node == nullptr) { from_node = new Node(m_from_position); }
+			if (to_node == nullptr) { to_node = new Node(m_to_position); }
 
 			{
 				auto paths = g_field->get_paths();
@@ -192,8 +182,8 @@ void Builder_Road::update()
 						p->get_from() != from_node &&
 						p->get_to() != from_node)
 					{
-						p->get_from()->connect(from_node, p->get_width());
-						p->get_to()->connect(from_node, p->get_width());
+						p->get_from()->connect(from_node);
+						p->get_to()->connect(from_node);
 
 						p->get_from()->disconnect(p->get_to());
 						p->get_to()->disconnect(p->get_from());
@@ -202,8 +192,8 @@ void Builder_Road::update()
 						p->get_from() != to_node &&
 						p->get_to() != to_node)
 					{
-						p->get_from()->connect(to_node, p->get_width());
-						p->get_to()->connect(to_node, p->get_width());
+						p->get_from()->connect(to_node);
+						p->get_to()->connect(to_node);
 
 						p->get_from()->disconnect(p->get_to());
 						p->get_to()->disconnect(p->get_from());
@@ -212,7 +202,7 @@ void Builder_Road::update()
 			}
 
 			//ê⁄ë±
-			from_node->connect(to_node, Node::s_radius * 2.0);
+			from_node->connect(to_node);
 
 			//fromÇÃì]ä∑
 			set_from_position(m_to_position);
@@ -265,7 +255,6 @@ void Builder_Road::update()
 
 Builder_Road::Sample::Sample(double width)
 	: m_is_selected(false)
-	, m_width(width)
 {
 
 }
@@ -286,6 +275,6 @@ void Builder_Road::Sample::draw(const Vec2& position)
 		.draw(ColorF(color, 0.5))
 		.drawFrame(1.0, color);
 
-	Circle(position.movedBy(32, 32), m_width / 2.0).draw(Palette::Darkgreen);
-	Circle(position.movedBy(32, 32), m_width / 4.0).draw(Palette::Khaki);
+	Circle(position.movedBy(32, 32), Node::s_radius).draw(Palette::Darkgreen);
+	Circle(position.movedBy(32, 32), Node::s_radius / 2.0).draw(Palette::Khaki);
 }

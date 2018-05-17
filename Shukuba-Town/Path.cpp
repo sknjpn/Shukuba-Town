@@ -25,5 +25,5 @@ Line Path::get_line() const
 
 void Path::draw()
 {
-	get_line().stretched(-m_width / 2.0).draw(m_width);
+	get_line().stretched(-Node::s_radius).draw(Node::s_radius * 2.0);
 }

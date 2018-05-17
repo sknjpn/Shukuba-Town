@@ -2,7 +2,7 @@
 #include "Path.h"
 #include "Field.h"
 
-static const double s_radius = 16.0;
+const double Node::s_radius = 16.0;
 
 Node::Node(const Vec2& position)
 	: Transform(position)
