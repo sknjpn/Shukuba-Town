@@ -18,8 +18,8 @@ Node::~Node()
 
 void Node::connect(Node* to)
 {
-	this->m_paths.emplace_back(new Path(this, to, width));
-	to->m_paths.emplace_back(new Path(to, this, width));
+	this->m_paths.emplace_back(new Path(this, to));
+	to->m_paths.emplace_back(new Path(to, this));
 }
 
 void Node::disconnect(Node* to)
