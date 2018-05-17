@@ -15,13 +15,3 @@ Equipment::Equipment(const Position& position, const Rotation& rotation, JSONVal
 			.movedBy(-image.size() / 2.0);
 	}
 }
-
-void Equipment::draw()
-{
-	m_texture
-		.rotated(get_rotation())
-		.drawAt(get_position());
-
-	get_shape()
-		.drawFrame();
-}

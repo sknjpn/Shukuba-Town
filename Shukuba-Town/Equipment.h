@@ -14,6 +14,8 @@ public:
 	Equipment(const Position& position, const Rotation& rotation, JSONValue json);
 	virtual ~Equipment() = default;
 
+	const Texture& get_texture() const { return m_texture; }
+
 	Polygon	get_shape() const
 	{
 		return m_base_shape

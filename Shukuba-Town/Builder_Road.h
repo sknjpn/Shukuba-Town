@@ -25,7 +25,7 @@ class Builder_Road
 	Vec2	m_to_position;
 
 	Sample*		m_selected_sample;
-	std::vector<Sample*>	m_samples;
+	Array<Sample*>	m_samples;
 
 	void		set_from_position(const Vec2& position);
 	void		set_to_position(const Vec2& position);

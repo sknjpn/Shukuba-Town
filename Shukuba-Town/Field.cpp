@@ -4,6 +4,7 @@
 #include "Node.h"
 #include "Path.h"
 #include "Building.h"
+#include "Equipment.h"
 
 #include "Builder_Road.h"
 #include "Builder_Building.h"
@@ -72,7 +73,7 @@ void Field::update()
 
 		for (auto* p : m_paths)
 		{
-			p->draw();
+			p->get_line().stretched(-Node::s_radius).draw(Node::s_radius * 2.0);
 		}
 
 		for (auto* n : m_nodes)
@@ -84,7 +85,30 @@ void Field::update()
 
 		for (auto* b : m_buildings)
 		{
-			b->draw();
+			auto color = Palette::White;
+
+			b->get_texture()
+				.rotated(b->get_rotation())
+				.drawAt(b->get_position(), color);
+
+			b->get_shape().drawFrame(1, ColorF(color, 0.75));
+
+			b->get_site().drawFrame(1, ColorF(color, 0.50));
+
+			//Equipments
+			for (auto* e : b->get_equipments())
+			{
+				e->get_texture()
+					.rotated(e->get_rotation())
+					.drawAt(e->get_position());
+
+				e->get_shape()
+					.drawFrame();
+			}
+
+			Circle(b->get_position().rotated(b->get_rotation()), Node::s_radius)
+				.draw(ColorF(1.0, 0.25))
+				.drawFrame(1.0, ColorF(1.0, 1.0));
 		}
 	}
 

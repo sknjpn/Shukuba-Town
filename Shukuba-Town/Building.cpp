@@ -51,23 +51,3 @@ Building::~Building()
 {
 	g_field->remove_building(this);
 }
-
-void Building::draw()
-{
-	auto color = Palette::White;
-
-	m_texture
-		.rotated(get_rotation())
-		.drawAt(get_position(), color);
-
-	get_shape().drawFrame(1, ColorF(color, 0.75));
-
-	get_site().drawFrame(1, ColorF(color, 0.50));
-
-	//Equipments
-	for (auto* e : m_equipments) { e->draw(); }
-
-	Circle(get_position().rotated(get_rotation()), 32.0)
-		.draw(ColorF(1.0, 0.25))
-		.drawFrame(1.0, ColorF(1.0, 1.0));
-}

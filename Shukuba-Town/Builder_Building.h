@@ -38,7 +38,7 @@ class Builder_Building
 	double		m_rotation;
 
 	Sample*		m_selected_sample;
-	std::vector<Sample*>	m_samples;
+	Array<Sample*>	m_samples;
 
 	bool		can_set() const;
 

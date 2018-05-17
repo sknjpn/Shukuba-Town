@@ -15,8 +15,8 @@ class Building
 	Polygon	m_base_site;
 	Polygon	m_base_shape;
 	Texture	m_texture;
-	std::vector<Job*>		m_jobs;
-	std::vector<Equipment*>	m_equipments;
+	Array<Job*>		m_jobs;
+	Array<Equipment*>	m_equipments;
 
 	void	init_jobs(JSONValue json);
 	void	init_equipments(JSONValue json);
@@ -24,6 +24,10 @@ class Building
 public:
 	Building(Node* entrance, const Rotation& rotation, JSONValue json);
 	~Building();
+
+	const Texture&	get_texture() const { return m_texture; }
+
+	const Array<Equipment*>& get_equipments() const { return m_equipments; }
 
 	Polygon	get_shape() const
 	{
