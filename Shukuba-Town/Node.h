@@ -11,17 +11,15 @@ class Node final
 	double m_radius;
 	Array<Path*> m_paths;
 
-	static const double s_radius;
-
 public:
-	Node(const Vec2& position, double radius);
+	Node(const Vec2& position);
 	~Node();
+
+	static const double s_radius;
 
 	void connect(Node* to, double width);
 	void disconnect(Node* to);
 
 	bool has_path(Node* to) const;
 	Path* get_path(Node* to) const;
-
-	double get_radius() const { return m_radius; }
 };
