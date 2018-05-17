@@ -6,7 +6,6 @@ class Node;
 
 class Path final
 	: public Uncopyable
-	, public Drawable
 {
 	Node* m_from;
 	Node* m_to;
@@ -21,6 +20,4 @@ public:
 	Path* get_opposite() const;
 
 	Line get_line() const;
-
-	void draw() override;
 };

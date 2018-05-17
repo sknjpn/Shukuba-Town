@@ -6,7 +6,6 @@
 class Agent
 	: public Uncopyable
 	, public Transform
-	, public Drawable
 {
-	void draw() override {}
+
 };

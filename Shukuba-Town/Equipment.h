@@ -6,7 +6,6 @@
 class Equipment
 	: public Transform
 	, public Uncopyable
-	, public Drawable
 {
 	Polygon	m_base_shape;
 	Texture	m_texture;	//テクスチャ
@@ -21,6 +20,4 @@ public:
 			.rotated(get_rotation())
 			.movedBy(get_position());
 	}
-
-	void			draw() override;
 };

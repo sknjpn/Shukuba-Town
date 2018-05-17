@@ -10,7 +10,6 @@ class Job;
 class Building
 	: public Transform
 	, public Uncopyable
-	, public Drawable
 {
 	Node*		m_entrance;
 	Polygon	m_base_site;
@@ -39,6 +38,4 @@ public:
 			.rotated(get_rotation())
 			.movedBy(get_position());
 	}
-
-	void	draw() override;
 };
