@@ -13,7 +13,7 @@ class Path final
 	double m_width;
 
 public:
-	Path(Node* from, Node* to, double width);
+	Path(Node* from, Node* to);
 	~Path();
 
 	Node* get_from() const { return m_from; }

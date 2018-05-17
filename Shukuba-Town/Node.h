@@ -17,7 +17,7 @@ public:
 
 	static const double s_radius;
 
-	void connect(Node* to, double width);
+	void connect(Node* to);
 	void disconnect(Node* to);
 
 	bool has_path(Node* to) const;
