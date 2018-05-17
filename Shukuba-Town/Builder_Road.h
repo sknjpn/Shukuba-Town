@@ -10,12 +10,9 @@ class Builder_Road
 	class Sample
 	{
 		bool	m_is_selected;
-		double	m_width;
 
 	public:
 		Sample(double width);
-
-		double	get_width() const { return m_width; }
 
 		void	set_selected(bool is_selected) { m_is_selected = is_selected; }
 
@@ -32,9 +29,6 @@ class Builder_Road
 
 	void		set_from_position(const Vec2& position);
 	void		set_to_position(const Vec2& position);
-
-	double		get_path_width() const;
-	double		get_node_radius() const;
 
 	bool		can_set() const;
 

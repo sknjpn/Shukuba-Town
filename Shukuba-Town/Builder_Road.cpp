@@ -59,7 +59,7 @@ void Builder_Road::set_to_position(const Vec2& position)
 	m_to_position = position;
 }
 
-double Builder_Road::get_path_width() const
+double Builder_Road::Node::s_radius * 2.0 const
 {
 	return m_selected_sample->get_width();
 }
@@ -212,7 +212,7 @@ void Builder_Road::update()
 			}
 
 			//Ú‘±
-			from_node->connect(to_node, get_path_width());
+			from_node->connect(to_node, Node::s_radius * 2.0);
 
 			//from‚Ì“]Š·
 			set_from_position(m_to_position);
@@ -231,18 +231,18 @@ void Builder_Road::update()
 			{
 				auto p1 = m_from_position;
 				auto p2 = m_to_position;
-				auto vector = (p1 - p2).setLength(get_path_width() / 2.0).rotated(Math::HalfPi);
+				auto vector = (p1 - p2).setLength(Node::s_radius).rotated(Math::HalfPi);
 
 				Array<Vec2> points{ p1 - vector, p1 + vector, p2 + vector, p2 - vector, };
 				Polygon shape(points);
-				shape.append(Circle(p1, get_path_width() / 2.0).asPolygon());
-				shape.append(Circle(p2, get_path_width() / 2.0).asPolygon());
+				shape.append(Circle(p1, Node::s_radius).asPolygon());
+				shape.append(Circle(p2, Node::s_radius).asPolygon());
 
 				shape.draw(color);
 			}
 			else
 			{
-				Circle(m_from_position, get_path_width() / 2.0).draw(color);
+				Circle(m_from_position, Node::s_radius).draw(color);
 			}
 		}
 	}
