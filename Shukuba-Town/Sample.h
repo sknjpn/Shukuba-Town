@@ -1,6 +1,7 @@
 #pragma once
 
 class Sample
+	: public Uncopyable
 {
 	bool	m_is_selected;
 	Rect	m_rect;

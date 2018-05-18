@@ -1,5 +1,7 @@
 #pragma once
 
+class Sample;
+
 class Builder
 	: public Uncopyable
 {
