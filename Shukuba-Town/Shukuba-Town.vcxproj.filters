@@ -227,6 +227,9 @@
     <ClCompile Include="Equipment.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>sknjpn\Game\Field\Road</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -298,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="Equipment_Interior.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>sknjpn\Game\Field\Road</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
