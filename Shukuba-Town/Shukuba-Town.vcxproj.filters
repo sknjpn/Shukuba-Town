@@ -233,8 +233,12 @@
     <ClCompile Include="Sample.cpp">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClCompile>
-    <ClCompile Include="Sample_Road.cpp" />
-    <ClCompile Include="Sample_Building.cpp" />
+    <ClCompile Include="Sample_Building.cpp">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="Sample_Road.cpp">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -310,7 +314,11 @@
     <ClInclude Include="Road.h">
       <Filter>sknjpn\Game\Field\Road</Filter>
     </ClInclude>
-    <ClInclude Include="Sample_Road.h" />
-    <ClInclude Include="Sample_Building.h" />
+    <ClInclude Include="Sample_Building.h">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Sample_Road.h">
+      <Filter>sknjpn\Game\Field\Builder</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
