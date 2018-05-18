@@ -9,3 +9,8 @@ Road::Road(Node* from, Node* to)
 	m_primary = new Path(from, to);
 	m_secondary = new Path(to, from);
 }
+
+Road::~Road()
+{
+
+}
