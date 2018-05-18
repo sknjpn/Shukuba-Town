@@ -6,11 +6,11 @@ class Path;
 class Road
 	: public Uncopyable
 {
-	Node* from;
-	Node* to;
+	Node* m_from;
+	Node* m_to;
 
-	Path* primary;
-	Path* secondary;
+	Path* m_primary;
+	Path* m_secondary;
 
 public:
 	Road(Node* from, Node* to);
