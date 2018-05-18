@@ -9,8 +9,8 @@ Sample::Sample(const Rect& rect, Texture texture)
 
 void Sample::update()
 {
-}
+	if (!MouseL.pressed()) { m_is_selected = false; }
+	if (MouseL.down()) { m_is_selected = m_rect.leftClicked(); }
 
-void Sample::draw()
-{
+	m_rect.draw(ColorF(1.0, 0.5)).drawFrame(2.0, ColorF(1.0));
 }

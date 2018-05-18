@@ -9,11 +9,7 @@ class Sample
 public:
 	Sample(const Rect& rect, Texture texture);
 
-	void	set_selected(bool is_selected) { m_is_selected = is_selected; }
-
-	bool	is_left_clicked() const { return m_rect.leftClicked(); }
+	bool	is_selected() const { return m_is_selected; }
 
 	void	update();
-
-	void	draw();
 };
