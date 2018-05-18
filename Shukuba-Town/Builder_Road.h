@@ -12,7 +12,7 @@ class Builder_Road
 		bool	m_is_selected;
 
 	public:
-		Sample(double width);
+		Sample();
 
 		void	set_selected(bool is_selected) { m_is_selected = is_selected; }
 

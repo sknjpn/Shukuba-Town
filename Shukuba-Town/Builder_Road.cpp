@@ -253,7 +253,7 @@ void Builder_Road::update()
 	}
 }
 
-Builder_Road::Sample::Sample(double width)
+Builder_Road::Sample::Sample()
 	: m_is_selected(false)
 {
 
