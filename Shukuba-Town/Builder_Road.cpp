@@ -147,15 +147,6 @@ bool Builder_Road::can_set() const
 	return true;
 }
 
-Builder_Road::Builder_Road()
-{
-	m_samples.emplace_back(new Sample(16.0));
-	m_samples.emplace_back(new Sample(24.0));
-	m_samples.emplace_back(new Sample(32.0));
-	m_selected_sample = m_samples.front();
-	m_selected_sample->set_selected(true);
-}
-
 void Builder_Road::update()
 {
 	Print << U"“¹˜HŒšÝƒ‚[ƒh";
