@@ -3,15 +3,19 @@
 #include "Drawable.h"
 
 class Node;
+class Road;
 
 class Path final
 	: public Uncopyable
 {
+	friend Road;	//êe
+
+	Road* m_road;
 	Node* m_from;
 	Node* m_to;
 
 public:
-	Path(Node* from, Node* to);
+	Path(Road* road, Node* from, Node* to);
 	~Path();
 
 	Node* get_from() const { return m_from; }

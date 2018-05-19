@@ -16,10 +16,10 @@ public:
 	Road(Node* from, Node* to);
 	~Road();
 
-	const Node* get_from() const { return m_from; }
-	const Node* get_to() const { return m_to; }
+	Node* get_from() const { return m_from; }
+	Node* get_to() const { return m_to; }
+	Path* get_primary() const { return m_primary; }
+	Path* get_secondary() const { return m_secondary; }
 
-	const Path* get_primary() const { return m_primary; }
-	const Path* get_secondary() const { return m_secondary; }
+	Line get_line() const;
 };
-

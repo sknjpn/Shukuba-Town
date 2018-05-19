@@ -5,6 +5,7 @@
 #include "Field.h"
 #include "Camera.h"
 
+#include "Road.h"
 #include "Node.h"
 #include "Path.h"
 #include "Building.h"
@@ -166,36 +167,30 @@ void Builder_Road::update()
 			if (from_node == nullptr) { from_node = new Node(m_from_position); }
 			if (to_node == nullptr) { to_node = new Node(m_to_position); }
 
+			for (auto* r : g_field->get_roads())
 			{
-				auto paths = g_field->get_paths();
-
-				for (auto* p : paths)
+				if (r->get_line().intersects(m_from_position) &&
+					r->get_from() != from_node &&
+					r->get_to() != from_node)
 				{
-					if (p->get_line().intersects(m_from_position) &&
-						p->get_from() != from_node &&
-						p->get_to() != from_node)
-					{
-						p->get_from()->connect(from_node);
-						p->get_to()->connect(from_node);
+					new Road(r->get_from(), from_node);
+					new Road(r->get_to(), from_node);
 
-						p->get_from()->disconnect(p->get_to());
-						p->get_to()->disconnect(p->get_from());
-					}
-					else if (p->get_line().intersects(m_to_position) &&
-						p->get_from() != to_node &&
-						p->get_to() != to_node)
-					{
-						p->get_from()->connect(to_node);
-						p->get_to()->connect(to_node);
+					delete r;
+				}
+				else if (r->get_line().intersects(m_to_position) &&
+					r->get_from() != to_node &&
+					r->get_to() != to_node)
+				{
+					new Road(r->get_from(), to_node);
+					new Road(r->get_to(), to_node);
 
-						p->get_from()->disconnect(p->get_to());
-						p->get_to()->disconnect(p->get_from());
-					}
+					delete r;
 				}
 			}
 
 			//Ú‘±
-			from_node->connect(to_node);
+			new Road(from_node, to_node);
 
 			//from‚Ì“]Š·
 			set_from_position(m_to_position);
