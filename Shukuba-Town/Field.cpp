@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Node.h"
 #include "Path.h"
+#include "Road.h"
 #include "Building.h"
 #include "Equipment.h"
 
@@ -14,7 +15,7 @@ Field* g_field = nullptr;
 void Field::set_builder(Builder * builder)
 {
 	if (m_builder != nullptr) { delete m_builder; }
-	
+
 	m_builder = builder;
 }
 
@@ -71,15 +72,44 @@ void Field::update()
 	{
 		auto t = m_camera->create_transformer();
 
-		for (auto* p : m_paths)
+		for (auto* n : m_nodes)
 		{
-			p->get_line().stretched(-Node::s_radius).draw(Node::s_radius * 2.0);
+			Circle(n->get_position(), Node::s_radius).draw(Palette::White);
+		}
+
+		for (auto* r : m_roads)
+		{
+			r->get_line().stretched(-Node::s_radius).draw(Node::s_radius * 2.0);
+		}
+
+		for (auto* r : m_roads)
+		{
+			Vec2 head = Vec2::One() * Node::s_radius * 0.5;
+
+			{
+				auto l = r->get_primary()->get_line();
+
+				l.movedBy(l.vector().setLength(Node::s_radius / 2.0).rotated(Math::HalfPi))
+					.stretched(-Node::s_radius * 0.5)
+					.drawArrow(Node::s_radius / 4.0, head, Palette::Red);
+			}
+
+			{
+				auto l = r->get_secondary()->get_line();
+
+				l.movedBy(l.vector().setLength(Node::s_radius / 2.0).rotated(Math::HalfPi))
+					.stretched(-Node::s_radius * 0.5)
+					.drawArrow(Node::s_radius / 4.0, head, Palette::Red);
+			}
 		}
 
 		for (auto* n : m_nodes)
 		{
-			Circle(n->get_position(), Node::s_radius).draw()
-				.draw(ColorF(Palette::White, 0.5))
+			Circle(n->get_position(), Node::s_radius)
+				.draw(ColorF(Palette::Gray, 0.25));
+
+			Circle(n->get_position(), Node::s_radius * 0.5)
+				.draw(ColorF(Palette::Gray, 0.5))
 				.drawFrame(1.0, Palette::Black);
 		}
 
