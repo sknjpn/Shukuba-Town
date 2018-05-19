@@ -75,6 +75,10 @@ void Builder_Building::update()
 {
 	Print << U"Œš•¨ŒšÝƒ‚[ƒh";
 
+	auto* sample = dynamic_cast<Sample_Building*>(get_selected_sample());
+
+	if (sample == nullptr) { return; }
+
 	if (Cursor::PosF().y < Window::Size().y - 80)
 	{
 		//Transformer2D
@@ -94,7 +98,7 @@ void Builder_Building::update()
 
 		if (MouseL.down() && can_set())
 		{
-			auto json = dynamic_cast<Sample_Building*>(get_selected_sample())->get_json();
+			auto json = sample->get_json();
 			auto position = Cursor::PosF();
 			auto* node = g_field->get_node(position);
 
@@ -107,15 +111,15 @@ void Builder_Building::update()
 			auto color = can_set() ? Palette::Green : Palette::Red;
 			auto position = get_setting_position();
 
-			dynamic_cast<Sample_Building*>(get_selected_sample())->get_texture()
+			sample->get_texture()
 				.rotated(m_rotation)
 				.drawAt(get_setting_position(), ColorF(color, 0.50));
 
-			dynamic_cast<Sample_Building*>(get_selected_sample())->get_base_shape()
+			sample->get_base_shape()
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.50));
 
-			dynamic_cast<Sample_Building*>(get_selected_sample())->get_base_site()
+			sample->get_base_site()
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.25));
 		}
