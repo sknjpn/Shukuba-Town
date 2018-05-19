@@ -255,28 +255,6 @@ void Builder_Road::update()
 	}
 }
 
-Builder_Road::Sample::Sample()
-	: m_is_selected(false)
-{
-
-}
-
-bool Builder_Road::Sample::is_clicked(const Vec2& position) const
-{
-	return RoundRect(Rect(64), 8)
-		.movedBy(position)
-		.leftClicked();
-}
-
 void Builder_Road::Sample::draw(const Vec2& position)
 {
-	auto color = m_is_selected ? Palette::Orange : Palette::White;
-
-	RoundRect(Rect(64), 8)
-		.movedBy(position)
-		.draw(ColorF(color, 0.5))
-		.drawFrame(1.0, color);
-
-	Circle(position.movedBy(32, 32), Node::s_radius).draw(Palette::Darkgreen);
-	Circle(position.movedBy(32, 32), Node::s_radius / 2.0).draw(Palette::Khaki);
 }
