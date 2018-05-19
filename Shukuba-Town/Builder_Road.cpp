@@ -238,23 +238,4 @@ void Builder_Road::update()
 			}
 		}
 	}
-
-	for (int i = 0; i < int(m_samples.size()); ++i)
-	{
-		auto* s = m_samples[i];
-		auto position = Vec2(8 + i * 80, Window::Size().y - 72);
-
-		if (s->is_clicked(position))
-		{
-			m_selected_sample->set_selected(false);
-			m_selected_sample = s;
-			m_selected_sample->set_selected(true);
-		}
-
-		s->draw(position);
-	}
-}
-
-void Builder_Road::Sample::draw(const Vec2& position)
-{
 }

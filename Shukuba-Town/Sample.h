@@ -9,6 +9,7 @@ class Sample
 
 public:
 	Sample(const Rect& rect, Texture texture);
+	virtual ~Sample() = default;
 
 	bool	is_selected() const { return m_is_selected; }
 

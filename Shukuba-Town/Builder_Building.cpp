@@ -14,7 +14,7 @@
 bool Builder_Building::can_set() const
 {
 	auto shape =
-		dynamic_cast<Sample_Building>(get_selected_sample())->get_base_shape()
+		dynamic_cast<Sample_Building*>(get_selected_sample())->get_base_shape()
 		.rotated(m_rotation)
 		.movedBy(get_setting_position());
 
@@ -41,7 +41,7 @@ bool Builder_Building::can_set() const
 
 Position Builder_Building::get_setting_position() const
 {
-	auto entrance = Cursor::PosF() + dynamic_cast<Sample_Building>(get_selected_sample())->get_entrance().rotated(m_rotation);
+	auto entrance = Cursor::PosF() + dynamic_cast<Sample_Building*>(get_selected_sample())->get_entrance().rotated(m_rotation);
 	auto* node = g_field->get_closest_node(entrance);
 
 	if (node == nullptr || node->get_position().distanceFrom(entrance) > Node::s_radius)
@@ -50,7 +50,7 @@ Position Builder_Building::get_setting_position() const
 	}
 	else
 	{
-		return node->get_position() - dynamic_cast<Sample_Building>(get_selected_sample())->get_entrance().rotated(m_rotation);
+		return node->get_position() - dynamic_cast<Sample_Building*>(get_selected_sample())->get_entrance().rotated(m_rotation);
 	}
 }
 
@@ -59,11 +59,11 @@ Builder_Building::Builder_Building()
 {
 	for (auto json : g_field->get_json()[U"buildings"].arrayView())
 	{
-		m_samples.emplace_back(new Sample(json));
+		add_sample(new Sample_Building(json));
 	}
 
-	dynamic_cast<Sample_Building>(get_selected_sample()) = m_samples.front();
-	dynamic_cast<Sample_Building>(get_selected_sample())->set_selected(true);
+	dynamic_cast<Sample_Building*>(get_selected_sample()) = m_samples.front();
+	dynamic_cast<Sample_Building*>(get_selected_sample())->set_selected(true);
 }
 
 void Builder_Building::update()
@@ -89,7 +89,7 @@ void Builder_Building::update()
 
 		if (MouseL.down() && can_set())
 		{
-			auto json = dynamic_cast<Sample_Building>(get_selected_sample())->get_json();
+			auto json = dynamic_cast<Sample_Building*>(get_selected_sample())->get_json();
 			auto position = Cursor::PosF();
 			auto* node = g_field->get_node(position);
 
@@ -102,15 +102,15 @@ void Builder_Building::update()
 			auto color = can_set() ? Palette::Green : Palette::Red;
 			auto position = get_setting_position();
 
-			dynamic_cast<Sample_Building>(get_selected_sample())->get_texture()
+			dynamic_cast<Sample_Building*>(get_selected_sample())->get_texture()
 				.rotated(m_rotation)
 				.drawAt(get_setting_position(), ColorF(color, 0.50));
 
-			dynamic_cast<Sample_Building>(get_selected_sample())->get_base_shape()
+			dynamic_cast<Sample_Building*>(get_selected_sample())->get_base_shape()
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.50));
 
-			dynamic_cast<Sample_Building>(get_selected_sample())->get_base_site()
+			dynamic_cast<Sample_Building*>(get_selected_sample())->get_base_site()
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.25));
 		}
@@ -124,70 +124,4 @@ void Builder_Building::update()
 				.drawArrow(4.0, Vec2(16.0, 16.0));
 		}
 	}
-
-	for (int i = 0; i < int(m_samples.size()); ++i)
-	{
-		auto* s = m_samples[i];
-		auto position = Vec2(8 + i * 80, Window::Size().y - 72);
-
-		if (s->is_clicked(position))
-		{
-			dynamic_cast<Sample_Building>(get_selected_sample())->set_selected(false);
-			dynamic_cast<Sample_Building>(get_selected_sample()) = s;
-			dynamic_cast<Sample_Building>(get_selected_sample())->set_selected(true);
-		}
-
-		s->draw(position);
-	}
-}
-
-Builder_Building::Sample::Sample(JSONValue json)
-	: m_is_selected(false)
-	, m_json(json)
-	, m_entrance(json[U"entrance"].get<Position>())
-{
-	Image	image_shape(json[U"texture"][U"shape"].get<FilePath>());
-	Image	image_site(json[U"texture"][U"site"].get<FilePath>());
-
-	m_texture = Texture(image_shape);
-
-	m_base_shape = ImageProcessing::FindExternalContour(image_shape, true)
-		.movedBy(Vec2::One() / 2.0)
-		.movedBy(-image_shape.size() / 2.0)
-		.calculateRoundBuffer(16.0);
-
-	m_base_site = ImageProcessing::FindExternalContour(image_site, true)
-		.movedBy(Vec2::One() / 2.0)
-		.movedBy(-image_site.size() / 2.0);
-}
-
-bool Builder_Building::Sample::is_clicked(const Vec2& position) const
-{
-	return RoundRect(Rect(64), 8)
-		.movedBy(position)
-		.leftClicked();
-}
-
-bool Builder_Building::Sample::is_mouse_over(const Vec2& position) const
-{
-	auto rect = Rect(64);
-
-	return RoundRect(rect, 8)
-		.movedBy(position)
-		.mouseOver();
-}
-
-void Builder_Building::Sample::draw(const Vec2& position)
-{
-	auto color = m_is_selected ? Palette::Orange : Palette::White;
-	auto rect = Rect(64);
-
-	RoundRect(rect, 8)
-		.movedBy(position)
-		.draw(ColorF(color, 0.5))
-		.drawFrame(1.0, color);
-
-	m_texture
-		.resized(rect.size)
-		.draw(position);
 }
