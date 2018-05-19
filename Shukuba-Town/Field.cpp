@@ -112,6 +112,6 @@ void Field::update()
 		}
 	}
 
-	if (m_builder != nullptr) { m_builder->update(); }
+	if (m_builder != nullptr) { m_builder->update_samples(); m_builder->update(); }
 }
 
