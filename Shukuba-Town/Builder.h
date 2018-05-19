@@ -11,6 +11,7 @@ class Builder
 public:
 	virtual ~Builder() = default;
 
+	void add_sample(Sample* sample) { m_samples.emplace_back(sample); }
 	Sample*	get_selected_sample() const;
 
 	void update_samples();
