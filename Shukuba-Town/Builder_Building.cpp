@@ -14,7 +14,7 @@
 bool Builder_Building::can_set() const
 {
 	auto shape =
-		get_selected_sample()->get_base_shape()
+		dynamic_cast<Sample_Building>(get_selected_sample())->get_base_shape()
 		.rotated(m_rotation)
 		.movedBy(get_setting_position());
 
@@ -41,7 +41,7 @@ bool Builder_Building::can_set() const
 
 Position Builder_Building::get_setting_position() const
 {
-	auto entrance = Cursor::PosF() + get_selected_sample()->get_entrance().rotated(m_rotation);
+	auto entrance = Cursor::PosF() + dynamic_cast<Sample_Building>(get_selected_sample())->get_entrance().rotated(m_rotation);
 	auto* node = g_field->get_closest_node(entrance);
 
 	if (node == nullptr || node->get_position().distanceFrom(entrance) > Node::s_radius)
@@ -50,7 +50,7 @@ Position Builder_Building::get_setting_position() const
 	}
 	else
 	{
-		return node->get_position() - get_selected_sample()->get_entrance().rotated(m_rotation);
+		return node->get_position() - dynamic_cast<Sample_Building>(get_selected_sample())->get_entrance().rotated(m_rotation);
 	}
 }
 
@@ -62,8 +62,8 @@ Builder_Building::Builder_Building()
 		m_samples.emplace_back(new Sample(json));
 	}
 
-	get_selected_sample() = m_samples.front();
-	get_selected_sample()->set_selected(true);
+	dynamic_cast<Sample_Building>(get_selected_sample()) = m_samples.front();
+	dynamic_cast<Sample_Building>(get_selected_sample())->set_selected(true);
 }
 
 void Builder_Building::update()
@@ -89,7 +89,7 @@ void Builder_Building::update()
 
 		if (MouseL.down() && can_set())
 		{
-			auto json = get_selected_sample()->get_json();
+			auto json = dynamic_cast<Sample_Building>(get_selected_sample())->get_json();
 			auto position = Cursor::PosF();
 			auto* node = g_field->get_node(position);
 
@@ -102,15 +102,15 @@ void Builder_Building::update()
 			auto color = can_set() ? Palette::Green : Palette::Red;
 			auto position = get_setting_position();
 
-			get_selected_sample()->get_texture()
+			dynamic_cast<Sample_Building>(get_selected_sample())->get_texture()
 				.rotated(m_rotation)
 				.drawAt(get_setting_position(), ColorF(color, 0.50));
 
-			get_selected_sample()->get_base_shape()
+			dynamic_cast<Sample_Building>(get_selected_sample())->get_base_shape()
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.50));
 
-			get_selected_sample()->get_base_site()
+			dynamic_cast<Sample_Building>(get_selected_sample())->get_base_site()
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.25));
 		}
@@ -132,9 +132,9 @@ void Builder_Building::update()
 
 		if (s->is_clicked(position))
 		{
-			get_selected_sample()->set_selected(false);
-			get_selected_sample() = s;
-			get_selected_sample()->set_selected(true);
+			dynamic_cast<Sample_Building>(get_selected_sample())->set_selected(false);
+			dynamic_cast<Sample_Building>(get_selected_sample()) = s;
+			dynamic_cast<Sample_Building>(get_selected_sample())->set_selected(true);
 		}
 
 		s->draw(position);
