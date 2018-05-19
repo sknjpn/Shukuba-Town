@@ -16,7 +16,5 @@ class Builder_Road
 	bool		can_set() const;
 
 public:
-	Builder_Road();
-
 	void	update() override;
 };
