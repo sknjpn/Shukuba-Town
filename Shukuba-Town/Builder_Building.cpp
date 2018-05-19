@@ -61,9 +61,6 @@ Builder_Building::Builder_Building()
 	{
 		add_sample(new Sample_Building(json));
 	}
-
-	dynamic_cast<Sample_Building*>(get_selected_sample()) = m_samples.front();
-	dynamic_cast<Sample_Building*>(get_selected_sample())->set_selected(true);
 }
 
 void Builder_Building::update()
