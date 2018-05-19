@@ -61,13 +61,13 @@ Position Builder_Building::get_setting_position() const
 Builder_Building::Builder_Building()
 	: m_rotation(0)
 {
-	RectF rect(Vec2(16, Window::Size().y - 80), 64, 64);
+	RectF rect(Vec2(20, Window::Size().y - 100), 80, 80);
 
 	for (auto json : g_field->get_json()[U"buildings"].arrayView())
 	{
 		add_sample(new Sample_Building(rect, json));
 
-		rect.moveBy(80, 0);
+		rect.moveBy(100, 0);
 	}
 }
 
