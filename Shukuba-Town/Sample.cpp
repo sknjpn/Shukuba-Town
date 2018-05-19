@@ -9,7 +9,6 @@ Sample::Sample(const Rect& rect, Texture texture)
 
 void Sample::update()
 {
-	if (!MouseL.pressed()) { m_is_selected = false; }
 	if (MouseL.down()) { m_is_selected = m_rect.leftClicked(); }
 
 	{
