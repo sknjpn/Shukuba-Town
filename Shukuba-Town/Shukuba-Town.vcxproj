@@ -197,6 +197,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Builder_Building.cpp" />
     <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Building.cpp" />

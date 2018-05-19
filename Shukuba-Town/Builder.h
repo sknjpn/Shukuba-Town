@@ -13,5 +13,6 @@ public:
 
 	Sample*	get_selected_sample() const;
 
+	void update_samples();
 	virtual void update() = 0;
 };

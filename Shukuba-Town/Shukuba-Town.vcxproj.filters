@@ -233,6 +233,7 @@
     <ClCompile Include="Sample.cpp">
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClCompile>
+    <ClCompile Include="Builder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
