@@ -11,11 +11,11 @@ class Building
 	: public Transform
 	, public Uncopyable
 {
-	Node*		m_entrance;
+	Node*	m_entrance;
 	Polygon	m_base_site;
 	Polygon	m_base_shape;
 	Texture	m_texture;
-	Array<Job*>		m_jobs;
+	Array<Job*>			m_jobs;
 	Array<Equipment*>	m_equipments;
 
 	void	init_jobs(JSONValue json);

@@ -234,6 +234,9 @@
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClCompile>
     <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="Agent.cpp">
+      <Filter>sknjpn\Game\Field\Agent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
