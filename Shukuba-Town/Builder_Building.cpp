@@ -13,8 +13,12 @@
 
 bool Builder_Building::can_set() const
 {
+	auto* sample = dynamic_cast<Sample_Building*>(get_selected_sample());
+
+	if (sample == nullptr) { return false; }
+
 	auto shape =
-		dynamic_cast<Sample_Building*>(get_selected_sample())->get_base_shape()
+		sample->get_base_shape()
 		.rotated(m_rotation)
 		.movedBy(get_setting_position());
 
@@ -57,9 +61,13 @@ Position Builder_Building::get_setting_position() const
 Builder_Building::Builder_Building()
 	: m_rotation(0)
 {
+	RectF rect(Vec2(16, Window::Size().y - 80), 64, 64);
+
 	for (auto json : g_field->get_json()[U"buildings"].arrayView())
 	{
-		add_sample(new Sample_Building(json));
+		add_sample(new Sample_Building(rect, json));
+
+		rect.moveBy(80, 0);
 	}
 }
 
