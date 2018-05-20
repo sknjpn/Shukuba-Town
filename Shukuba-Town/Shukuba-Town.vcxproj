@@ -208,6 +208,7 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Job_Baker.cpp" />
     <ClCompile Include="Job_Farmer.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Road.cpp" />
@@ -215,6 +216,7 @@
     <ClCompile Include="Scene_Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Scultte.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -278,6 +280,7 @@
     <ClInclude Include="Job.h" />
     <ClInclude Include="Job_Baker.h" />
     <ClInclude Include="Job_Farmer.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="Sample.h" />
     <ClInclude Include="Sample_Building.h" />
@@ -287,6 +290,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Scultte.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Scene_Title.h" />
     <ClInclude Include="Transform.h" />
