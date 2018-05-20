@@ -12,11 +12,11 @@
 
 void Builder_Road::set_from_position(const Vec2& position)
 {
-	auto* c_path = g_field->get_closest_path(position);
+	auto* c_road = g_field->get_closest_road(position);
 
-	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= Node::s_radius * 2.0)
+	if (c_road != nullptr && Geometry2D::Distance(c_road->get_line(), position) <= Node::s_radius * 2.0)
 	{
-		m_from_position = c_path->get_line().closest(position);
+		m_from_position = c_road->get_line().closest(position);
 
 		auto* c_node = g_field->get_closest_node(position);
 
@@ -38,11 +38,11 @@ void Builder_Road::set_from_position(const Vec2& position)
 
 void Builder_Road::set_to_position(const Vec2& position)
 {
-	auto* c_path = g_field->get_closest_path(position);
+	auto* c_road = g_field->get_closest_road(position);
 
-	if (c_path != nullptr && Geometry2D::Distance(c_path->get_line(), position) <= Node::s_radius * 2.0)
+	if (c_road != nullptr && Geometry2D::Distance(c_road->get_line(), position) <= Node::s_radius * 2.0)
 	{
-		m_to_position = c_path->get_line().closest(position);
+		m_to_position = c_road->get_line().closest(position);
 
 		auto* c_node = g_field->get_closest_node(position);
 
@@ -88,16 +88,16 @@ bool Builder_Road::can_set() const
 	}
 
 	//pathŒð·‚É‘Î‚·‚é§ŒÀ
-	for (auto* p : g_field->get_paths())
+	for (auto* r : g_field->get_roads())
 	{
-		auto position = line.intersectsAt(p->get_line());
+		auto position = line.intersectsAt(r->get_line());
 		auto length = 1.0;
 
 		if (position &&
 			(position.value() - m_from_position).length() > length &&
 			(position.value() - m_to_position).length() > length &&
-			(position.value() - p->get_from()->get_position()).length() > length &&
-			(position.value() - p->get_to()->get_position()).length() > length)
+			(position.value() - r->get_from()->get_position()).length() > length &&
+			(position.value() - r->get_to()->get_position()).length() > length)
 		{
 			Print << U"f3";
 
@@ -118,14 +118,14 @@ bool Builder_Road::can_set() const
 		}
 
 		//‚·‚Å‚É‚ ‚éƒpƒX‚É‘Î‚·‚éÚ‘±‚Ö‚Ì§ŒÀ
-		for (auto* p : g_field->get_paths())
+		for (auto* r : g_field->get_roads())
 		{
-			if (p->get_line().intersects(m_from_position) &&
-				p->get_line().intersects(m_to_position) &&
-				p->get_from() != from_node &&
-				p->get_from() != to_node &&
-				p->get_to() != from_node &&
-				p->get_to() != to_node)
+			if (r->get_line().intersects(m_from_position) &&
+				r->get_line().intersects(m_to_position) &&
+				r->get_from() != from_node &&
+				r->get_from() != to_node &&
+				r->get_to() != from_node &&
+				r->get_to() != to_node)
 			{
 				Print << U"f5";
 

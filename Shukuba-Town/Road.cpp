@@ -21,9 +21,6 @@ Road::~Road()
 	m_from->m_paths.remove(m_primary);
 	m_to->m_paths.remove(m_secondary);
 
-	g_field->remove_path(m_primary);
-	g_field->remove_path(m_secondary);
-
 	delete m_primary;
 	delete m_secondary;
 

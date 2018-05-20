@@ -33,15 +33,15 @@ Field::~Field()
 	delete m_camera;
 }
 
-Path* Field::get_closest_path(const Vec2 & position) const
+Road* Field::get_closest_road(const Vec2 & position) const
 {
 	auto it = std::min_element(
-		m_paths.begin(),
-		m_paths.end(),
-		[&position](Path* a, Path* b) { return Geometry2D::Distance(a->get_line(), position) < Geometry2D::Distance(b->get_line(), position); }
+		m_roads.begin(),
+		m_roads.end(),
+		[&position](Road* a, Road* b) { return Geometry2D::Distance(a->get_line(), position) < Geometry2D::Distance(b->get_line(), position); }
 	);
 
-	return (it == m_paths.end()) ? nullptr : *it;
+	return (it == m_roads.end()) ? nullptr : *it;
 }
 
 Node* Field::get_closest_node(const Vec2 & position) const

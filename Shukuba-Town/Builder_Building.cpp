@@ -8,7 +8,7 @@
 #include "Factory.h"
 #include "Camera.h"
 
-#include "Path.h"
+#include "Road.h"
 #include "Node.h"
 
 bool Builder_Building::can_set() const
@@ -32,9 +32,9 @@ bool Builder_Building::can_set() const
 	}
 
 	//Road‚Æ‚Ìd‚È‚è
-	for (auto* p : g_field->get_paths())
+	for (auto* r : g_field->get_roads())
 	{
-		if (p->get_line().intersects(shape))
+		if (r->get_line().intersects(shape))
 		{
 			return false;
 		}
