@@ -3,6 +3,7 @@
 class Builder;
 class Node;
 class Road;
+class Menu;
 class Camera;
 class Building;
 
@@ -13,8 +14,9 @@ class Field
 	Array<Road*> m_roads;
 	Array<Building*> m_buildings;
 
-	Builder* m_builder;
-	Camera* m_camera;
+	Builder*	m_builder;
+	Camera*		m_camera;
+	Menu*		m_menu;
 
 	JSONReader m_json;
 
