@@ -7,7 +7,7 @@
 
 Menu::Menu()
 {
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		auto region = RectF(32 + i * 64, 32, 64, 64);
 		auto texture = Texture(Image(U"data/menu.png").clipped(i * 32, 0, 32, 32));
