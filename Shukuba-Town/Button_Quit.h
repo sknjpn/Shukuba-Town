@@ -9,4 +9,3 @@ public:
 	Button_Quit(const RectF& rect, Texture texture);
 	~Button_Quit();
 };
-
