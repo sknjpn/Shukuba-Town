@@ -7,13 +7,18 @@
 
 Menu::Menu()
 {
-	m_buttons.emplace_back(new Button_Road(RectF(32,32,64,64), Texture(U"data/menu.png")));
+	m_buttons.emplace_back(new Button_Road(RectF(32, 32, 64, 64), Texture(U"data/menu.png")));
 }
 
 Menu::~Menu()
 {
+
 }
 
 void Menu::update()
 {
+	for (auto* b : m_buttons)
+	{
+		b->draw();
+	}
 }
