@@ -1,6 +1,7 @@
 #include "Field.h"
 #include "Builder.h"
 #include "Camera.h"
+#include "Menu.h"
 #include "Node.h"
 #include "Path.h"
 #include "Road.h"
@@ -23,6 +24,7 @@ Field::Field()
 	: m_json(U"data/data.json")
 	, m_builder(nullptr)
 	, m_camera(new Camera)
+	, m_menu(new Menu)
 {
 
 }
