@@ -8,6 +8,7 @@ class Button
 	Texture	m_texture;
 
 public:
+	Button(const RectF& rect, Texture texture);
 	virtual ~Button() = default;
 
 	virtual void on_clicked() = 0;
