@@ -2,7 +2,9 @@
 
 
 Button_Building::Button_Building(const RectF& rect, Texture texture)
+	: Button(rect, texture)
 {
+
 }
 
 
