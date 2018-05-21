@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Button_Quit.h"
 
 
