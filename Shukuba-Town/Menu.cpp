@@ -7,6 +7,7 @@
 
 Menu::Menu()
 {
+	m_buttons.emplace_back(new Button_Road());
 }
 
 Menu::~Menu()
