@@ -33,6 +33,7 @@ Field::Field()
 Field::~Field()
 {
 	delete m_camera;
+	delete m_menu;
 }
 
 Road* Field::get_closest_road(const Vec2 & position) const
