@@ -6,7 +6,7 @@ class Button_Road
 	: public Button
 {
 public:
-	Button_Road();
+	Button_Road(const RectF& rect, Texture texture);
 	~Button_Road();
 };
 
