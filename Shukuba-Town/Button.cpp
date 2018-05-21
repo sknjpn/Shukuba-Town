@@ -11,4 +11,5 @@ Button::Button(const RectF& rect, Texture texture)
 void Button::draw()
 {
 	m_texture.resized(m_rect.size).draw(m_rect.pos);
+	m_rect.drawFrame(2.0, Palette::Black);
 }
