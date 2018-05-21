@@ -243,6 +243,18 @@
     <ClCompile Include="Menu.cpp">
       <Filter>sknjpn\Game\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button_Building.cpp">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button_Quit.cpp">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button_Road.cpp">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -325,6 +337,18 @@
       <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button_Road.h">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button_Building.h">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button_Quit.h">
       <Filter>sknjpn\Game\Menu</Filter>
     </ClInclude>
   </ItemGroup>

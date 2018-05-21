@@ -202,6 +202,10 @@
     <ClCompile Include="Builder_Building.cpp" />
     <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Button_Building.cpp" />
+    <ClCompile Include="Button_Quit.cpp" />
+    <ClCompile Include="Button_Road.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Factory.cpp" />
@@ -269,6 +273,10 @@
     <ClInclude Include="Builder_Building.h" />
     <ClInclude Include="Builder_Road.h" />
     <ClInclude Include="Building.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Button_Building.h" />
+    <ClInclude Include="Button_Quit.h" />
+    <ClInclude Include="Button_Road.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Equipment.h" />
