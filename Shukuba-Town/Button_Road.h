@@ -8,4 +8,6 @@ class Button_Road
 public:
 	Button_Road(const RectF& rect, Texture texture);
 	~Button_Road();
+
+	void on_clicked() override {}
 };

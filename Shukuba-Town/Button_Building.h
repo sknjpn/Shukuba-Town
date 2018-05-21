@@ -8,4 +8,6 @@ class Button_Building
 public:
 	Button_Building(const RectF& rect, Texture texture);
 	~Button_Building();
+
+	void on_clicked() override {}
 };
