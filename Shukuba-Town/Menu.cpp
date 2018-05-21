@@ -7,7 +7,13 @@
 
 Menu::Menu()
 {
-	m_buttons.emplace_back(new Button_Road(RectF(32, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(0, 0, 32, 32))));
+	for (int i = 0; i < 16; i++)
+	{
+		auto region = RectF(32 + i * 64, 32, 64, 64);
+		auto texture = Texture(Image(U"data/menu.png").clipped(i * 32, 0, 32, 32));
+
+		m_buttons.emplace_back(new Button_Road(region, texture));
+	}
 }
 
 Menu::~Menu()
