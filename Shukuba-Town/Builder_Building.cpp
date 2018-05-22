@@ -13,8 +13,6 @@
 
 bool Builder_Building::can_set() const
 {
-	if (g_field->get_menu()->any_mouse_over()) { return false; }
-
 	auto shape =
 		m_model.m_base_shape
 		.rotated(m_rotation)
@@ -66,6 +64,8 @@ Builder_Building::Builder_Building(JSONValue json)
 void Builder_Building::update()
 {
 	Print << U"Œš•¨ŒšÝƒ‚[ƒh";
+
+	if (g_field->get_menu()->any_mouse_over()) { return; }
 
 	if (Cursor::PosF().y < Window::Size().y - 80)
 	{
