@@ -26,6 +26,8 @@ public:
 	Field();
 	~Field();
 
+	void set_builder(Builder* builder) { if (m_builder != nullptr) { delete m_builder; } m_builder = Builder; }
+
 	void add_node(Node* node) { m_nodes.emplace_back(node); }
 	void add_road(Road* road) { m_roads.emplace_back(road); }
 	void add_building(Building* building) { m_buildings.emplace_back(building); }
