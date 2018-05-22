@@ -13,13 +13,6 @@
 
 Field* g_field = nullptr;
 
-void Field::set_builder(Builder * builder)
-{
-	if (m_builder != nullptr) { delete m_builder; }
-
-	m_builder = builder;
-}
-
 Field::Field()
 	: m_json(U"data/data.json")
 	, m_builder(nullptr)

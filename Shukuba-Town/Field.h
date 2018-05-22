@@ -20,8 +20,6 @@ class Field
 
 	JSONReader m_json;
 
-	void set_builder(Builder* builder);
-
 public:
 	Field();
 	~Field();
