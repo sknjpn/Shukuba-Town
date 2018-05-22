@@ -25,6 +25,19 @@ Menu::~Menu()
 
 }
 
+bool Menu::any_mouse_over() const
+{
+	for (auto* b : m_buttons)
+	{
+		if (b->mouse_over())
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void Menu::update()
 {
 	if (MouseL.down())

@@ -11,5 +11,7 @@ public:
 	Menu();
 	~Menu();
 
+	bool any_mouse_over() const;
+
 	void update();
 };
