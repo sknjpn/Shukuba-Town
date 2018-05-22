@@ -29,7 +29,7 @@ Field::~Field()
 	delete m_menu;
 }
 
-void Field::set_builder(Builder * builder)
+void Field::set_builder(Builder* builder)
 {
 	if (m_builder != nullptr) { delete m_builder; }
 	
