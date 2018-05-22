@@ -33,6 +33,52 @@
       ]
     },
     {
+      "name": "Bakery",
+      "entrance": "(80, -48)",
+      "texture": {
+        "shape": "data/buildings/store_shape.png",
+        "site": "data/buildings/store_site.png"
+      },
+      "equipments": [
+        {
+          "name": "WoodenChair",
+          "type": "EquipmentInterior",
+          "position": "( -48, -32)",
+          "rotation": "0",
+          "texture": "data/equipments/Chair.png"
+        },
+        {
+          "name": "WoodenChair",
+          "type": "EquipmentInterior",
+          "position": "(  -16, -32)",
+          "rotation": "0",
+          "texture": "data/equipments/Chair.png"
+        }
+      ],
+      "jobs": {
+        "name": "Baker",
+        "type": "JobBaker",
+        "count": 2,
+        "material": "Wheat",
+        "product": "Bread"
+      }
+    },
+    {
+      "name": "SmallCropField",
+      "entrance": "(80, -24)",
+      "texture": {
+        "shape": "data/buildings/crop_field_shape.png",
+        "site": "data/buildings/crop_field_site.png"
+      },
+      "equipments": [],
+      "jobs": {
+        "name": "WheatFarmer",
+        "type": "JobFarmer",
+        "count": 4,
+        "product": "Wheat"
+      }
+    },
+    {
       "name": "SmallCropField",
       "entrance": "(80, -24)",
       "texture": {
@@ -77,6 +123,6 @@
         "material": "Wheat",
         "product": "Bread"
       }
-    }
+    },
   ]
 }
