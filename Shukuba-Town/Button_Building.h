@@ -5,8 +5,10 @@
 class Button_Building
 	: public Button
 {
+	JSONValue	m_json;
+
 public:
-	Button_Building(const RectF& rect, Texture texture);
+	Button_Building(const RectF& rect, Texture texture, JSONValue json);
 	~Button_Building();
 
 	void on_clicked() override;
