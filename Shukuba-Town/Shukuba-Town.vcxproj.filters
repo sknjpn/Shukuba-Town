@@ -233,9 +233,6 @@
     <ClCompile Include="Road.cpp">
       <Filter>sknjpn\Game\Field\Road</Filter>
     </ClCompile>
-    <ClCompile Include="Sample.cpp">
-      <Filter>sknjpn\Game\Field\Builder</Filter>
-    </ClCompile>
     <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Agent.cpp">
       <Filter>sknjpn\Game\Field\Agent</Filter>
@@ -306,9 +303,6 @@
     <ClInclude Include="Equipment.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="Sample.h">
-      <Filter>sknjpn\Game\Field\Builder</Filter>
-    </ClInclude>
     <ClInclude Include="Job.h">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClInclude>
@@ -329,12 +323,6 @@
     </ClInclude>
     <ClInclude Include="Road.h">
       <Filter>sknjpn\Game\Field\Road</Filter>
-    </ClInclude>
-    <ClInclude Include="Sample_Building.h">
-      <Filter>sknjpn\Game\Field\Builder</Filter>
-    </ClInclude>
-    <ClInclude Include="Sample_Road.h">
-      <Filter>sknjpn\Game\Field\Builder</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>sknjpn\Game\Menu</Filter>
