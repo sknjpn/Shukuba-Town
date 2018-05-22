@@ -29,6 +29,13 @@ Field::~Field()
 	delete m_menu;
 }
 
+void Field::set_builder(Builder * builder)
+{
+	if (m_builder != nullptr) { delete m_builder; }
+	
+	m_builder = builder;
+}
+
 Road* Field::get_closest_road(const Vec2 & position) const
 {
 	auto it = std::min_element(
