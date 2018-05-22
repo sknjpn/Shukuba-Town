@@ -7,13 +7,14 @@
 
 Menu::Menu()
 {
-	for (int i = 0; i < 8; i++)
-	{
-		auto region = RectF(32 + i * 64, 32, 64, 64);
-		auto texture = Texture(Image(U"data/menu.png").clipped(i * 32, 0, 32, 32));
-
-		m_buttons.emplace_back(new Button_Road(region, texture));
-	}
+	m_buttons.emplace_back(new Button_Road(RectF(32 + 0 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(0 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Road(RectF(32 + 1 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(1 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Building(RectF(32 + 2 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(2 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Building(RectF(32 + 3 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(3 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Building(RectF(32 + 4 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(4 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Building(RectF(32 + 5 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(5 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Building(RectF(32 + 6 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(6 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Quit(RectF(32 + 7 * 64, 32, 64, 64), Texture(Image(U"data/menu.png").clipped(7 * 32, 0, 32, 32))));
 }
 
 Menu::~Menu()
