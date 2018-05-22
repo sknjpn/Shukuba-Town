@@ -1,7 +1,5 @@
 #include "Builder_Building.h"
 
-#include "Sample_Building.h"
-
 #include "Building.h"
 #include "Field.h"
 
