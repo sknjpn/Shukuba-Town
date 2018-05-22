@@ -233,7 +233,6 @@
     <ClCompile Include="Road.cpp">
       <Filter>sknjpn\Game\Field\Road</Filter>
     </ClCompile>
-    <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Agent.cpp">
       <Filter>sknjpn\Game\Field\Agent</Filter>
     </ClCompile>

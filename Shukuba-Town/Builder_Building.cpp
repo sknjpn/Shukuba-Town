@@ -11,12 +11,8 @@
 
 bool Builder_Building::can_set() const
 {
-	auto* sample = dynamic_cast<Sample_Building*>(get_selected_sample());
-
-	if (sample == nullptr) { return false; }
-
 	auto shape =
-		sample->get_base_shape()
+		m_model.m_base_shape
 		.rotated(m_rotation)
 		.movedBy(get_setting_position());
 
@@ -43,7 +39,7 @@ bool Builder_Building::can_set() const
 
 Position Builder_Building::get_setting_position() const
 {
-	auto entrance = Cursor::PosF() + dynamic_cast<Sample_Building*>(get_selected_sample())->get_entrance().rotated(m_rotation);
+	auto entrance = Cursor::PosF() + m_model.m_entrance_position.rotated(m_rotation);
 	auto* node = g_field->get_closest_node(entrance);
 
 	if (node == nullptr || node->get_position().distanceFrom(entrance) > Node::s_radius)
@@ -52,30 +48,20 @@ Position Builder_Building::get_setting_position() const
 	}
 	else
 	{
-		return node->get_position() - dynamic_cast<Sample_Building*>(get_selected_sample())->get_entrance().rotated(m_rotation);
+		return node->get_position() - m_model.m_entrance_position.rotated(m_rotation);
 	}
 }
 
-Builder_Building::Builder_Building()
+Builder_Building::Builder_Building(JSONValue json)
 	: m_rotation(0)
+	, m_model(json)
 {
-	RectF rect(Vec2(20, Window::Size().y - 100), 80, 80);
 
-	for (auto json : g_field->get_json()[U"buildings"].arrayView())
-	{
-		add_sample(new Sample_Building(rect, json));
-
-		rect.moveBy(100, 0);
-	}
 }
 
 void Builder_Building::update()
 {
 	Print << U"Œš•¨ŒšÝƒ‚[ƒh";
-
-	auto* sample = dynamic_cast<Sample_Building*>(get_selected_sample());
-
-	if (sample == nullptr) { return; }
 
 	if (Cursor::PosF().y < Window::Size().y - 80)
 	{
@@ -96,28 +82,27 @@ void Builder_Building::update()
 
 		if (MouseL.down() && can_set())
 		{
-			auto json = sample->get_json();
 			auto position = Cursor::PosF();
 			auto* node = g_field->get_node(position);
 
 			if (node == nullptr) { node = new Node(position); }
 
-			new Building(node, m_rotation, json);
+			new Building(node, m_rotation, m_model.m_json);
 		}
 
 		{
 			auto color = can_set() ? Palette::Green : Palette::Red;
 			auto position = get_setting_position();
 
-			sample->get_texture()
+			m_model.m_texture
 				.rotated(m_rotation)
 				.drawAt(get_setting_position(), ColorF(color, 0.50));
 
-			sample->get_base_shape()
+			m_model.m_base_shape
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.50));
 
-			sample->get_base_site()
+			m_model.m_base_site
 				.rotated(m_rotation)
 				.movedBy(position).drawFrame(1, ColorF(color, 0.25));
 		}
@@ -131,4 +116,23 @@ void Builder_Building::update()
 				.drawArrow(4.0, Vec2(16.0, 16.0));
 		}
 	}
+}
+
+Model::Model(JSONValue json)
+	: m_json(json)
+	, m_entrance_position(json[U"entrance"].get<Vec2>())
+{
+	s3d::Image	image_shape(json[U"texture"][U"shape"].get<s3d::FilePath>());
+	s3d::Image	image_site(json[U"texture"][U"site"].get<s3d::FilePath>());
+
+	m_texture = s3d::Texture(image_shape);
+
+	m_base_shape = s3d::ImageProcessing::FindExternalContour(image_shape, true)
+		.movedBy(s3d::Vec2::One() / 2.0)
+		.movedBy(-image_shape.size() / 2.0)
+		.calculateRoundBuffer(16.0);
+
+	m_base_site = s3d::ImageProcessing::FindExternalContour(image_site, true)
+		.movedBy(s3d::Vec2::One() / 2.0)
+		.movedBy(-image_site.size() / 2.0);
 }

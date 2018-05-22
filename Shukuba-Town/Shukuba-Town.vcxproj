@@ -198,7 +198,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
-    <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Builder_Building.cpp" />
     <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Building.cpp" />
