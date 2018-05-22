@@ -24,6 +24,19 @@ Menu::~Menu()
 
 void Menu::update()
 {
+	if (MouseL.down())
+	{
+		for (auto* b : m_buttons)
+		{
+			if (b->mouse_over())
+			{
+				b->on_clicked();
+
+				break;
+			}
+		}
+	}
+
 	for (auto* b : m_buttons)
 	{
 		b->draw();

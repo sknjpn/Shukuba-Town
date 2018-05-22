@@ -13,5 +13,7 @@ public:
 
 	virtual void on_clicked() = 0;
 
+	bool	mouse_over() const { return m_rect.mouseOver(); }
+
 	void	draw();
 };
