@@ -67,9 +67,6 @@ Node* Field::get_node(const Vec2 & position) const
 
 void Field::update()
 {
-	if (Key1.down()) { set_builder(new Builder_Road); }
-	if (Key2.down()) { set_builder(new Builder_Building); }
-
 	m_camera->update();
 
 	{
