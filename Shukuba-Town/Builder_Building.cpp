@@ -70,17 +70,9 @@ void Builder_Building::update()
 	//Transformer2D
 	auto t = g_field->get_camera()->create_transformer();
 
-	if (MouseR.down())
-	{
-		m_grabbed_position = Cursor::PosF();// .movedBy(Vec2::Left(48.0).rotated(m_rotation));
-	}
+	if (MouseR.down()) { m_grabbed_position = Cursor::PosF(); }
 
-	if (MouseR.pressed())
-	{
-		auto vector = Cursor::PosF() - m_grabbed_position;
-
-		m_rotation = atan2(vector.y, vector.x);
-	}
+	if (MouseR.pressed()) { m_rotation = -(Cursor::PosF() - m_grabbed_position).getAngle(Vec2::Right()); }
 
 	if (MouseL.down() && can_set())
 	{
