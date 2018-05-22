@@ -43,6 +43,7 @@ public:
 
 	Node* get_node(const Vec2& position) const;
 
+	Menu*	get_menu() const { return m_menu; }
 	Camera* get_camera() const { return m_camera; }
 
 	const JSONReader& get_json() const { return m_json; }
