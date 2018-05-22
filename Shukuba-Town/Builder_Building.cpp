@@ -9,8 +9,12 @@
 #include "Road.h"
 #include "Node.h"
 
+#include "Menu.h"
+
 bool Builder_Building::can_set() const
 {
+	if (g_field->get_menu()->any_mouse_over()) { return false; }
+
 	auto shape =
 		m_model.m_base_shape
 		.rotated(m_rotation)
