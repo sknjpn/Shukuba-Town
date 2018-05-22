@@ -2,6 +2,7 @@
 
 #include "Field.h"
 #include "Camera.h"
+#include "Menu.h"
 
 #include "Road.h"
 #include "Node.h"
@@ -150,76 +151,75 @@ void Builder_Road::update()
 {
 	Print << U"“¹˜HŒšÝƒ‚[ƒh";
 
-	//if (Cursor::PosF().y < Window::Size().y - 80)
+	if (g_field->get_menu()->any_mouse_over()) { return; }
+
+	//Transformer2D
+	auto t = g_field->get_camera()->create_transformer();
+
+	set_to_position(Cursor::PosF());
+
+	if (MouseL.pressed() && can_set())
 	{
-		//Transformer2D
-		auto t = g_field->get_camera()->create_transformer();
+		auto* from_node = g_field->get_node(m_from_position);
+		auto* to_node = g_field->get_node(m_to_position);
 
-		set_to_position(Cursor::PosF());
+		if (from_node == nullptr) { from_node = new Node(m_from_position); }
+		if (to_node == nullptr) { to_node = new Node(m_to_position); }
 
-		if (MouseL.pressed() && can_set())
+		for (auto* r : g_field->get_roads())
 		{
-			auto* from_node = g_field->get_node(m_from_position);
-			auto* to_node = g_field->get_node(m_to_position);
-
-			if (from_node == nullptr) { from_node = new Node(m_from_position); }
-			if (to_node == nullptr) { to_node = new Node(m_to_position); }
-
-			for (auto* r : g_field->get_roads())
+			if (r->get_line().intersects(m_from_position) &&
+				r->get_from() != from_node &&
+				r->get_to() != from_node)
 			{
-				if (r->get_line().intersects(m_from_position) &&
-					r->get_from() != from_node &&
-					r->get_to() != from_node)
-				{
-					new Road(r->get_from(), from_node);
-					new Road(r->get_to(), from_node);
+				new Road(r->get_from(), from_node);
+				new Road(r->get_to(), from_node);
 
-					delete r;
-				}
-				else if (r->get_line().intersects(m_to_position) &&
-					r->get_from() != to_node &&
-					r->get_to() != to_node)
-				{
-					new Road(r->get_from(), to_node);
-					new Road(r->get_to(), to_node);
-
-					delete r;
-				}
+				delete r;
 			}
+			else if (r->get_line().intersects(m_to_position) &&
+				r->get_from() != to_node &&
+				r->get_to() != to_node)
+			{
+				new Road(r->get_from(), to_node);
+				new Road(r->get_to(), to_node);
 
-			//Ú‘±
-			new Road(from_node, to_node);
-
-			//from‚Ì“]Š·
-			set_from_position(m_to_position);
+				delete r;
+			}
 		}
 
-		if (!MouseL.pressed())
+		//Ú‘±
+		new Road(from_node, to_node);
+
+		//from‚Ì“]Š·
+		set_from_position(m_to_position);
+	}
+
+	if (!MouseL.pressed())
+	{
+		set_from_position(m_to_position);
+	}
+
+	//•`‰æ
+	{
+		auto color = ColorF(can_set() ? Palette::Green : Palette::Red, 0.5);
+
+		if (m_from_position.distanceFrom(m_to_position) > 1.0)
 		{
-			set_from_position(m_to_position);
+			auto p1 = m_from_position;
+			auto p2 = m_to_position;
+			auto vector = (p1 - p2).setLength(Node::s_radius).rotated(Math::HalfPi);
+
+			Array<Vec2> points{ p1 - vector, p1 + vector, p2 + vector, p2 - vector, };
+			Polygon shape(points);
+			shape.append(Circle(p1, Node::s_radius).asPolygon());
+			shape.append(Circle(p2, Node::s_radius).asPolygon());
+
+			shape.draw(color);
 		}
-
-		//•`‰æ
+		else
 		{
-			auto color = ColorF(can_set() ? Palette::Green : Palette::Red, 0.5);
-
-			if (m_from_position.distanceFrom(m_to_position) > 1.0)
-			{
-				auto p1 = m_from_position;
-				auto p2 = m_to_position;
-				auto vector = (p1 - p2).setLength(Node::s_radius).rotated(Math::HalfPi);
-
-				Array<Vec2> points{ p1 - vector, p1 + vector, p2 + vector, p2 - vector, };
-				Polygon shape(points);
-				shape.append(Circle(p1, Node::s_radius).asPolygon());
-				shape.append(Circle(p2, Node::s_radius).asPolygon());
-
-				shape.draw(color);
-			}
-			else
-			{
-				Circle(m_from_position, Node::s_radius).draw(color);
-			}
+			Circle(m_from_position, Node::s_radius).draw(color);
 		}
 	}
 }
