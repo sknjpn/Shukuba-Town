@@ -11,3 +11,7 @@ Button_Building::Button_Building(const RectF& rect, Texture texture)
 Button_Building::~Button_Building()
 {
 }
+
+void Button_Building::on_clicked()
+{
+}

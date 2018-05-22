@@ -11,3 +11,7 @@ Button_Quit::Button_Quit(const RectF& rect, Texture texture)
 Button_Quit::~Button_Quit()
 {
 }
+
+void Button_Quit::on_clicked()
+{
+}

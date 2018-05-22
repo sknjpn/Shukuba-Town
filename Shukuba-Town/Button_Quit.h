@@ -9,5 +9,5 @@ public:
 	Button_Quit(const RectF& rect, Texture texture);
 	~Button_Quit();
 
-	void on_clicked() override {}
+	void on_clicked() override;
 };
