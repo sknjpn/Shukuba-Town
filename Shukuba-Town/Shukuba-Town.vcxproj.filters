@@ -251,6 +251,9 @@
     <ClCompile Include="Device.cpp">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
     </ClCompile>
+    <ClCompile Include="Button_Agent.cpp">
+      <Filter>sknjpn\Game\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -337,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="Device_Interior.h">
       <Filter>sknjpn\Game\Field\Building\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Button_Agent.h">
+      <Filter>sknjpn\Game\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
