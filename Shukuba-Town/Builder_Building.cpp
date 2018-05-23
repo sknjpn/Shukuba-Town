@@ -72,7 +72,7 @@ void Builder_Building::update()
 
 	if (MouseR.down()) { m_grabbed_position = Cursor::PosF(); }
 
-	if (MouseR.pressed()) { m_rotation = -(Cursor::PosF() - m_grabbed_position).getAngle(Vec2::Right()); }
+	if (MouseR.pressed()) { m_rotation = Circular3(Cursor::PosF() - m_grabbed_position).theta; }
 
 	if (MouseL.down() && can_set())
 	{
