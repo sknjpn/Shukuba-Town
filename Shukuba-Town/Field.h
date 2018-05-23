@@ -18,7 +18,7 @@ class Field
 	Camera*		m_camera;
 	Menu*		m_menu;
 
-	JSONReader m_json;
+	JSONReader	m_json;
 
 public:
 	Field();
