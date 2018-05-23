@@ -20,12 +20,12 @@ Menu::Menu(JSONValue json)
 	m_buttons.emplace_back(new Button_Building(RectF(32 + 5 * 64, 32, 64, 64), Texture(image.clipped(5 * 32, 0, 32, 32)), json[U"buildings"].arrayView()[3]));
 	m_buttons.emplace_back(new Button_Building(RectF(32 + 6 * 64, 32, 64, 64), Texture(image.clipped(6 * 32, 0, 32, 32)), json[U"buildings"].arrayView()[4]));
 	m_buttons.emplace_back(new Button_Agent(RectF(32 + 7 * 64, 32, 64, 64), Texture(image.clipped(7 * 32, 0, 32, 32))));
-	m_buttons.emplace_back(new Button_Quit(RectF(32 + 8* 64, 32, 64, 64), Texture(image.clipped(8 * 32, 0, 32, 32))));
+	m_buttons.emplace_back(new Button_Quit(RectF(32 + 8 * 64, 32, 64, 64), Texture(image.clipped(8 * 32, 0, 32, 32))));
 }
 
 Menu::~Menu()
 {
-
+	for (auto* b : m_buttons) { delete b; }
 }
 
 bool Menu::any_mouse_over() const
