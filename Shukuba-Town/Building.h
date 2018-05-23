@@ -15,7 +15,7 @@ class Building
 	Polygon	m_base_site;
 	Polygon	m_base_shape;
 	Texture	m_texture;
-	Array<Job*>			m_jobs;
+	Array<Job*>		m_jobs;
 	Array<Device*>	m_devices;
 
 	void	init_jobs(JSONValue json);
