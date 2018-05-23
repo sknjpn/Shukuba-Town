@@ -198,6 +198,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Builder_Agent.cpp" />
     <ClCompile Include="Builder_Building.cpp" />
     <ClCompile Include="Builder_Road.cpp" />
     <ClCompile Include="Building.cpp" />
@@ -269,6 +270,7 @@
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="Builder_Agent.h" />
     <ClInclude Include="Builder_Building.h" />
     <ClInclude Include="Builder_Road.h" />
     <ClInclude Include="Building.h" />
