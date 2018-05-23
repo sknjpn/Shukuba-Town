@@ -1,7 +1,7 @@
-#include "Equipment.h"
+#include "Device.h"
 #include "Building.h"
 
-Equipment::Equipment(const Position& position, const Rotation& rotation, JSONValue json)
+Device::Device(const Position& position, const Rotation& rotation, JSONValue json)
 	: Transform(position, rotation)
 {
 	//shape

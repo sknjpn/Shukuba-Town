@@ -4,11 +4,11 @@
 
 class Job;
 class Building;
-class Equipment;
+class Device;
 
 class Factory
 {
 public:
 	static Job*			make_job(Building* building, JSONValue json);
-	static Equipment*	make_equipment(const Position& position, const Rotation& rotation, JSONValue json);
+	static Device*	make_device(const Position& position, const Rotation& rotation, JSONValue json);
 };

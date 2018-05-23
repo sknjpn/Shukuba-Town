@@ -4,7 +4,7 @@
 #include "Drawable.h"
 
 class Node;
-class Equipment;
+class Device;
 class Job;
 
 class Building
@@ -16,10 +16,10 @@ class Building
 	Polygon	m_base_shape;
 	Texture	m_texture;
 	Array<Job*>			m_jobs;
-	Array<Equipment*>	m_equipments;
+	Array<Device*>	m_devices;
 
 	void	init_jobs(JSONValue json);
-	void	init_equipments(JSONValue json);
+	void	init_devices(JSONValue json);
 
 public:
 	Building(Node* entrance, const Rotation& rotation, JSONValue json);
@@ -27,7 +27,7 @@ public:
 
 	const Texture&	get_texture() const { return m_texture; }
 
-	const Array<Equipment*>& get_equipments() const { return m_equipments; }
+	const Array<Device*>& get_devices() const { return m_devices; }
 
 	Polygon	get_shape() const
 	{

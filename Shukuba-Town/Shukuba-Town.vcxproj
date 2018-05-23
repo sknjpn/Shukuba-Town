@@ -206,7 +206,7 @@
     <ClCompile Include="Button_Quit.cpp" />
     <ClCompile Include="Button_Road.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Device.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Job_Baker.cpp" />
@@ -277,9 +277,9 @@
     <ClInclude Include="Button_Road.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Drawable.h" />
-    <ClInclude Include="Equipment.h" />
-    <ClInclude Include="Equipment_Bed.h" />
-    <ClInclude Include="Equipment_Interior.h" />
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="Device_Bed.h" />
+    <ClInclude Include="Device_Interior.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Job.h" />

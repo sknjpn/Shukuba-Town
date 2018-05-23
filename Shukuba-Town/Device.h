@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "Drawable.h"
 
-class Equipment
+class Device
 	: public Transform
 	, public Uncopyable
 {
@@ -11,8 +11,8 @@ class Equipment
 	Texture	m_texture;	//テクスチャ
 
 public:
-	Equipment(const Position& position, const Rotation& rotation, JSONValue json);
-	virtual ~Equipment() = default;
+	Device(const Position& position, const Rotation& rotation, JSONValue json);
+	virtual ~Device() = default;
 
 	const Texture& get_texture() const { return m_texture; }
 

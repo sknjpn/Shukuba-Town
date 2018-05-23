@@ -6,7 +6,7 @@
 #include "Path.h"
 #include "Road.h"
 #include "Building.h"
-#include "Equipment.h"
+#include "Device.h"
 
 #include "Builder_Road.h"
 #include "Builder_Building.h"
@@ -125,8 +125,8 @@ void Field::update()
 
 			b->get_site().drawFrame(1, ColorF(color, 0.50));
 
-			//Equipments
-			for (auto* e : b->get_equipments())
+			//Devices
+			for (auto* e : b->get_devices())
 			{
 				e->get_texture()
 					.rotated(e->get_rotation())

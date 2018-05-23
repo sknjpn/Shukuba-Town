@@ -6,9 +6,9 @@
 
 #include "Building.h"
 
-#include "Equipment.h"
-#include "Equipment_Bed.h"
-#include "Equipment_Interior.h"
+#include "Device.h"
+#include "Device_Bed.h"
+#include "Device_Interior.h"
 
 Job* Factory::make_job(Building* building, JSONValue json)
 {
@@ -18,13 +18,13 @@ Job* Factory::make_job(Building* building, JSONValue json)
 	return new Job(building);
 }
 
-Equipment* Factory::make_equipment(const Position& position, const Rotation& rotation, JSONValue json)
+Device* Factory::make_device(const Position& position, const Rotation& rotation, JSONValue json)
 {
-	Equipment* equipment = nullptr;
+	Device* device = nullptr;
 
-	if (json[U"type"].getString() == U"Equipment_Bed") { equipment = new Equipment_Bed(position, rotation, json); }
-	else if (json[U"type"].getString() == U"Equipment_Interior") { equipment = new Equipment_Interior(position, rotation, json); }
-	else { equipment = new Equipment(position, rotation, json); }
+	if (json[U"type"].getString() == U"Device_Bed") { device = new Device_Bed(position, rotation, json); }
+	else if (json[U"type"].getString() == U"Device_Interior") { device = new Device_Interior(position, rotation, json); }
+	else { device = new Device(position, rotation, json); }
 
-	return equipment;
+	return device;
 }

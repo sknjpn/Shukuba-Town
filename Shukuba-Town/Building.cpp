@@ -1,21 +1,21 @@
 #include "Building.h"
 #include "Factory.h"
 #include "Field.h"
-#include "Equipment.h"
+#include "Device.h"
 #include "Node.h"
 
 void Building::init_jobs(JSONValue json)
 {
-	for (auto j : json[U"equipments"].arrayView())
+	for (auto j : json[U"devices"].arrayView())
 	{
 		auto position = j[U"position"].get<Position>().rotated(get_rotation()) + get_position();
 		auto rotation = j[U"rotation"].get<Rotation>() + get_rotation();
 
-		m_equipments.emplace_back(Factory::make_equipment(position, rotation, j));
+		m_devices.emplace_back(Factory::make_device(position, rotation, j));
 	}
 }
 
-void Building::init_equipments(JSONValue json)
+void Building::init_devices(JSONValue json)
 {
 	if (json[U"jobs"].isEmpty())
 	{
@@ -43,7 +43,7 @@ Building::Building(Node* entrance, const Rotation& rotation, JSONValue json)
 		.movedBy(Vec2::One() / 2.0)
 		.movedBy(-image_site.size() / 2.0);
 
-	init_equipments(json);
+	init_devices(json);
 	init_jobs(json);
 }
 
