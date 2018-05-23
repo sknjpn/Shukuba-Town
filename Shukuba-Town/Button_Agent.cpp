@@ -10,3 +10,7 @@ Button_Agent::Button_Agent()
 Button_Agent::~Button_Agent()
 {
 }
+
+void Button_Agent::on_clicked()
+{
+}
