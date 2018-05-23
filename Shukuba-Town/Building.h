@@ -25,6 +25,8 @@ public:
 	Building(Node* entrance, const Rotation& rotation, JSONValue json);
 	~Building();
 
+	Node*	get_entrance() const { return m_entrance; }
+
 	const Texture&	get_texture() const { return m_texture; }
 
 	const Array<Device*>& get_devices() const { return m_devices; }

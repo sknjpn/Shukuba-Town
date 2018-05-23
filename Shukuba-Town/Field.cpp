@@ -135,7 +135,7 @@ void Field::update()
 					.drawFrame();
 			}
 
-			Circle(b->get_position().rotated(b->get_rotation()), Node::s_radius)
+			Circle(b->get_entrance()->get_position(), Node::s_radius)
 				.draw(ColorF(1.0, 0.25))
 				.drawFrame(1.0, ColorF(1.0, 1.0));
 		}
