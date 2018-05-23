@@ -8,7 +8,7 @@ class Menu
 	Array<Button*> m_buttons;
 
 public:
-	Menu();
+	Menu(JSONValue json);
 	~Menu();
 
 	bool any_mouse_over() const;

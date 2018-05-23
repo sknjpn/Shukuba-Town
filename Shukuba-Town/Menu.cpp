@@ -5,10 +5,11 @@
 #include "Button_Road.h"
 #include "Button_Quit.h"
 
-Menu::Menu()
+#include "Field.h"
+
+Menu::Menu(JSONValue json)
 {
 	auto image = Image(U"data/menu.png");
-	auto json = JSONReader(U"data/data.json");
 
 	m_buttons.emplace_back(new Button_Road(RectF(32 + 0 * 64, 32, 64, 64), Texture(image.clipped(0 * 32, 0, 32, 32))));
 	m_buttons.emplace_back(new Button_Road(RectF(32 + 1 * 64, 32, 64, 64), Texture(image.clipped(1 * 32, 0, 32, 32))));

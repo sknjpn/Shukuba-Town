@@ -16,10 +16,9 @@ Field* g_field = nullptr;
 Field::Field()
 	: m_json(U"data/data.json")
 	, m_builder(nullptr)
-	, m_camera(new Camera)
-	, m_menu(new Menu)
+	, m_camera(new Camera())
 {
-
+	m_menu = new Menu(m_json);
 }
 
 
