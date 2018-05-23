@@ -1,12 +1,9 @@
-#include "stdafx.h"
 #include "Builder_Agent.h"
 
+#include "Field.h"
+#include "Agent.h"
 
-Builder_Agent::Builder_Agent()
+void Builder_Agent::update()
 {
-}
 
-
-Builder_Agent::~Builder_Agent()
-{
 }
