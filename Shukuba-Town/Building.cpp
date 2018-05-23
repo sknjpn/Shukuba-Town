@@ -24,7 +24,7 @@ void Building::init_devices(JSONValue json)
 }
 
 Building::Building(Node* entrance, const Rotation& rotation, JSONValue json)
-	: Transform(entrance->get_position(), rotation)
+	: Transform(entrance->get_position() - json[U"entrance"].get<Vec2>().rotated(rotation), rotation)
 	, m_entrance(entrance)
 {
 	g_field->add_building(this);
