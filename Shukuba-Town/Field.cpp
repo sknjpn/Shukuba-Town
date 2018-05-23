@@ -15,9 +15,9 @@ Field* g_field = nullptr;
 
 Field::Field()
 	: m_json(U"data/data.json")
-	, m_builder(nullptr)
-	, m_camera(new Camera())
 {
+	m_builder = nullptr;
+	m_camera = new Camera();
 	m_menu = new Menu(m_json);
 }
 
@@ -31,7 +31,7 @@ Field::~Field()
 void Field::set_builder(Builder* builder)
 {
 	if (m_builder != nullptr) { delete m_builder; }
-	
+
 	m_builder = builder;
 }
 
