@@ -49,6 +49,8 @@ public:
 	const JSONReader& get_json() const { return m_json; }
 
 	void update();
+
+	void draw_roads(double width, Color color);
 };
 
 extern Field* g_field;

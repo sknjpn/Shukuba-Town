@@ -71,37 +71,10 @@ void Field::update()
 	{
 		auto t = m_camera->create_transformer();
 
-		for (auto* n : m_nodes)
-		{
-			Circle(n->get_position(), Node::s_radius).draw(Palette::White);
-		}
+		draw_roads(Node::s_radius * 1.0, ColorF(Palette::Green));
+		draw_roads(Node::s_radius * 0.5, Palette::Khaki);
 
-		for (auto* r : m_roads)
-		{
-			r->get_line().stretched(-Node::s_radius).draw(Node::s_radius * 2.0);
-		}
-
-		for (auto* r : m_roads)
-		{
-			Vec2 head = Vec2::One() * Node::s_radius * 0.5;
-
-			{
-				auto l = r->get_primary()->get_line();
-
-				l.movedBy(l.vector().setLength(Node::s_radius / 2.0).rotated(Math::HalfPi))
-					.stretched(-Node::s_radius * 0.5)
-					.drawArrow(Node::s_radius / 4.0, head, Palette::Red);
-			}
-
-			{
-				auto l = r->get_secondary()->get_line();
-
-				l.movedBy(l.vector().setLength(Node::s_radius / 2.0).rotated(Math::HalfPi))
-					.stretched(-Node::s_radius * 0.5)
-					.drawArrow(Node::s_radius / 4.0, head, Palette::Red);
-			}
-		}
-
+		/*
 		for (auto* n : m_nodes)
 		{
 			Circle(n->get_position(), Node::s_radius)
@@ -111,6 +84,7 @@ void Field::update()
 				.draw(ColorF(Palette::Gray, 0.5))
 				.drawFrame(1.0, Palette::Black);
 		}
+		*/
 
 		for (auto* b : m_buildings)
 		{
@@ -144,5 +118,46 @@ void Field::update()
 	if (m_builder != nullptr) { m_builder->update(); }
 
 	m_menu->update();
+}
+
+void Field::draw_roads(double width, Color color)
+{
+	Array<Path*> paths;
+
+	for (auto* r : m_roads)
+	{
+		paths.emplace_back(r->get_primary());
+		paths.emplace_back(r->get_secondary());
+	}
+	
+	for(auto p1 : paths)
+	{
+		for (auto* p2 : p1->get_from()->get_paths())
+		{
+			auto l1 = p1->get_line();
+			auto l2 = p2->get_line();
+			auto v1 = l1.vector().normalized();
+			auto v2 = l2.vector().normalized();
+			auto theta = Abs(v1.getAngle(v2)) / 2.0;
+			auto len = Node::s_radius  / Sin(theta);
+			auto n1 = l1.begin + (l1.vector().setLength(Node::s_radius  / Tan(theta)));
+			auto n2 = l2.begin + (l2.vector().setLength(Node::s_radius  / Tan(theta)));
+
+			if (v1.cross(v2) < 0)
+			{
+				Circle(l1.begin + (v1 + v2).setLength(len), Node::s_radius  - width / 2.0)
+					.drawArc(Circular0(v1).theta + Math::HalfPi, Math::Pi - theta * 2, 0, width, color);
+			}
+			else
+			{
+				Circle(l1.begin + (v1 + v2).setLength(len), Node::s_radius  - width / 2.0)
+					.drawArc(Circular0(v2).theta + Math::HalfPi, Math::Pi - theta * 2, 0, width, color);
+			}
+
+			Line(l1.center(), n1)
+				.stretched(-width * 0.5)
+				.draw(width, color);
+		}
+	}
 }
 

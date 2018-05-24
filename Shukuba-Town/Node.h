@@ -22,4 +22,6 @@ public:
 
 	bool has_path(Node* to) const;
 	Path* get_path(Node* to) const;
+
+	const Array<Path*>& get_paths() const { return m_paths; }
 };
