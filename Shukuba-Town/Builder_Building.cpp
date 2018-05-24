@@ -41,12 +41,12 @@ bool Builder_Building::can_set() const
 
 Position Builder_Building::get_setting_position() const
 {
-	auto entrance = Cursor::PosF() + m_model.m_entrance_position.rotated(m_rotation);
+	auto entrance = Cursor::PosF();
 	auto* node = g_field->get_closest_node(entrance);
 
-	if (node == nullptr || node->get_position().distanceFrom(entrance) > Node::s_radius)
+	if (node == nullptr || node->get_position().distanceFrom(entrance) > Node::s_radius * 2.0)
 	{
-		return Cursor::PosF();
+		return Cursor::PosF() - m_model.m_entrance_position.rotated(m_rotation);
 	}
 	else
 	{
