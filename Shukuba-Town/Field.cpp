@@ -74,7 +74,6 @@ void Field::update()
 		draw_roads(Node::s_radius * 1.0, ColorF(Palette::Green));
 		draw_roads(Node::s_radius * 0.5, Palette::Khaki);
 
-		/*
 		for (auto* n : m_nodes)
 		{
 			Circle(n->get_position(), Node::s_radius)
@@ -84,35 +83,8 @@ void Field::update()
 				.draw(ColorF(Palette::Gray, 0.5))
 				.drawFrame(1.0, Palette::Black);
 		}
-		*/
 
-		for (auto* b : m_buildings)
-		{
-			auto color = Palette::White;
-
-			b->get_texture()
-				.rotated(b->get_rotation())
-				.drawAt(b->get_position(), color);
-
-			b->get_shape().drawFrame(1, ColorF(color, 0.75));
-
-			b->get_site().drawFrame(1, ColorF(color, 0.50));
-
-			//Devices
-			for (auto* e : b->get_devices())
-			{
-				e->get_texture()
-					.rotated(e->get_rotation())
-					.drawAt(e->get_position());
-
-				e->get_shape()
-					.drawFrame();
-			}
-
-			Circle(b->get_entrance()->get_position(), Node::s_radius)
-				.draw(ColorF(1.0, 0.25))
-				.drawFrame(1.0, ColorF(1.0, 1.0));
-		}
+		draw_buildings();
 	}
 
 	if (m_builder != nullptr) { m_builder->update(); }
@@ -158,6 +130,38 @@ void Field::draw_roads(double width, Color color)
 				.stretched(-width * 0.5)
 				.draw(width, color);
 		}
+	}
+}
+
+void Field::draw_buildings()
+{
+
+	for (auto* b : m_buildings)
+	{
+		auto color = Palette::White;
+
+		b->get_texture()
+			.rotated(b->get_rotation())
+			.drawAt(b->get_position(), color);
+
+		b->get_shape().drawFrame(1, ColorF(color, 0.75));
+
+		b->get_site().drawFrame(1, ColorF(color, 0.50));
+
+		//Devices
+		for (auto* e : b->get_devices())
+		{
+			e->get_texture()
+				.rotated(e->get_rotation())
+				.drawAt(e->get_position());
+
+			e->get_shape()
+				.drawFrame();
+		}
+
+		Circle(b->get_entrance()->get_position(), Node::s_radius)
+			.draw(ColorF(1.0, 0.25))
+			.drawFrame(1.0, ColorF(1.0, 1.0));
 	}
 }
 

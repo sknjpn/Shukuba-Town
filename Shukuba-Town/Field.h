@@ -51,6 +51,7 @@ public:
 	void update();
 
 	void draw_roads(double width, Color color);
+	void draw_buildings();
 };
 
 extern Field* g_field;
