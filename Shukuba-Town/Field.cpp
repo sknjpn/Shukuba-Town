@@ -94,6 +94,10 @@ void Field::update()
 
 void Field::draw_roads(double width, Color color)
 {
+	for (auto* r : m_roads) { r->get_line().stretched(-width / 2.0).draw(width, color); }
+	for (auto* n : m_nodes) { Circle(n->get_position(), width / 2.0).draw(color); }
+
+	/*
 	Array<Path*> paths;
 
 	for (auto* r : m_roads)
@@ -101,7 +105,7 @@ void Field::draw_roads(double width, Color color)
 		paths.emplace_back(r->get_primary());
 		paths.emplace_back(r->get_secondary());
 	}
-	
+
 	for(auto p1 : paths)
 	{
 		for (auto* p2 : p1->get_from()->get_paths())
@@ -131,6 +135,7 @@ void Field::draw_roads(double width, Color color)
 				.draw(width, color);
 		}
 	}
+	*/
 }
 
 void Field::draw_buildings()

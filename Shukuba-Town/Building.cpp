@@ -36,8 +36,7 @@ Building::Building(Node* entrance, const Rotation& rotation, JSONValue json)
 
 	m_base_shape = ImageProcessing::FindExternalContour(image_shape, true)
 		.movedBy(Vec2::One() / 2.0)
-		.movedBy(-image_shape.size() / 2.0)
-		.calculateRoundBuffer(16.0);
+		.movedBy(-image_shape.size() / 2.0);
 
 	m_base_site = ImageProcessing::FindExternalContour(image_site, true)
 		.movedBy(Vec2::One() / 2.0)

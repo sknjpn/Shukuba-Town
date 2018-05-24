@@ -122,8 +122,7 @@ Model::Model(JSONValue json)
 
 	m_base_shape = s3d::ImageProcessing::FindExternalContour(image_shape, true)
 		.movedBy(s3d::Vec2::One() / 2.0)
-		.movedBy(-image_shape.size() / 2.0)
-		.calculateRoundBuffer(16.0);
+		.movedBy(-image_shape.size() / 2.0);
 
 	m_base_site = s3d::ImageProcessing::FindExternalContour(image_site, true)
 		.movedBy(s3d::Vec2::One() / 2.0)
